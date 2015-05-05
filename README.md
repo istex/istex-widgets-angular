@@ -1,6 +1,6 @@
 # Widgets ISTEX avec AngularJS
 
-Widgets (auth, search, results, facets) permettant de créer rapidement des interface Web d'interrogation des ressources ISTEX.
+Widgets (auth, search, results, facets) permettant de créer rapidement des interface Web d'interrogation des ressources ISTEX avec AngularJS.
 
 ## Usage classique des widgets
 
@@ -96,7 +96,7 @@ CE WIDGET N'EST PLUS A JOUR DEPUIS L'OUVERTURE DE L'API ISTEX !
 
 ## Fonctionnement du widget istexSearch
 
-Ce widget permet d'insérer dans la page HTML une zone de saisie ainsi qu'un bouton de recherche. Lorsqu'une suite de mots sont tapés puis que le bouton rechercher est pressé, l'API Istex est interrogée à travers des requêtes AJAX. Une fois les résultats reçus, ils sont enregistrés dans le $rootScope et ainsi propagés aux widgets results et facets ).
+Ce widget permet d'insérer dans la page HTML une zone de saisie ainsi qu'un bouton de recherche. Lorsqu'une suite de mots sont tapés puis que le bouton rechercher est pressé, l'API Istex est interrogée à travers des requêtes AJAX. Une fois les résultats reçus, ils sont enregistrés dans le $rootScope et ainsi propagés aux widgets results et facets.
 
 ## Fonctionnement du widget istexResults
 
@@ -140,7 +140,7 @@ git clone https://github.com/istex/istex-widgets-angular.git
 
 Initialiser les dépendances (gulp est l'outil de build) :
 ```
-cd istex-widgets/
+cd istex-widgets-angular/
 npm install
 npm install -g gulp bower
 gulp init
@@ -165,17 +165,26 @@ gulp http
 
 Puis ouvrez les URL qui s'affichent dans votre fenêtre. Exemple: http://127.0.0.1:8080/index.html pour une vue d'ensemble, http://127.0.0.1:8080/basique.html pour l'exemple le plus léger (sans Bootstrap et autres).
 
+Vous pouvez miinifier le Javascript à l'aide d'Uglify-JS et le css avec Clean-CSS :
+```
+cd istex-widgets-angular/
+npm install -g uglify-js clean-css
+uglifyjs app/app.js app/controller/* app/directive/* app/service/* app/istexconfigdefault.js -o app.min.js -cE
+cleancss -o style.min.css css/*
+```
+ATTENTION : Il faut toujours mettre istexconfigdefault.js à la fin car il lie l'application à AngularJS
+
 ### Comprendre la structure du code
 
 L'utilisation d'AngularJS mène à avoir une structure du code particulière (approche MVC côté Client) :
--Un dossier app dans lequel on met tout le JavaScript lié aux widgets contenant
-  -Un fichier app.js qui initialise l'application
-  -Un dossier controller qui inclue le code qui permet d'associer les données au $rootScope (Controller)
-  -Un dossier directive qui inclue le code qui permet de générer le HTML (View)
-  -Un dossier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
-  -Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML), enregistre quelques filtres (fonctions pour filtrer des données) et enfin associe l'application à AngularJS
--Un dossier css qui contient tout le css lié aux widgets
--Un dossier img qui contient toutes les images liées aux widgets
+- Un dossier app dans lequel on met tout le JavaScript lié aux widgets contenant
+  - Un fichier app.js qui initialise l'application
+  - Un dossier controller qui inclue le code qui permet d'associer les données au $rootScope (Controller)
+  - Un dossier directive qui inclue le code qui permet de générer le HTML (View)
+  - Un dossier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
+  - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML), enregistre quelques filtres (fonctions pour filtrer des données) et enfin associe l'application à AngularJS
+- Un dossier css qui contient tout le css lié aux widgets
+- Un dossier img qui contient toutes les images liées aux widgets
 
 ### Charger le code de l'application différemment
 Voici un exemple plus poussé pour charger les widgets qui se trouve dans index.html, dans le but d'attendre que la page soit complètement affichée avant de télécharger et exécuter le Javascript :

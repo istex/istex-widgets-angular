@@ -1,0 +1,49 @@
+.istex-ezproxy-auth-btn {
+  position: relative;
+  padding: 8px;
+}
+.istex-ezproxy-auth-btn div {
+  background-image: url(../img/istexauth-auth-logo.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 26px;
+  height: 6px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+}
+.istex-auth-form-error {
+  display: none;
+  margin: 5px 0 0 0;
+  padding: 0;
+  font-size: small;
+  color: #DD4B39;
+}
+.istex-auth-form-info {
+  font-size: xx-small;
+  margin: 5px 0 0 0;
+}
+div.istex-loading p {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  font-style: italic;
+}
+div.istex-loading div.istex-loading-logo {
+  background-image: url(../img/istexauth-auth-logo.png);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  width: 64px;
+  height: 16px;
+  display: inline-block;
+  margin-left: 9px;
+}
+div.istex-loading div.istex-loading-waiting {
+  background-image: url(../img/istexauth-ajax-loader.gif);
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  margin-right: 10px;
+  vertical-align: middle;
+}

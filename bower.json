@@ -1,0 +1,21 @@
+{
+  "name": "istex-widget-angular",
+  "version": "0.1.0",
+  "homepage": "",
+  "authors": [],
+  "description": "Widgets istex with AngularJS",
+  "license": "CeCILL",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    ".idea"
+  ],
+  "devDependencies": {
+    "jquery": "~1"
+  },
+  "dependencies": {
+    "bootstrap": "~3.3.2",
+	"angular": "~1.3.15"
+  }
+}

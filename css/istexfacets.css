@@ -1,0 +1,39 @@
+.istex-facets .istex-facets-title {
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 15px;
+}
+.istex-facets .istex-facet {
+  padding: 0;
+  margin: 0;
+}
+.istex-facets .istex-facet .istex-facet-name {
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #AAA;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+.istex-facets .istex-facet .istex-facet-corpus {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.istex-facets .istex-facet .istex-facet-corpus label {
+  display: block;
+}
+.istex-facets .istex-facet .istex-facet-corpus input {
+  margin-right: 8px;
+}
+.istex-facets .istex-facet .istex-facet-corpus .istex-facet-corpus-badge {
+  float: right;
+  display: inline-block;
+  min-width: 10px;
+  padding: 1px 4px 1px 4px;
+  font-size: small;
+  font-weight: bold;
+  color: #FFF;
+  background-color: #5A99B0;
+  border-radius: 4px;
+}

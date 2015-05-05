@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Istex - Widgets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+
+
+</head>
+<body>
+
+<div class="container" >
+
+    <div class="blog-header">
+        <h1 class="blog-title">Démonstration d'utilisation des widgets Istex</h1>
+        <p class="lead blog-description">Cette page Web est réalisée à l'aide de <a href="http://getbootstrap.com/">Bootstrap</a> et
+            <a href="https://angularjs.org/">AngularJS</a> montre comment les <a href="https://github.com/istex/istex-widgets-angular">widgets Istex</a> peuvent être intégrés à un site Web tier.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-11 blog-main">
+            <istex-auth></istex-auth>
+            <istex-search></istex-search>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-8 blog-main">
+
+            <div class="blog-post">
+
+                <istex-results></istex-results>
+
+            </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-sm-3 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <br/>
+                <istex-facets></istex-facets>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<!-- Dependencies -->
+<script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script>
+    var istexConfig = {
+    };
+
+    [
+        //'http://test-widget-istex.infra.univ-lorraine.fr/style.min.css'
+        'style.min.css'
+    ].forEach(function(href) {
+                var link = document.createElement('link');
+                link.href = href;
+                link.rel = "stylesheet";
+                document.head.appendChild(link);
+    });
+    [
+        //'http://test-widget-istex.infra.univ-lorraine.fr/bower_components/angularjs/angular.min.js',
+        //'http://test-widget-istex.infra.univ-lorraine.fr/app.min.js'
+		'bower_components/angular/angular.min.js',
+        'app.min.js'
+    ].forEach(function(src) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false;
+                document.head.appendChild(script);
+    });
+</script>
+
+</body>
+</html>
