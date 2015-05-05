@@ -138,15 +138,7 @@ git clone git@github.com:istex/istex-widgets-angular.git
 git clone https://github.com/istex/istex-widgets-angular.git
 ```
 
-Initialiser les dépendances (gulp est l'outil de build) :
-```
-cd istex-widgets-angular/
-npm install
-npm install -g gulp bower
-gulp init
-```
-
-De façon alternative (pour les utilisateurs Windows), il est possible de :
+Initialiser les dépendances :
 ```
 cd istex-widgets-angular/
 npm install -g http-server bower
@@ -159,13 +151,12 @@ Vous êtes alors opérationels pour développer votre contribution.
 
 Pour développer et tester les widgets depuis votre navigateur Web, le plus simple est de lancer un mini serveur Web avec la commande suivante :
 ```
-gulp http
-# pour windows la commande suivante: http-server
+http-server
 ```
 
 Puis ouvrez les URL qui s'affichent dans votre fenêtre. Exemple: http://127.0.0.1:8080/index.html pour une vue d'ensemble, http://127.0.0.1:8080/basique.html pour l'exemple le plus léger (sans Bootstrap et autres).
 
-Vous pouvez miinifier le Javascript à l'aide d'Uglify-JS et le css avec Clean-CSS :
+Si vous modifiez des fichiers, vous devez miinifier le Javascript à l'aide d'Uglify-JS et/ou le CSS avec Clean-CSS :
 ```
 cd istex-widgets-angular/
 npm install -g uglify-js clean-css
