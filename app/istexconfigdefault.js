@@ -1,37 +1,3 @@
-app.filter('capitalize', function() {
-    return function(input, scope) {
-        if (input!=null)
-            input = input.toLowerCase();
-        return input.substring(0,1).toUpperCase()+input.substring(1);
-    }
-});
-app.filter('numberize', function() {
-    return function(input, scope) {
-        if (input!=null)
-            input = input.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1 ');
-        return input;
-    }
-});
-app.filter('ellipse', function () {
-    return function (value, wordwise, max, tail) {
-        if (!value) return '';
-
-        max = parseInt(max, 10);
-        if (!max) return value;
-        if (value.length <= max) return value;
-
-        value = value.substr(0, max);
-        if (wordwise) {
-            var lastspace = value.lastIndexOf(' ');
-            if (lastspace != -1) {
-                value = value.substr(0, lastspace);
-            }
-        }
-
-        return value + (tail || ' …');
-    };
-});
-
 app.run(['$rootScope', function($rootScope) {
 
     $rootScope.istexConfigDefault = {
@@ -79,13 +45,17 @@ app.run(['$rootScope', function($rootScope) {
         }
     };
 
-    //console.log(window.istexConfig);
-    // create a empty istexConfig variable
-    if (Object.getOwnPropertyNames(window.istexConfig).length > 0) {
-
+    // Updates the default configurations with the configurations from the HTML file if it exists
+    if(window.istexConfig) {
+        if (Object.getOwnPropertyNames(window.istexConfig).length > 0) {
+            $rootScope.istexConfigDefault = extend($rootScope.istexConfigDefault, window.istexConfig);
+        }
     }
 
+
 }]);
+
+//
 angular.element(document).ready(function() {
     angular.bootstrap(document, ["app"]);
 });

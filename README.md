@@ -5,7 +5,7 @@ Widgets (auth, search, results, facets) permettant de créer rapidement des inte
 ## Usage classique des widgets
 
 Exemple d'utilisation classique des widgets search et results. Il est nécessaire dans un premier temps de charger les fichiers JS et CSS des widgets Istex (à la fin du body pour charger les fichiers après que la page soit affichée) ainsi que la bibliothèque AngularJS qui est une dépendance nécessaire.
-On peut aussi charger la bibliothèque Bootstrap avec sa dépendance jQuery pour un meilleur rendu
+On peut aussi charger la bibliothèque Bootstrap pour un meilleur rendu
 
 Ensuite vous pouvez placer deux balises (zone de recherche & zone de résultats) où vous le souhaitez dans votre page HTML.
 Ces balises ont des noms spécifiques pour chaque widget : <istex-auth>, <istex-search>, <istex-results>, <istex-facets>
@@ -36,17 +36,18 @@ Voici ce que ca peut donner sur une page quasi vierge :
 ```
 
 ## Paramètres des widgets
-Cette fonctionnalité n'est pas encore implémentée !
-Les widgets peuvent être paramétrés en positionnant les clés/valeurs de la variable globale istexConfig dans le HTML. La liste des différents paramètres se présente comme ceci :
+Les widgets peuvent être paramétrés en positionnant les clés/valeurs de la variable globale istexConfig dans le HTML.
+La liste des différents paramètres se présente comme ceci (et est sujette à modifications) :
 
 ```javascript
 var istexConfig = {
-  // NON FONCTIONNEL
+
   // l'adresse de l'API de l'Istex
   // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
   // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
   istexApi: 'https://api.istex.fr',
 
+  // PAS ENCORE IMPLEMENTE
   // pour lancer une recherche au chargement de la page
   // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
   query: "",
@@ -54,6 +55,7 @@ var istexConfig = {
   // il est possible de ne charger que certaines facettes
   facetsToLoad: [ 'corpus' ],
 
+  // PAS ENCORE IMPLEMENTE
   // il est possible de cacher la zone de pagination avec ce paramètre
   showPagination: true,
 
@@ -69,14 +71,17 @@ var istexConfig = {
   // le nombre max de caractères du titre à afficher
   titleLength: 100,
 
+  // PAS ENCORE IMPLEMENTE
   // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
   fullTextOnTitle: 'pdf',
 
+  // PAS ENCORE IMPLEMENTE
   // il est possible de cacher l'affichage de la vitesse de la requête
   // ex: "Environ 8 933 993 résultats (0.24 secondes)"
   //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
   showQuerySpeed: true,
 
+  // PAS ENCORE IMPLEMENTE
   // les différents textes paramétrables
   labels: {
     facets: {
@@ -169,11 +174,11 @@ ATTENTION : Il faut toujours mettre istexconfigdefault.js à la fin car il lie l
 
 L'utilisation d'AngularJS mène à avoir une structure du code particulière (approche MVC côté Client) :
 - Un dossier app dans lequel on met tout le JavaScript lié aux widgets contenant
-  - Un fichier app.js qui initialise l'application
+  - Un fichier app.js qui initialise l'application et créé quelques filtres (fonctions pour filtrer des données) et autres fonctions utiles (pour éviter la dépendance à jQuery)
   - Un dossier controller qui inclue le code qui permet d'associer les données au $rootScope (Controller)
   - Un dossier directive qui inclue le code qui permet de générer le HTML (View)
   - Un dossier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
-  - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML), enregistre quelques filtres (fonctions pour filtrer des données) et enfin associe l'application à AngularJS
+  - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML) et associe l'application à AngularJS
 - Un dossier css qui contient tout le css lié aux widgets
 - Un dossier img qui contient toutes les images liées aux widgets
 
