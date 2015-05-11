@@ -1,7 +1,7 @@
 app.directive('istexSearch', function () {
     return {
         template:'' +
-        '<div id="istex-widget-search" ng-controller="IstexsearchCtrl" ng-if="isConnected">' +
+        '<div id="istex-widget-search" ng-controller="IstexsearchCtrl" >' +
             '<form class="istex-search-form"  ng-submit="search()">'+
                 '<div class="istex-search-bar-wrapper">'+
                     '<input class="istex-search-submit" type="submit" value="Rechercher" >'+

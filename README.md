@@ -166,7 +166,7 @@ Si vous modifiez des fichiers, vous devez miinifier le Javascript à l'aide d'Ug
 ```
 cd istex-widgets-angular/
 npm install -g uglify-js clean-css
-uglifyjs app/app.js app/controller/* app/directive/* app/service/* app/istexconfigdefault.js -o app.min.js -cE
+uglifyjs app/app.js app/istexfacets/* app/istexresults/* app/istexsearch/* app/istexconfigdefault.js -o app.min.js -cE
 cleancss -o style.min.css css/*
 ```
 ATTENTION : Il faut toujours mettre istexconfigdefault.js à la fin car il lie l'application à AngularJS
