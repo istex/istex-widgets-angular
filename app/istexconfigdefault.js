@@ -8,13 +8,15 @@ app.run(['$rootScope', function($rootScope) {
 
         // pour lancer une recherche au chargement de la page
         // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-        query: "",
+        // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+        query: false,
 
         // il est possible de ne charger que certaines facettes
         facetsToLoad: [ 'corpus'],
 
-        // il est possible de cacher la zone de pagination avec ce paramètre
-        showPagination: true,
+        // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
+        showPaginationTop: true,
+        showPaginationBot: true,
 
         // nombre de résultats souhaités par page
         pageSize: 10,
@@ -36,6 +38,7 @@ app.run(['$rootScope', function($rootScope) {
         //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
         showQuerySpeed: true,
 
+        // PAS ENCORE IMPLEMENTE
         // les différents textes paramétrables
         labels: {
             facets: {

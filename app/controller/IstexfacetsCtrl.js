@@ -1,5 +1,7 @@
 app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFacetsService', function ($scope, $rootScope, $timeout, istexFacetsService) {
 
+    $rootScope.showFacets = false;
+
     $scope.onChange = function($event) {
         $timeout(function() {
             angular.element($event.target.form).triggerHandler('submit');
@@ -8,8 +10,7 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
 
     $scope.corpusSearch = function(listCorpus){
 
-        //$('#istex-widget-results').fadeTo( 100, 0 );
-        $rootScope.showSearch = false;
+        $rootScope.showResults = false;
 
         istexFacetsService.corpusSearch($scope, listCorpus)
             .success(function (result) {
@@ -38,8 +39,7 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
                 }
                 $rootScope.pages=tab;
 
-                //$('#istex-widget-results').fadeTo( 100, 1 );
-                $rootScope.showSearch = true;
+                $rootScope.showResults = true;
 
             })
             .error(function (e) {

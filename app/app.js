@@ -1,5 +1,7 @@
 var app = angular.module('app', []);
 
+/********************Functions********************/
+
 // Credit to : http://gomakethings.com/ditching-jquery
 // Permits to merge two Javascript Objects
 // @objects = The list of objects that will be merged
@@ -19,6 +21,11 @@ var extend = function ( objects ) {
     }
     return extended;
 };
+
+/********************Filters********************/
+// HOW TO USE :
+// {{ input | filter }}
+// {{ input | filter:option1:option2:optionN }}
 
 // Put the first letter of a word in upper case, the rest in lower case
 app.filter('capitalize', function() {
@@ -44,21 +51,71 @@ app.filter('numberize', function() {
 // @max = Number of characters allowed in the String. DEFAULT : 10
 // @tail = The String you crop with. DEFAULT : '...'
 app.filter('ellipse', function () {
-    return function (value, wordwise, max, tail) {
-        if (!value) return '';
+    return function (input, wordwise, max, tail) {
+        if (!input) return '';
 
         max = parseInt(max, 10);
-        if (!max) return value;
-        if (value.length <= max) return value;
+        if (!max) return input;
+        if (input.length <= max) return input;
 
-        value = value.substr(0, max);
+        input = input.substr(0, max);
         if (wordwise) {
-            var lastspace = value.lastIndexOf(' ');
+            var lastspace = input.lastIndexOf(' ');
             if (lastspace != -1) {
-                value = value.substr(0, lastspace);
+                input = input.substr(0, lastspace);
             }
         }
 
-        return value + (tail || ' …');
+        return input + (tail || ' …');
     };
 });
+
+/********************Directives********************/
+// HOW TO USE :
+// <element directive="BOOLEAN">...</element>
+// IMPORTANT :
+// Here the name is in camel case (ngDirective) but in the HTML code, it must be kebab case (ng-directive)
+
+// Custom toggle directive to be independent from jQuery
+// @element = The element that will appear/disappear
+// @attributes.ngToggle = A boolean which indicate if you want to hide (TRUE) or show (FALSE) the @element
+app.directive(
+    "ngToggle",
+    function() {
+        function link( $scope, element, attributes ) {
+            element = element[0];
+
+            var expression = attributes.ngToggle;
+
+            // Default display of the element
+            if ( ! $scope.$eval( expression ) ) {
+                element.style.opacity = '0';
+            }
+
+            // Sort of event listener
+            $scope.$watch(
+                expression,
+                function( newValue, oldValue ) {
+                    // Ignore first-run values since we've
+                    // already defaulted the element state.
+                    if ( newValue === oldValue ) {
+                        return;
+                    }
+
+                    // Show element.
+                    if ( newValue ) {
+                        element.style.opacity = '1';
+                        // Hide element.
+                    } else {
+                        element.style.opacity = '0';
+                    }
+                }
+            );
+        }
+        return({
+            link: link,
+            restrict: "A"
+        });
+
+    }
+);

@@ -1,7 +1,7 @@
 app.directive('istexFacets', function () {
     return {
         template:'' +
-        '<div id="istex-widget-facets" style="opacity: 1;" ng-controller="IstexfacetsCtrl" ng-if="showFacets && aggregations">'+
+        '<div id="istex-widget-facets" style="opacity: 1;" ng-controller="IstexfacetsCtrl" ng-toggle="showFacets && aggregations">'+
             '<div class="istex-facets">'+
                 '<h3 class="istex-facets-title">Affiner votre recherche</h3>'+
                 '<div class="istex-facet" ng-repeat="(facetName, facet) in aggregations">' +

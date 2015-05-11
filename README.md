@@ -9,6 +9,8 @@ On peut aussi charger la bibliothèque Bootstrap pour un meilleur rendu
 
 Ensuite vous pouvez placer deux balises (zone de recherche & zone de résultats) où vous le souhaitez dans votre page HTML.
 Ces balises ont des noms spécifiques pour chaque widget : <istex-auth>, <istex-search>, <istex-results>, <istex-facets>
+On peut aussi utiliser des balises classiques avec des attributs spéciaux : <div istex-auth></div>
+A noter que la première méthode ne marche pas sur les vieux navigateurs (IE8...)
 
 Voici ce que ca peut donner sur une page quasi vierge :
 
@@ -47,17 +49,17 @@ var istexConfig = {
   // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
   istexApi: 'https://api.istex.fr',
 
-  // PAS ENCORE IMPLEMENTE
   // pour lancer une recherche au chargement de la page
   // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-  query: "",
+  // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+  query: "test",
 
   // il est possible de ne charger que certaines facettes
   facetsToLoad: [ 'corpus' ],
 
-  // PAS ENCORE IMPLEMENTE
-  // il est possible de cacher la zone de pagination avec ce paramètre
-  showPagination: true,
+  // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
+  showPaginationTop: true,
+  showPaginationBot: true,
 
   // nombre de résultats souhaités par page
   pageSize: 10,
@@ -75,7 +77,6 @@ var istexConfig = {
   // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
   fullTextOnTitle: 'pdf',
 
-  // PAS ENCORE IMPLEMENTE
   // il est possible de cacher l'affichage de la vitesse de la requête
   // ex: "Environ 8 933 993 résultats (0.24 secondes)"
   //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
@@ -106,7 +107,7 @@ Ce widget permet d'insérer dans la page HTML une zone de saisie ainsi qu'un bou
 ## Fonctionnement du widget istexResults
 
 Ce widget permet d'insérer dans la page HTML la liste des résultats issus d'une recherche. Il a donc besoin du widget istexSearch pour fonctionner (Il est évident qu'on ne peut pas afficher des données si on ne les a pas réccupérées de l'API avant ! ).
-Il permet aussi de gérer le système de pagination.
+Il permet aussi de gérer le système de pagination et la recherche au chargement de la page.
 
 ## Fonctionnement du widget istexFacets
 
@@ -174,7 +175,7 @@ ATTENTION : Il faut toujours mettre istexconfigdefault.js à la fin car il lie l
 
 L'utilisation d'AngularJS mène à avoir une structure du code particulière (approche MVC côté Client) :
 - Un dossier app dans lequel on met tout le JavaScript lié aux widgets contenant
-  - Un fichier app.js qui initialise l'application et créé quelques filtres (fonctions pour filtrer des données) et autres fonctions utiles (pour éviter la dépendance à jQuery)
+  - Un fichier app.js qui initialise l'application et créé quelques filtres et autres fonctions utiles (pour éviter la dépendance à jQuery)
   - Un dossier controller qui inclue le code qui permet d'associer les données au $rootScope (Controller)
   - Un dossier directive qui inclue le code qui permet de générer le HTML (View)
   - Un dossier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
