@@ -8,11 +8,11 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
         });
     };
 
-    $scope.corpusSearch = function(listCorpus){
+    $scope.submitFacetSearch = function(list){
 
         $rootScope.showResults = false;
 
-        istexFacetsService.corpusSearch($scope, listCorpus)
+        istexFacetsService.facetSearch($scope, list)
             .success(function (result) {
                 // We calculate the time taken to make the search with facets
                 $rootScope.searchTimeB = performance.now();
