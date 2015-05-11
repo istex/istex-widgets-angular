@@ -52,7 +52,7 @@ var istexConfig = {
   // pour lancer une recherche au chargement de la page
   // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
   // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
-  query: "test",
+  query: "",
 
   // il est possible de ne charger que certaines facettes
   facetsToLoad: [ 'corpus' ],
@@ -176,9 +176,9 @@ ATTENTION : Il faut toujours mettre istexconfigdefault.js à la fin car il lie l
 L'utilisation d'AngularJS mène à avoir une structure du code particulière (approche MVC côté Client) :
 - Un dossier app dans lequel on met tout le JavaScript lié aux widgets contenant
   - Un fichier app.js qui initialise l'application et créé quelques filtres et autres fonctions utiles (pour éviter la dépendance à jQuery)
-  - Un dossier controller qui inclue le code qui permet d'associer les données au $rootScope (Controller)
-  - Un dossier directive qui inclue le code qui permet de générer le HTML (View)
-  - Un dossier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
+  - Dans chaque dossier widget, un fichier controller qui inclue le code qui permet d'associer les données au $rootScope (Controller)
+  - Dans chaque dossier widget, un fichier directive qui inclue le code qui permet de générer le HTML (View)
+  - Dans chaque dossier widget, un fichier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
   - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML) et associe l'application à AngularJS
 - Un dossier css qui contient tout le css lié aux widgets
 - Un dossier img qui contient toutes les images liées aux widgets
