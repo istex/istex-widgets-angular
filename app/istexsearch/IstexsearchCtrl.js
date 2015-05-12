@@ -23,7 +23,14 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                 $rootScope.total = result.total;
                 $rootScope.nextPageURI = result.nextPageURI;
                 $rootScope.aggregations = result.aggregations;
-
+                if($rootScope.aggregations.pubdate) {
+                    $rootScope.aggregations.pubdate.buckets[0].top = parseInt($rootScope.aggregations.pubdate.buckets[0].to_as_string);
+                    $rootScope.aggregations.pubdate.buckets[0].bot = parseInt($rootScope.aggregations.pubdate.buckets[0].from_as_string);
+                }
+                if($rootScope.aggregations.copyrightdate) {
+                    $rootScope.aggregations.copyrightdate.buckets[0].top = parseInt($rootScope.aggregations.copyrightdate.buckets[0].to_as_string);
+                    $rootScope.aggregations.copyrightdate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightdate.buckets[0].from_as_string);
+                }
                 // We initialise the page system if there is one
                 $rootScope.maxPagesInPagination = $rootScope.istexConfigDefault.maxPagesInPagination;
                 $rootScope.nbrPages = Math.ceil($rootScope.total/$rootScope.istexConfigDefault.pageSize);

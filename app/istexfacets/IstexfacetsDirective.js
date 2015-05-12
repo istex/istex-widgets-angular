@@ -12,14 +12,19 @@ app.directive('istexFacets', function () {
                                 '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key }}<span class="istex-facet-corpus-badge" >{{ badge.doc_count | numberize }}</span></label></li>'+
                             '</div>'+
                             '<div class="istex-facet-{{ facetName }}" ng-switch-when="copyrightdate">' +
-                                'Le copyright est entre ' +
-                                '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].bot" ng-init="facet.buckets[0].bot=1791" ng-change="submitFacetSearch(aggregations)" >' +
+                                'Entre ' +
+                                '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].bot" ng-change="submitFacetSearch(aggregations)" >' +
                                 ' et ' +
-                                '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].top" ng-init="facet.buckets[0].top=2013" ng-change="submitFacetSearch(aggregations)" >' +
-
-                                //'<span class="istex-facet-corpus-badge" >{{ badge.doc_count | numberize }}</span></label>' +
+                                '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].top" ng-change="submitFacetSearch(aggregations)" >' +
+                                '<span class="istex-facet-copyrightdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
                             '</div>'+
-                            '<div class="istex-facet-{{ facetName }}" ng-switch-when="pubdate">Pubdate : WIP</div>'+
+                            '<div class="istex-facet-{{ facetName }}" ng-switch-when="pubdate">' +
+                                'Entre ' +
+                                '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].bot" ng-change="submitFacetSearch(aggregations)" >' +
+                                ' et ' +
+                                '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].top" ng-change="submitFacetSearch(aggregations)" >' +
+                                '<span class="istex-facet-pubdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
+                            '</div>'+
                             '<div class="istex-facet-{{ facetName }}" ng-switch-default>Default behavior</div>'+
                         '</div>'+
                     '</div>' +
