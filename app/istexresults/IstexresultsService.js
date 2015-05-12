@@ -4,8 +4,8 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
 
             // We create the url to call, using the same Query for the basic search
             var url = $rootScope.currentPageURI;
-            if($rootScope.currentCorpusURI){
-                url+= $rootScope.currentCorpusURI;
+            if($rootScope.currentFacetsURI){
+                url= $rootScope.currentFacetsURI;
             }
             var from = "&from=";
             from+=page;
