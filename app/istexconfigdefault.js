@@ -9,7 +9,11 @@ app.run(['$rootScope', function($rootScope) {
         // pour lancer une recherche au chargement de la page
         // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
         // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+        // si vous mettez query: "", les résultats seront tous les documents
         query: false,
+
+        // il est possible de mettre le focus sur la barre de recherche au chargement de la page
+        focusInputQueryOnLoad: false,
 
         // il est possible de ne charger que certaines facettes
         facetsToLoad: [ 'corpus'],
@@ -30,12 +34,13 @@ app.run(['$rootScope', function($rootScope) {
         // le nombre max de caractères du titre à afficher
         titleLength: 150,
 
+        // PAS ENCORE IMPLEMENTE
         // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
         fullTextOnTitle: 'pdf',
 
         // il est possible de cacher l'affichage de la vitesse de la requête
         // ex: "Environ 8 933 993 résultats (0.24 secondes)"
-        //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
+        // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
         showQuerySpeed: true,
 
         // PAS ENCORE IMPLEMENTE

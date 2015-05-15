@@ -20,7 +20,7 @@ app.directive('istexResults', function () {
             '<ol class="istex-results-items" ng-toggle="!hideResults">'+
                 '<li class="istex-results-item" ng-repeat="document in documents">'+
                     '<a class="istex-results-item-title" target="_blank">{{ document.title | ellipse:false:istexConfigDefault.titleLength:"..." }}</a>'+
-                    '<p class="istex-results-item-abstract" ng-if="document.abstract" title="{{ document.abstract }}"><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
+                    '<p class="istex-results-item-abstract" ng-if="document.abstract" ><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
                     '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">Pas de résumé disponible pour cet article</p>'+
                     '<div class="istex-results-item-corpus">{{ document.corpusName }}</div>'+
                     '<div class="download fulltext">'+

@@ -119,3 +119,47 @@ app.directive(
 
     }
 );
+
+// Custom autofocus directive
+// @element = The element that will be focused or blured
+// @attributes.ngFocus = A boolean which indicate if you want to focus (TRUE) or blur (FALSE) the @element
+app.directive(
+    "ngFocus",
+    function() {
+        function link( $scope, element, attributes ) {
+            element = element[0];
+
+            var expression = attributes.ngFocus;
+
+            // Default display of the element
+            if ( $scope.$eval( expression ) ) {
+                element.focus();
+            }
+
+            // Sort of event listener
+            $scope.$watch(
+                expression,
+                function( newValue, oldValue ) {
+                    // Ignore first-run values since we've
+                    // already defaulted the element state.
+                    if ( newValue === oldValue ) {
+                        return;
+                    }
+
+                    // Show element.
+                    if ( newValue ) {
+                        element.focus();
+                        // Hide element.
+                    } else {
+                        element.blur();
+                    }
+                }
+            );
+        }
+        return({
+            link: link,
+            restrict: "A"
+        });
+
+    }
+);
