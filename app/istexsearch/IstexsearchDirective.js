@@ -14,7 +14,7 @@ app.directive('istexSearch', function () {
                             '<input type="search" ng-model="advancedQuery[advancedName]">'+
                         '</div>'+
                     '</div>'+
-                '</div>'+
+                '</div>' +
                 '<p class="istex-search-error"></p>'+
                 '<div class="istex-search-loading" title="Recherche en cours"></div>'+
             '</form>'+

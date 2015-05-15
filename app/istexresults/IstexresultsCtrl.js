@@ -2,6 +2,8 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
     $rootScope.showResults = false;
 
+    console.log($rootScope.istexConfigDefault.labels);
+
     // If there is a default request to query on page loading we do it
     if($rootScope.istexConfigDefault.query !== false){
         istexResultsService.defaultSearch($rootScope.istexConfigDefault.query)

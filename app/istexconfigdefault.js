@@ -61,6 +61,11 @@ app.run(['$rootScope', function($rootScope) {
                 'host.subject.value':"Sujet de la série",
                 'language':"Langue"
             },
+            results: {
+                'abstract':"Pas de résumé",
+                'fulltext':"Texte complet",
+                'metadata':"Métadonnées"
+            },
             facets: {
                 'title' : 'Affiner votre recherche',
                 'corpus' : 'Corpus',

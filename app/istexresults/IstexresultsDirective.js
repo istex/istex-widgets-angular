@@ -21,10 +21,10 @@ app.directive('istexResults', function () {
                 '<li class="istex-results-item" ng-repeat="document in documents">'+
                     '<a class="istex-results-item-title" target="_blank">{{ document.title | ellipse:true:istexConfigDefault.titleLength:"..." }}</a>'+
                     '<p class="istex-results-item-abstract" ng-if="document.abstract" title="{{ document.abstract }}"><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
-                    '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">Pas de résumé disponible pour cet article</p>'+
+                    '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">{{ istexConfigDefault.labels.results[\'abstract\'] || "Pas de résumé disponible pour cet article" }}</p>'+
                     '<div class="istex-results-item-corpus">{{ document.corpusName }}</div>'+
                     '<div class="download fulltext">'+
-                        '<h4>Texte complet</h4>'+
+                        '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
                         '<ul class="istex-results-item-download">'+
                             '<li class="istex-results-item-dl fulltext" ng-repeat="fulltext in document.fulltext">'+
                                 '<a href="{{ fulltext.uri }}" ng-href="{{ fulltext.uri }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
@@ -32,7 +32,7 @@ app.directive('istexResults', function () {
                         '</ul>'+
                     '</div>'+
                     '<div class="download metadata">'+
-                        '<h4>Metadata</h4>'+
+                        '<h4>{{ (istexConfigDefault.labels.results["metadata"] || "Metadata") }}</h4>'+
                         '<ul class="istex-results-item-download metadata">'+
                             '<li class="istex-results-item-dl" ng-repeat="metadata in document.metadata">'+
                                 '<a href="{{ metadata.uri }}" ng-href="{{ metadata.uri }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
