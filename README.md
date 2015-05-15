@@ -52,10 +52,14 @@ var istexConfig = {
   // pour lancer une recherche au chargement de la page
   // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
   // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
-  query: "",
+  // si vous mettez query: "", les résultats seront tous les documents
+  query: false,
+
+  // il est possible de mettre le focus sur la barre de recherche au chargement de la page
+  focusInputQueryOnLoad: false,
 
   // il est possible de ne charger que certaines facettes
-  facetsToLoad: [ 'corpus' ],
+  facetsToLoad: [ 'corpus'],
 
   // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
   showPaginationTop: true,
@@ -71,7 +75,7 @@ var istexConfig = {
   abstractLength: 250,
 
   // le nombre max de caractères du titre à afficher
-  titleLength: 100,
+  titleLength: 150,
 
   // PAS ENCORE IMPLEMENTE
   // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
@@ -79,17 +83,17 @@ var istexConfig = {
 
   // il est possible de cacher l'affichage de la vitesse de la requête
   // ex: "Environ 8 933 993 résultats (0.24 secondes)"
-  //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
+  // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
   showQuerySpeed: true,
 
   // PAS ENCORE IMPLEMENTE
   // les différents textes paramétrables
   labels: {
-    facets: {
-      'title' : 'Affiner votre recherche',
-      'corpus' : 'Corpus',
-    }
-  },
+      facets: {
+          'title' : 'Affiner votre recherche',
+          'corpus' : 'Corpus'
+      }
+  }
 
 };
 ```
@@ -113,7 +117,7 @@ Il permet aussi de gérer le système de pagination et la recherche au chargemen
 
 Ce widget permet d'insérer dans la page HTML des facettes permettant d'affiner la recherche courante de l'utilisateur. A l'aide de la facette corpus, on peut ainsi n'afficher que les résultats provenant d'un éditeur précis.
 Les facettes actuellement gérées sont les suivantes :
-- corpus
+- corpus, pubdate, copyrightdate
 
 Il est possible de n'afficher que certaines facettes en modifiant le paramètre ``facetsToLoad`` dans istexConfig.
 
