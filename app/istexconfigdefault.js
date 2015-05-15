@@ -2,48 +2,70 @@ app.run(['$rootScope', function($rootScope) {
 
     $rootScope.istexConfigDefault = {
         // l'adresse de l'API de l'Istex
-        // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
-        // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
+        // pour une ezproxyfication, rÃ©glez ici l'adresse ezproxyfiÃ©e
+        // ex Ã  l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
         istexApi: 'https://api.istex.fr',
 
         // pour lancer une recherche au chargement de la page
-        // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-        // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+        // indiquer les mots Ã  rechercher (argument de ?q= au niveau de l'api istex)
+        // si vous ne voulez pas de recherche au dÃ©marrage, ne mettez rien (ou query: false)
         query: false,
 
         // il est possible de ne charger que certaines facettes
         facetsToLoad: [ 'corpus'],
 
-        // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
+        // il n'est possible de charger que certains champs de la recherche avancÃ©e
+        advancedToLoad: {
+            'author.name':"",
+            'host.editor.name':"",
+            'genre':"",
+            'host.genre':"",
+            'subject.value':"",
+            'host.subject.value':"",
+            'language':""
+        },
+
+        // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramÃ¨tres
         showPaginationTop: true,
         showPaginationBot: true,
 
-        // nombre de résultats souhaités par page
+        // nombre de rÃ©sultats souhaitÃ©s par page
         pageSize: 10,
 
-        // nombre max de pages à montrer dans la zone de pagination
+        // nombre max de pages Ã  montrer dans la zone de pagination
         maxPagesInPagination: 10,
 
-        // le nombre max de caractères du résumé à afficher
+        // le nombre max de caractÃ¨res du rÃ©sumÃ© Ã  afficher
         abstractLength: 250,
 
-        // le nombre max de caractères du titre à afficher
+        // le nombre max de caractÃ¨res du titre Ã  afficher
         titleLength: 150,
 
         // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
         fullTextOnTitle: 'pdf',
 
-        // il est possible de cacher l'affichage de la vitesse de la requête
-        // ex: "Environ 8 933 993 résultats (0.24 secondes)"
-        //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
+        // il est possible de cacher l'affichage de la vitesse de la requÃªte
+        // ex: "Environ 8 933 993 rÃ©sultats (0.24 secondes)"
+        //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affichÃ©
         showQuerySpeed: true,
 
-        // PAS ENCORE IMPLEMENTE
-        // les différents textes paramétrables
+        // les diffÃ©rents textes paramÃ©trables
         labels: {
+            search: {
+                'placeholder':"Votre requÃªte ici ...",
+                'author.name':"Auteur",
+                'host.editor.name':"Editeur",
+                'genre':"Genre de document",
+                'host.genre':"Genre de sÃ©rie",
+                'subject.value':"Sujet du document",
+                'host.subject.value':"Sujet de la sÃ©rie",
+                'language':"Langue"
+            },
             facets: {
                 'title' : 'Affiner votre recherche',
-                'corpus' : 'Corpus'
+                'corpus' : 'Corpus',
+                'pubdate' : 'Date de publication',
+                'copyrightdate' : 'DÃ©but du copyright'
             }
         }
     };

@@ -64,3 +64,12 @@
   right: 0px;
   bottom: 0px;
 }
+
+.istex-advanced-wrapper {
+  width: 90%;
+}
+
+.istex-advanced-wrapper .istex-advanced {
+  display: inline-block;
+  width: 25%;
+}

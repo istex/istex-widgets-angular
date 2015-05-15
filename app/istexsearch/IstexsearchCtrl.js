@@ -1,5 +1,8 @@
 app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService', function ($scope, $rootScope, istexSearchService) {
 
+    if ($rootScope.istexConfigDefault.advancedToLoad)
+        $scope.advancedQuery =$rootScope.istexConfigDefault.advancedToLoad;
+
     $scope.search = function(){
 
         // While the query is being processed, we hide the old results
