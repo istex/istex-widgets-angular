@@ -5,6 +5,15 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
     if ($rootScope.istexConfigDefault.advancedToLoad)
         $scope.advancedQuery =$rootScope.istexConfigDefault.advancedToLoad;
 
+    if($rootScope.istexConfigDefault.query !== false) {
+        var q = $rootScope.istexConfigDefault.query;
+        $rootScope.query = (q) ? q.toString() : "";
+    }
+
+    if($rootScope.istexConfigDefault.focusInputQueryOnLoad){
+
+    }
+
     $scope.search = function(){
 
         // While the query is being processed, we hide the old results

@@ -5,7 +5,7 @@ app.directive('istexSearch', function () {
             '<form class="istex-search-form" >'+
                 '<div class="istex-search-bar-wrapper">'+
                     '<input class="istex-search-submit" type="submit" value="Rechercher" ng-click="search()">'+
-                    '<span><input class="istex-search-input" type="search" value="" placeholder="{{istexConfigDefault.labels.search[\'placeholder\'] || \'Votre requête ici ...\'}}" ng-model="query"></span>'+
+                    '<span><input class="istex-search-input" type="search" value="" placeholder="{{istexConfigDefault.labels.search[\'placeholder\'] || \'Votre requête ici ...\'}}" ng-model="query" ng-focus="istexConfigDefault.focusInputQueryOnLoad"></span>'+
                 '</div>' +
                 '<div class="istex-advanced-wrapper" ng-if="istexConfigDefault.advancedToLoad">' +
                     '<div>' +
