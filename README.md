@@ -59,6 +59,9 @@ var istexConfig = {
      // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
      query: false,
 
+    // il est possible de mettre le focus sur la barre de recherche au chargement de la page
+    focusInputQueryOnLoad: false,
+
      // il est possible de ne charger que certaines facettes
      facetsToLoad: [ 'corpus'],
 
@@ -125,6 +128,7 @@ var istexConfig = {
          }
      }
 }
+
 ```
 
 Remarque : ces paramètres doivent être de préférence positionnés avant l'inclusion des fichiers app.min.js et de style.min.css
@@ -146,7 +150,7 @@ Il permet aussi de gérer le système de pagination et la recherche au chargemen
 
 Ce widget permet d'insérer dans la page HTML des facettes permettant d'affiner la recherche courante de l'utilisateur. A l'aide de la facette corpus, on peut ainsi n'afficher que les résultats provenant d'un éditeur précis.
 Les facettes actuellement gérées sont les suivantes :
-- corpus
+- corpus, pubdate, copyrightdate
 
 Il est possible de n'afficher que certaines facettes en modifiant le paramètre ``facetsToLoad`` dans istexConfig.
 
