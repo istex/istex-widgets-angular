@@ -8,8 +8,14 @@ Exemple d'utilisation classique des widgets search et results. Il est nécessair
 On peut aussi charger la bibliothèque Bootstrap pour un meilleur rendu
 
 Ensuite vous pouvez placer deux balises (zone de recherche & zone de résultats) où vous le souhaitez dans votre page HTML.
-Ces balises ont des noms spécifiques pour chaque widget : <istex-auth>, <istex-search>, <istex-results>, <istex-facets>
-On peut aussi utiliser des balises classiques avec des attributs spéciaux : <div istex-auth></div>
+Ces balises ont des noms spécifiques pour chaque widget :
+```html
+<istex-auth>, <istex-search>, <istex-results>, <istex-facets>
+```
+On peut aussi utiliser des balises classiques avec des attributs spéciaux :
+```html
+<div istex-auth></div>
+```
 A noter que la première méthode ne marche pas sur les vieux navigateurs (IE8...)
 
 Voici ce que ca peut donner sur une page quasi vierge :
