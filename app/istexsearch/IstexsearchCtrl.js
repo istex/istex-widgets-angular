@@ -1,5 +1,7 @@
 app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService', function ($scope, $rootScope, istexSearchService) {
 
+    $rootScope.showAdvanced=false;
+
     if ($rootScope.istexConfigDefault.advancedToLoad)
         $scope.advancedQuery =$rootScope.istexConfigDefault.advancedToLoad;
 
@@ -50,4 +52,16 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                 console.error("ERROR : Search");
             });
     };
+
+    $scope.toggleAdvanced = function () {
+        $rootScope.showAdvanced = !$rootScope.showAdvanced;
+        if(!$rootScope.showAdvanced) {
+            for (var prop in $scope.advancedQuery) {
+                if (Object.prototype.hasOwnProperty.call($scope.advancedQuery, prop)) {
+                    $scope.advancedQuery[prop] = "";
+                }
+            }
+        }
+    }
+
 }]);

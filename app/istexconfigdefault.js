@@ -15,6 +15,7 @@ app.run(['$rootScope', function($rootScope) {
         facetsToLoad: [ 'corpus'],
 
         // il n'est possible de charger que certains champs de la recherche avancée
+        // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
         advancedToLoad: {
             'author.name':"",
             'host.editor.name':"",
@@ -41,17 +42,19 @@ app.run(['$rootScope', function($rootScope) {
         // le nombre max de caractères du titre à afficher
         titleLength: 150,
 
+        // PAS ENCORE IMPLEMENTE
         // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
         fullTextOnTitle: 'pdf',
 
         // il est possible de cacher l'affichage de la vitesse de la requête
         // ex: "Environ 8 933 993 résultats (0.24 secondes)"
-        //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
+        // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
         showQuerySpeed: true,
 
         // les différents textes paramétrables
         labels: {
             search: {
+                'advancedTitle':"Recherche avancée",
                 'placeholder':"Votre requête ici ...",
                 'author.name':"Auteur",
                 'host.editor.name':"Editeur",

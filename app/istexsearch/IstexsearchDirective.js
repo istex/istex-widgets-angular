@@ -7,8 +7,11 @@ app.directive('istexSearch', function () {
                     '<input class="istex-search-submit" type="submit" value="Rechercher" ng-click="search()">'+
                     '<span><input class="istex-search-input" type="search" value="" placeholder="{{istexConfigDefault.labels.search[\'placeholder\'] || \'Votre requête ici ...\'}}" ng-model="query"></span>'+
                 '</div>' +
-                '<div class="istex-advanced-wrapper">' +
-                    '<div class="istex-advanced" ng-repeat="(advancedName, advanced) in advancedQuery">' +
+                '<div class="istex-advanced-wrapper" ng-if="istexConfigDefault.advancedToLoad">' +
+                    '<div>' +
+                        '<a href="" ng-click="toggleAdvanced()">{{ (istexConfigDefault.labels.search["advancedTitle"] || "Recherche avancée") | capitalize }}</a>' +
+                    '</div>' +
+                    '<div class="istex-advanced" ng-repeat="(advancedName, advanced) in advancedQuery" ng-show="showAdvanced">' +
                         '<h4 class="istex-advanced-name">{{ (istexConfigDefault.labels.search[advancedName] || advancedName) | capitalize }}</h4>'+
                         '<div class="istex-advanced-{{advancedName}}" >'+
                             '<input type="search" ng-model="advancedQuery[advancedName]">'+
