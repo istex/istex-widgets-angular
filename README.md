@@ -49,55 +49,82 @@ La liste des différents paramètres se présente comme ceci (et est sujette à 
 
 ```javascript
 var istexConfig = {
+    // l'adresse de l'API de l'Istex
+    // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
+    // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
+    istexApi: 'https://api.istex.fr',
 
-  // l'adresse de l'API de l'Istex
-  // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
-  // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-  istexApi: 'https://api.istex.fr',
+     // pour lancer une recherche au chargement de la page
+     // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
+     // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+     query: false,
 
-  // pour lancer une recherche au chargement de la page
-  // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-  // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
-  query: "",
+     // il est possible de ne charger que certaines facettes
+     facetsToLoad: [ 'corpus'],
 
-  // il est possible de ne charger que certaines facettes
-  facetsToLoad: [ 'corpus' ],
+     // il n'est possible de charger que certains champs de la recherche avancée
+     // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
+     advancedToLoad: {
+         'author.name':"",
+         'host.editor.name':"",
+         'genre':"",
+         'host.genre':"",
+         'subject.value':"",
+         'host.subject.value':"",
+         'language':""
+     },
 
-  // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
-  showPaginationTop: true,
-  showPaginationBot: true,
+     // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
+     showPaginationTop: true,
+     showPaginationBot: true,
 
-  // nombre de résultats souhaités par page
-  pageSize: 10,
+     // nombre de résultats souhaités par page
+     pageSize: 10,
 
-  // nombre max de pages à montrer dans la zone de pagination
-  maxPagesInPagination: 10,
+     // nombre max de pages à montrer dans la zone de pagination
+     maxPagesInPagination: 10,
 
-  // le nombre max de caractères du résumé à afficher
-  abstractLength: 250,
+     // le nombre max de caractères du résumé à afficher
+     abstractLength: 250,
 
-  // le nombre max de caractères du titre à afficher
-  titleLength: 100,
+     // le nombre max de caractères du titre à afficher
+     titleLength: 150,
 
-  // PAS ENCORE IMPLEMENTE
-  // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
-  fullTextOnTitle: 'pdf',
+     // PAS ENCORE IMPLEMENTE
+     // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
+     fullTextOnTitle: 'pdf',
 
-  // il est possible de cacher l'affichage de la vitesse de la requête
-  // ex: "Environ 8 933 993 résultats (0.24 secondes)"
-  //     si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
-  showQuerySpeed: true,
+     // il est possible de cacher l'affichage de la vitesse de la requête
+     // ex: "Environ 8 933 993 résultats (0.24 secondes)"
+     // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
+     showQuerySpeed: true,
 
-  // PAS ENCORE IMPLEMENTE
-  // les différents textes paramétrables
-  labels: {
-    facets: {
-      'title' : 'Affiner votre recherche',
-      'corpus' : 'Corpus',
-    }
-  },
-
-};
+     // les différents textes paramétrables
+     labels: {
+         search: {
+             'advancedTitle':"Recherche avancée",
+             'placeholder':"Votre requête ici ...",
+             'author.name':"Auteur",
+             'host.editor.name':"Editeur",
+             'genre':"Genre de document",
+             'host.genre':"Genre de série",
+             'subject.value':"Sujet du document",
+             'host.subject.value':"Sujet de la série",
+             'language':"Langue"
+         },
+         results: {
+             'abstract':"Pas de résumé",
+             'fulltext':"Texte complet",
+             'metadata':"Métadonnées"
+         },
+         facets: {
+             'title' : 'Affiner votre recherche',
+             'corpus' : 'Corpus',
+             'pubdate' : 'Date de publication',
+             'copyrightdate' : 'Début du copyright'
+         }
+     }
+}
 ```
 
 Remarque : ces paramètres doivent être de préférence positionnés avant l'inclusion des fichiers app.min.js et de style.min.css
