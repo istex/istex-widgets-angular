@@ -20,7 +20,7 @@ app.directive('istexSearch', function () {
                 '</div>' +
                 '<p class="istex-search-error"></p>'+
                 '<div class="istex-search-loading" title="Recherche en cours"></div>'+
-            '</form>'+
+            '</form>' +
         '</div>'
     };
 });

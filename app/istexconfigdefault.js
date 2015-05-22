@@ -8,6 +8,7 @@ app.run(['$rootScope', function($rootScope) {
 
         // pour lancer une recherche au chargement de la page
 
+
         // indiquer les mots � rechercher (argument de ?q= au niveau de l'api istex)
         // si vous ne voulez pas de recherche au d�marrage, ne mettez rien (ou query: false)
         // si vous mettez query: "", les r�sultats seront tous les documents
@@ -31,6 +32,10 @@ app.run(['$rootScope', function($rootScope) {
             'language':""
         },
 
+        // il est possible d'avoir un slider ou deux inputs lorsque les facettes sont des dates
+        // si vous voulez le slider, n'oubliez pas d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
+        slider:false,
+
         // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
         showPaginationTop: true,
         showPaginationBot: true,
@@ -45,12 +50,12 @@ app.run(['$rootScope', function($rootScope) {
         abstractLength: 250,
 
         // le nombre max de caractères du titre à afficher
+
         titleLength: 150,
 
         // PAS ENCORE IMPLEMENTE
         // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
         fullTextOnTitle: 'pdf',
-
 
         // il est possible de cacher l'affichage de la vitesse de la requête
         // ex: "Environ 8 933 993 résultats (0.24 secondes)"

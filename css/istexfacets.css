@@ -40,3 +40,13 @@
   background-color: #5A99B0;
   border-radius: 4px;
 }
+.istex-facets .istex-facet .rzslider span.rz-pointer {
+  top: -8px;
+  width: 20px;
+  height: 20px;
+}
+.istex-facets .istex-facet .rzslider span.rz-pointer:after {
+  top: 6px;
+  left: 6px;
+}
+

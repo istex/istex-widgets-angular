@@ -8,6 +8,8 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="slider/rzslider.css">
+    <link rel="stylesheet" href="style.min.css">
 
 
 </head>
@@ -48,10 +50,13 @@
         </div><!-- /.blog-sidebar -->
 
     </div><!-- /.row -->
-
 </div><!-- /.container -->
 
 <!-- Dependencies -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="slider/rzslider.js"></script>
+<script src="app.min.js"></script>
+
 <script>
     var istexConfig = {
         titleLength: 80,
@@ -81,12 +86,15 @@
             }
         },
         facetsToLoad: [ 'corpus','pubdate','copyrightdate'],
+        slider: "true",
         query: "alex",
         focusInputQueryOnLoad: true
     };
-
+/*
     [
-        //'http://test-widget-istex.infra.univ-lorraine.fr/style.min.css'
+        //'http://test-widget-istex.infra.univ-lorraine.fr/style.min.css',
+        //'http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.css'
+        'slider/rzslider.css',
         'style.min.css'
     ].forEach(function(href) {
                 var link = document.createElement('link');
@@ -94,10 +102,13 @@
                 link.rel = "stylesheet";
                 document.head.appendChild(link);
     });
+
     [
         //'http://test-widget-istex.infra.univ-lorraine.fr/bower_components/angularjs/angular.min.js',
+        //'http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.js',
         //'http://test-widget-istex.infra.univ-lorraine.fr/app.min.js'
 		'bower_components/angular/angular.min.js',
+        'slider/rzslider.js',
         'app.min.js'
     ].forEach(function(src) {
                 var script = document.createElement('script');
@@ -105,6 +116,7 @@
                 script.async = false;
                 document.head.appendChild(script);
     });
+*/
 </script>
 
 </body>

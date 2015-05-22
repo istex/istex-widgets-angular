@@ -5,8 +5,6 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             // We create the url to call, using the same Query for the basic search
             var url = $rootScope.currentPageURI;
 
-            console.log(list);
-
             // corpusSearch
             var corpus = "&corpus=";
             function urlMaker(element, index, array) {

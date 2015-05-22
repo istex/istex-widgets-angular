@@ -2,11 +2,12 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
 
     $rootScope.showFacets = false;
 
-    $scope.onChange = function($event) {
-        $timeout(function() {
-            angular.element($event.target.form).triggerHandler('submit');
+    // If slider is true, we listen to the event that triggers when you let the cursor down to launch the request
+    if($rootScope.istexConfigDefault.slider) {
+        $scope.$on("slideEnded", function () {
+            $scope.submitFacetSearch($scope.aggregations)
         });
-    };
+    }
 
     $scope.submitFacetSearch = function(list){
 
