@@ -7,9 +7,7 @@ app.run(['$rootScope', function($rootScope) {
         istexApi: 'https://api.istex.fr',
 
         // pour lancer une recherche au chargement de la page
-
-
-        // indiquer les mots � rechercher (argument de ?q= au niveau de l'api istex)
+        // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
         // si vous ne voulez pas de recherche au d�marrage, ne mettez rien (ou query: false)
         // si vous mettez query: "", les r�sultats seront tous les documents
         query: false,
