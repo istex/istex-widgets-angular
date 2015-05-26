@@ -5,7 +5,7 @@ Widgets (auth, search, results, facets) permettant de créer rapidement des inte
 ## Usage classique des widgets
 
 Exemple d'utilisation classique des widgets search et results. Il est nécessaire dans un premier temps de charger les fichiers JS et CSS des widgets Istex (à la fin du body pour charger les fichiers après que la page soit affichée) ainsi que la bibliothèque AngularJS qui est une dépendance nécessaire.
-On peut aussi charger la bibliothèque Bootstrap pour un meilleur rendu
+On peut aussi charger la bibliothèque Bootstrap pour un meilleur rendu et la directive pour afficher le Slider (voir plus bas pour afficher le Slider)
 
 Ensuite vous pouvez placer deux balises (zone de recherche & zone de résultats) où vous le souhaitez dans votre page HTML.
 Ces balises ont des noms spécifiques pour chaque widget :
@@ -21,22 +21,28 @@ A noter que la première méthode ne marche pas sur les vieux navigateurs (IE8..
 Voici ce que ca peut donner sur une page quasi vierge :
 
 ```html
+<!DOCTYPE html>
 <html lang="fr">
 <head lang="en">
+    <meta charset="UTF-8">
+    <title>Istex - Widgets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="slider/rzslider.css">
 </head>
 <body>
 
-<istex-auth></istex-auth>
 <istex-search></istex-search>
 <istex-results></istex-results>
 <istex-facets></istex-facets>
 
 <!-- Dependencies -->
+
 <script>
     var istexConfig = {
     };
 </script>
 <script src="bower_components/angular/angular.min.js"></script>
+<script src="slider/rzslider.js"></script>
 <script src="app.min.js"></script>
 
 </body>
@@ -44,28 +50,32 @@ Voici ce que ca peut donner sur une page quasi vierge :
 ```
 
 ## Paramètres des widgets
-Les widgets peuvent être paramétrés en positionnant les clés/valeurs de la variable globale istexConfig dans le HTML.
+Les widgets peuvent être paramétrés en positionnant les clés/valeurs de la variable globale istexConfig dans le HTML AVANT le scipt pour app.min.js.
 La liste des différents paramètres se présente comme ceci (et est sujette à modifications) :
 
 ```javascript
 var istexConfig = {
     // l'adresse de l'API de l'Istex
     // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
-    // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-    istexApi: 'https://api.istex.fr',
+     // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
+     istexApi: 'https://api.istex.fr',
 
      // pour lancer une recherche au chargement de la page
      // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-     // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+     // si vous ne voulez pas de recherche au d�marrage, ne mettez rien (ou query: false)
+     // si vous mettez query: "", les r�sultats seront tous les documents
      query: false,
 
-    // il est possible de mettre le focus sur la barre de recherche au chargement de la page
-    focusInputQueryOnLoad: false,
+     // il est possible de mettre le focus sur la barre de recherche au chargement de la page
+     focusInputQueryOnLoad: false,
 
      // il est possible de ne charger que certaines facettes
-     facetsToLoad: [ 'corpus'],
+     // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate'
+     facetsToLoad: [ 'corpus','pubdate','copyrightdate'],
 
      // il n'est possible de charger que certains champs de la recherche avancée
+     // par défaut, tout les champs sont chargés
+     // on peut mettre des valeurs par défaut aux champs au lieu de guillemets vides
      // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
      advancedToLoad: {
          'author.name':"",
@@ -76,6 +86,10 @@ var istexConfig = {
          'host.subject.value':"",
          'language':""
      },
+
+     // il est possible d' soit un slider soit deux inputs lorsque les facettes sont des dates
+     // si vous ne voulez pas de slider, vous n'êtes pas obligés d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
+     slider:true,
 
      // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
      showPaginationTop: true,
@@ -91,6 +105,7 @@ var istexConfig = {
      abstractLength: 250,
 
      // le nombre max de caractères du titre à afficher
+
      titleLength: 150,
 
      // PAS ENCORE IMPLEMENTE
@@ -131,7 +146,7 @@ var istexConfig = {
 
 ```
 
-Remarque : ces paramètres doivent être de préférence positionnés avant l'inclusion des fichiers app.min.js et de style.min.css
+Remarque : ces paramètres doivent être de préférence positionnés avant l'inclusion des fichiers app.min.js
 
 ## Fonctionnement du widget istexAuth
 
@@ -139,7 +154,9 @@ CE WIDGET N'EST PLUS A JOUR DEPUIS L'OUVERTURE DE L'API ISTEX !
 
 ## Fonctionnement du widget istexSearch
 
-Ce widget permet d'insérer dans la page HTML une zone de saisie ainsi qu'un bouton de recherche. Lorsqu'une suite de mots sont tapés puis que le bouton rechercher est pressé, l'API Istex est interrogée à travers des requêtes AJAX. Une fois les résultats reçus, ils sont enregistrés dans le $rootScope et ainsi propagés aux widgets results et facets.
+Ce widget permet d'insérer dans la page HTML une zone de saisie ainsi qu'un bouton de recherche. Lorsqu'une suite de mots sont tapés puis que le bouton rechercher est pressé, l'API Istex est interrogée à travers des requêtes AJAX.
+Une fois les résultats reçus, ils sont enregistrés dans le $rootScope et ainsi propagés aux widgets results et facets.
+Ce widget permet aussi de faire une recherche avancée.
 
 ## Fonctionnement du widget istexResults
 
@@ -199,7 +216,7 @@ http-server
 
 Puis ouvrez les URL qui s'affichent dans votre fenêtre. Exemple: http://127.0.0.1:8080/index.html pour une vue d'ensemble, http://127.0.0.1:8080/basique.html pour l'exemple le plus léger (sans Bootstrap et autres).
 
-Si vous modifiez des fichiers, vous devez miinifier le Javascript à l'aide d'Uglify-JS et/ou le CSS avec Clean-CSS :
+Si vous modifiez des fichiers, vous devez minifier le Javascript à l'aide d'Uglify-JS et/ou le CSS avec Clean-CSS :
 ```
 cd istex-widgets-angular/
 npm install -g uglify-js clean-css
@@ -219,6 +236,8 @@ L'utilisation d'AngularJS mène à avoir une structure du code particulière (ap
   - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML) et associe l'application à AngularJS
 - Un dossier css qui contient tout le css lié aux widgets
 - Un dossier img qui contient toutes les images liées aux widgets
+- Un dossier slider contenant le code nécessaire à la création et géstion de la directive rzslider (pour les facettes pubdate et copyrightdate par example) indépendant de jQuery, créé par rzajac :
+    [angularjs-slider](https://github.com/rzajac/angularjs-slider)
 
 ### Charger le code de l'application différemment
 Voici un exemple plus poussé pour charger les widgets qui se trouve dans index.html, dans le but d'attendre que la page soit complètement affichée avant de télécharger et exécuter le Javascript :
@@ -247,5 +266,7 @@ Au final, l'utilisateur pourra accéder aux différentes version des widgets sur
   - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/angularjs/angular.min.js
   - http://test-widget-istex.infra.univ-lorraine.fr/style.min.css
   - http://test-widget-istex.infra.univ-lorraine.fr/app.min.js
+  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.js
 
 

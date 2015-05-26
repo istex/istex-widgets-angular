@@ -16,9 +16,12 @@ app.run(['$rootScope', function($rootScope) {
         focusInputQueryOnLoad: false,
 
         // il est possible de ne charger que certaines facettes
-        facetsToLoad: [ 'corpus'],
+        // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate'
+        facetsToLoad: [ 'corpus','pubdate','copyrightdate'],
 
         // il n'est possible de charger que certains champs de la recherche avancée
+        // par défaut, tout les champs sont chargés
+        // on peut mettre des valeurs par défaut aux champs au lieu de guillemets vides
         // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
         advancedToLoad: {
             'author.name':"",
@@ -30,9 +33,9 @@ app.run(['$rootScope', function($rootScope) {
             'language':""
         },
 
-        // il est possible d'avoir un slider ou deux inputs lorsque les facettes sont des dates
+        // il est possible d' soit un slider soit deux inputs lorsque les facettes sont des dates
         // si vous voulez le slider, n'oubliez pas d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
-        slider:false,
+        slider:true,
 
         // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
         showPaginationTop: true,
@@ -91,13 +94,15 @@ app.run(['$rootScope', function($rootScope) {
     if(window.istexConfig) {
         if (Object.getOwnPropertyNames(window.istexConfig).length > 0) {
             $rootScope.istexConfigDefault = extend($rootScope.istexConfigDefault, window.istexConfig);
+            //add Slider to Angular Modules
+
         }
     }
 
 
 }]);
 
-//
+// it links "app" to Angular and says the scope of app is the whole document
 angular.element(document).ready(function() {
     angular.bootstrap(document, ["app"]);
 });

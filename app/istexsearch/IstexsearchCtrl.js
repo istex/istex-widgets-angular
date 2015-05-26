@@ -10,10 +10,6 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
         $rootScope.query = (q) ? q.toString() : "";
     }
 
-    if($rootScope.istexConfigDefault.focusInputQueryOnLoad){
-
-    }
-
     $scope.search = function(){
 
         // While the query is being processed, we hide the old results

@@ -12,7 +12,6 @@
     ".idea"
   ],
   "devDependencies": {
-    "jquery": "~1"
   },
   "dependencies": {
     "bootstrap": "~3.3.2",
