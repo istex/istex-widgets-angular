@@ -1,4 +1,4 @@
-if(window.istexConfig.slider)
+if(window.istexConfig.slider !== false)
     var app = angular.module('app', ['rzModule']);
 else
     var app = angular.module('app', []);
