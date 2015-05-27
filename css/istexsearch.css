@@ -12,7 +12,7 @@
   margin: 0;
   vertical-align: top;
   width: 100%;
-  background-image: url(../img/istexsearch-search-logo.png);
+  background-image: url(../public/img/istexsearch-search-logo.png);
   background-size: auto 60%;
   background-repeat: no-repeat;
   background-position: right;
@@ -40,7 +40,7 @@
   display: none;
 }
 .istex-search-form div.istex-search-loading {
-  background-image: url(../img/istexsearch-ajax-loader.gif);
+  background-image: url(../public/img/istexsearch-ajax-loader.gif);
   background-repeat: no-repeat;
   float: left;
   width: 16px;
@@ -54,7 +54,7 @@
   padding: 8px;
 }
 .istex-ezproxy-auth-btn div {
-  background-image: url(../img/istexsearch-search-logo.png);
+  background-image: url(../public/img/istexsearch-search-logo.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: right;

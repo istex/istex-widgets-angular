@@ -1,0 +1,45 @@
+{
+  "name": "istex-widgets-angular",
+  "version": "0.1.2",
+  "description": "Widgets istex with AngularJS",
+  "license": "CeCILL",
+  "author": "Thomas Frantz <thom.frantz@gmail.com>",
+  "contributors": [{
+    "name": "",
+    "email": ""
+  }],
+  "scripts": {
+    "js": "uglifyjs app/app.js app/istexfacets/IstexfacetsDirective.js app/istexfacets/IstexfacetsCtrl.js app/istexfacets/IstexfacetsService.js app/istexsearch/IstexsearchDirective.js app/istexsearch/IstexsearchCtrl.js app/istexsearch/IstexsearchService.js app/istexresults/IstexresultsDirective.js app/istexresults/IstexresultsCtrl.js app/istexresults/IstexresultsService.js app/istexconfigdefault.js -o public/app.min.js -cE",
+    "css": "cleancss -o public/style.min.css css/istexsearch.css css/istexfacets.css css/istexresults.css",
+	"jscss": "npm run js && npm run css",
+    "server": "http-server",
+
+
+    "prepublish": "npm run js && npm run css && bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/istex/istex-widgets-angular"
+  },
+  "bugs": {
+    "url": "https://github.com/istex/istex-widgets-angular/issues",
+    "email": "thom.frantz@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "istex",
+    "istex-snu",
+    "widget",
+    "widgets"
+  ],
+  "dependencies": {
+    "bower": "~1.4.1",
+	"uglify-js": "~2.4.23",
+    "clean-css": "~3.2.10"
+  },
+  "devDependencies": {
+    "http-server": "~0.8.0"
+  },
+  "private": true
+}

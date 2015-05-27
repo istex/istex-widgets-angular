@@ -74,7 +74,7 @@ ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.i
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
-  background-image: url(../img/istexresults-item-dl-file.png);
+  background-image: url(../public/img/istexresults-item-dl-file.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   text-indent: 100%;
@@ -82,22 +82,22 @@ ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.i
   overflow: hidden;
 }
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a.istex-results-item-dl-pdf {
-  background-image: url(../img/istexresults-item-dl-pdf.png);
+  background-image: url(../public/img/istexresults-item-dl-pdf.png);
 }
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a.istex-results-item-dl-mods {
-  background-image: url(../img/istexresults-item-dl-mods.png);
+  background-image: url(../public/img/istexresults-item-dl-mods.png);
 }
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a.istex-results-item-dl-xml {
-  background-image: url(../img/istexresults-item-dl-xml.png);
+  background-image: url(../public/img/istexresults-item-dl-xml.png);
 }
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a.istex-results-item-dl-txt {
-  background-image: url(../img/istexresults-item-dl-txt.png);
+  background-image: url(../public/img/istexresults-item-dl-txt.png);
 }
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a.istex-results-item-dl-tei {
-  background-image: url(../img/istexresults-item-dl-tei.png);
+  background-image: url(../public/img/istexresults-item-dl-tei.png);
 }
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a.istex-results-item-dl-zip {
-  background-image: url(../img/istexresults-item-dl-zip.png);
+  background-image: url(../public/img/istexresults-item-dl-zip.png);
 }
 ol.istex-results-items li.istex-results-item div.istex-results-item-bottom {
   clear: both;
@@ -115,11 +115,11 @@ ol.istex-results-items li.istex-results-item div.istex-results-item-bottom {
   cursor: pointer;
 }
 .istex-results-pagination button.istex-results-pagination-prec {
-  background: url("../img/istexresults-pagination-btn.png") no-repeat scroll 0 0 transparent;
+  background: url("../public/img/istexresults-pagination-btn.png") no-repeat scroll 0 0 transparent;
   margin-right: 10px;
 }
 .istex-results-pagination button.istex-results-pagination-next {
-  background: url("../img/istexresults-pagination-btn.png") no-repeat scroll 0 0 transparent;
+  background: url("../public/img/istexresults-pagination-btn.png") no-repeat scroll 0 0 transparent;
   transform: rotate(180deg);
   margin-left: 10px;
 }

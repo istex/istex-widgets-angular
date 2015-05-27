@@ -41,6 +41,7 @@ Voici ce que ca peut donner sur une page quasi vierge :
     var istexConfig = {
     };
 </script>
+
 <script src="bower_components/angular/angular.min.js"></script>
 <script src="slider/rzslider.js"></script>
 <script src="app.min.js"></script>
@@ -198,10 +199,16 @@ git clone git@github.com:istex/istex-widgets-angular.git
 git clone https://github.com/istex/istex-widgets-angular.git
 ```
 
-Initialiser les dépendances :
+package.json permet d'associer des scripts à npm et faciliter ainsi la construction du projet.
+Pour initialiser les dépendances (uglify-js, clean-css, http-server, bootstrap et angularjs) en local et rendre le projet prêt à utiliser, il suffit de faire :
 ```
 cd istex-widgets-angular/
-npm install -g http-server bower
+npm install
+```
+
+Si vous avez déjà des outils pour minifier le js et le css et lancer un serveur en locale, vous pouvez juste charger angularjs et bootstrap :
+```
+cd istex-widgets-angular/
 bower install
 ```
 
@@ -209,9 +216,9 @@ Vous êtes alors opérationels pour développer votre contribution.
 
 ### Tester, compiler et déployer
 
-Pour développer et tester les widgets depuis votre navigateur Web, le plus simple est de lancer un mini serveur Web avec la commande suivante :
+Pour développer et tester les widgets depuis votre navigateur Web, le plus simple est de lancer un mini serveur Web avec la commande suivante qui appelle http-server :
 ```
-http-server
+npm run server
 ```
 
 Puis ouvrez les URL qui s'affichent dans votre fenêtre. Exemple: http://127.0.0.1:8080/index.html pour une vue d'ensemble, http://127.0.0.1:8080/basique.html pour l'exemple le plus léger (sans Bootstrap et autres).
@@ -219,11 +226,11 @@ Puis ouvrez les URL qui s'affichent dans votre fenêtre. Exemple: http://127.0.0
 Si vous modifiez des fichiers, vous devez minifier le Javascript à l'aide d'Uglify-JS et/ou le CSS avec Clean-CSS :
 ```
 cd istex-widgets-angular/
-npm install -g uglify-js clean-css
-uglifyjs app/app.js app/istexfacets/* app/istexresults/* app/istexsearch/* app/istexconfigdefault.js -o app.min.js -cE
-cleancss -o style.min.css css/*
+npm run js // Compile juste le js dans app.min.js
+npm run css // Compile juste le css dans style.min.css
+npm run jscss // Compile le js et le css dans leur fichiers réspectifs
 ```
-ATTENTION : Il faut toujours mettre istexconfigdefault.js à la fin car il lie l'application à AngularJS
+ATTENTION : Si vous utilisez vos propres minifieurs, il faut toujours mettre istexconfigdefault.js à la fin de la liste des fichiers à minifier de votre commande car il lie l'application à AngularJS
 
 ### Comprendre la structure du code
 
@@ -235,11 +242,17 @@ L'utilisation d'AngularJS mène à avoir une structure du code particulière (ap
   - Dans chaque dossier widget, un fichier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
   - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML) et associe l'application à AngularJS
 - Un dossier css qui contient tout le css lié aux widgets
-- Un dossier img qui contient toutes les images liées aux widgets
-- Un dossier slider contenant le code nécessaire à la création et géstion de la directive rzslider (pour les facettes pubdate et copyrightdate par example) indépendant de jQuery, créé par rzajac :
+On a aussi :
+- Un dossier public qui contient tout ce qui est prêt à être utilisés par le serveur
+  - Un dossier bower_components contenant AngularJS et Bootstrap
+  - Les versions minifiés du css et du javascript des widgets
+  - Un fichier index.html qui utilise les widgets avec le css, Bootstrap et les Sliders
+  - Un fichier basique.html qui utilise juste les widgets et rien d'autre
+  - Un dossier img qui contient toutes les images liées aux widgets
+  - Un dossier slider contenant le code nécessaire à la création et géstion de la directive rzslider (pour les facettes pubdate et copyrightdate par example) indépendant de jQuery, créé par rzajac :
     [angularjs-slider](https://github.com/rzajac/angularjs-slider)
 
-### Charger le code de l'application différemment
+### Charger le code de l'application différemment (optionnel)
 Voici un exemple plus poussé pour charger les widgets qui se trouve dans index.html, dans le but d'attendre que la page soit complètement affichée avant de télécharger et exécuter le Javascript :
 On charge les scripts de manière asynchrone en remplaçant les balises par une fonction spéciale. Cela marche seulement pour les navigateurs récents (IE 9 ne passe pas :/ ) !
 ```html
@@ -262,11 +275,13 @@ On charge les scripts de manière asynchrone en remplaçant les balises par une 
 ```
 
 Au final, l'utilisateur pourra accéder aux différentes version des widgets sur http://test-widget-istex.infra.univ-lorraine.fr de cette façon :
-- Pour utiliser la dernière version stable des widgets, les fichiers sont présent ici :
-  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/angularjs/angular.min.js
-  - http://test-widget-istex.infra.univ-lorraine.fr/style.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/app.min.js
-  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.js
+- Pour utiliser la dernière version stable des widgets, les fichiers sont présents ici :
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/bower_components/angular/angular.min.js
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/bower_components/bootstrap/dist/css/bootstrap.min.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/style.min.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/app.min.js
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/slider/rzslider.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/public/slider/rzslider.js
 
 
