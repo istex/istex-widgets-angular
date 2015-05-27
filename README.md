@@ -242,6 +242,7 @@ L'utilisation d'AngularJS mène à avoir une structure du code particulière (ap
   - Dans chaque dossier widget, un fichier service qui inclue le code qui permet de construire les URIs et de faire l'appel correspondant (Model)
   - Un fichier istexconfigdefault.js qui associe les configurations par défaut au $rootScope (et éventuellement celles indiquées dans le HTML) et associe l'application à AngularJS
 - Un dossier css qui contient tout le css lié aux widgets
+
 On a aussi :
 - Un dossier public qui contient tout ce qui est prêt à être utilisés par le serveur
   - Un dossier bower_components contenant AngularJS et Bootstrap
