@@ -276,12 +276,10 @@ On charge les scripts de manière asynchrone en remplaçant les balises par une 
 
 Au final, l'utilisateur pourra accéder aux différentes version des widgets sur http://test-widget-istex.infra.univ-lorraine.fr de cette façon :
 - Pour utiliser la dernière version stable des widgets, les fichiers sont présents ici :
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/bower_components/angular/angular.min.js
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/bower_components/bootstrap/dist/css/bootstrap.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/style.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/app.min.js
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/slider/rzslider.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/public/slider/rzslider.js
-
-
+  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/angular/angular.min.js
+  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/bootstrap/dist/css/bootstrap.min.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/style.min.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/app.min.js
+  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.css
+  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.js
