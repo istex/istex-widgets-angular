@@ -77,7 +77,7 @@ ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.i
   background-image: url(../public/img/istexresults-item-dl-file.png);
   background-size: 100% 100%;
   background-repeat: no-repeat;
-  text-indent: 100%;
+  text-indent: 110%;
   white-space: nowrap;
   overflow: hidden;
 }
