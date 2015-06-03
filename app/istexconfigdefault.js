@@ -99,6 +99,8 @@ app.run(['$rootScope', function($rootScope) {
         }
     }
 
+    window.myNav = navigator.userAgent.toLowerCase();
+    window.myNav = (window.myNav.indexOf('msie') != -1) ? parseInt(window.myNav.split('msie')[1]) : false;
 
 }]);
 

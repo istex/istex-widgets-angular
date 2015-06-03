@@ -66,7 +66,11 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             // We calculate the request time
             $rootScope.searchTimeA = new Date().getTime();
 
-            return $http.get(url);
+            if (window.myNav && window.myNav <= 9 ){
+                return $http.jsonp(url+"&callback=JSON_CALLBACK");
+            }else{
+                return $http.get(url);
+            }
         }
     }
 }]);

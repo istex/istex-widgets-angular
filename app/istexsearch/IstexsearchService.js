@@ -22,7 +22,11 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             $rootScope.searchTimeA = new Date().getTime();
 
             // We request the url => IstexsearchCtrl.istexSearchService.search()
-            return $http.get(url);
+            if (window.myNav && window.myNav <= 9 ){
+                return $http.jsonp(url+"&callback=JSON_CALLBACK");
+            }else{
+                return $http.get(url);
+            }
         },
         advancedSearch: function(advancedQuery) {
             var advanced ="";
