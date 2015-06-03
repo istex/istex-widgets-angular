@@ -12,7 +12,7 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
             url+= from;
 
             // We calculate the request time
-            $rootScope.searchTimeA = performance.now();
+            $rootScope.searchTimeA = new Date().getTime();
 
             return $http.get(url);
         },
@@ -33,7 +33,7 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
             $rootScope.currentPageURI = url;
 
             // We calculate the request time
-            $rootScope.searchTimeA = performance.now();
+            $rootScope.searchTimeA = new Date().getTime();
 
             return $http.get(url);
         }

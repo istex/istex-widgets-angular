@@ -16,6 +16,43 @@
 
 <script>
     var istexConfig = {
+        titleLength: 80,
+        abstractLength: 160,
+        labels: {
+            search: {
+                'advancedTitle':"Cliquer ici pour la recherche avancée",
+                'placeholder':"Votre requête ici ...",
+                'author.name':"Auteur",
+                'host.editor.name':"Editeur",
+                'genre':"Genre de document",
+                'host.genre':"Genre de série",
+                'subject.value':"Sujet du document",
+                'host.subject.value':"Sujet de la série",
+                'language':"Langue"
+            },
+            results: {
+                'abstract':"Pas de résumé",
+                'fulltext':"Texte complet",
+                'metadata':"Métadonnées"
+            },
+            facets: {
+                'title' : 'Affiner votre recherche',
+                'corpus' : 'Corpus',
+                'pubdate' : 'Date de publication',
+                'copyrightdate' : 'Début du copyright'
+            }
+        },
+        facetsToLoad: [ 'corpus', 'pubdate' ],
+        advancedToLoad: {
+            'author.name':"",
+            'host.editor.name':"",
+            'genre':"",
+            'host.genre':"",
+            'subject.value':"",
+            'host.subject.value':"",
+            'language':""
+        },
+        slider:false
     };
 </script>
 

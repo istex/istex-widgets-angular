@@ -19,7 +19,7 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             $rootScope.currentPageURI = url;
 
             // We calculate the request time
-            $rootScope.searchTimeA = performance.now();
+            $rootScope.searchTimeA = new Date().getTime();
 
             // We request the url => IstexsearchCtrl.istexSearchService.search()
             return $http.get(url);

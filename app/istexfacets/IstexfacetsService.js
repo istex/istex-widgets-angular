@@ -64,7 +64,7 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             $rootScope.currentFacetsURI = url;
 
             // We calculate the request time
-            $rootScope.searchTimeA = performance.now();
+            $rootScope.searchTimeA = new Date().getTime();
 
             return $http.get(url);
         }

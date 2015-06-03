@@ -8,7 +8,7 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
         istexResultsService.defaultSearch($rootScope.istexConfigDefault.query)
             .success(function (result) {
                 // We calculate the time taken to make the search
-                $rootScope.searchTimeB = performance.now();
+                $rootScope.searchTimeB = new Date().getTime();
                 $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
                 $rootScope.elasticSearchTime=(result.stats['elasticsearch'].took/1000).toFixed(2);
                 $rootScope.istexSearchTime=(result.stats['istex-api'].took/1000).toFixed(2);
@@ -79,7 +79,7 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
         istexResultsService.search(page)
             .success(function (result) {
                 // We calculate the time taken to make the search with facets
-                $rootScope.searchTimeB = performance.now();
+                $rootScope.searchTimeB = new Date().getTime();
                 $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
                 $rootScope.elasticSearchTime=(result.stats['elasticsearch'].took/1000).toFixed(2);
                 $rootScope.istexSearchTime=(result.stats['istex-api'].took/1000).toFixed(2);

@@ -19,7 +19,7 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
         istexSearchService.search($scope)
             .success(function (result) {
                 // We calculate the time taken to make the search
-                $rootScope.searchTimeB = performance.now();
+                $rootScope.searchTimeB = new Date().getTime();
                 $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
                 if(result.total ===0){
 
@@ -62,6 +62,7 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
             })
             .error(function (e) {
                 console.error("ERROR : Search");
+                console.error(e);
             });
     };
 
