@@ -1,7 +1,10 @@
 app.directive('istexResults', function () {
     return {
         template:'' +
-        '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults">'+
+        '<div class="istex-results-noresult" ng-if="noresult">'+
+            'Il n\'y a pas de résultat à afficher !'+
+        '</div>'+
+        '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-if="!noresult">'+
             '<div class="istex-results-items-stats" ng-toggle="!hideStats">' +
                 'Environ {{ total | numberize }} résultats <span title="Réseau : {{reseauSearchTime}} sec, Moteur de recherche : {{elasticSearchTime}} sec, Traitements de l\'API : {{istexSearchTime}} sec" ng-if="istexConfigDefault.showQuerySpeed">({{totalSearchTime}} secondes)</span>' +
             '</div>'+
