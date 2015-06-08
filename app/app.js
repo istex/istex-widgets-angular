@@ -91,20 +91,16 @@ app.directive(
             var expression = attributes.ngToggle;
 
             // Default display of the element
+            /*
             if ( ! $scope.$eval( expression ) ) {
                 element.style.opacity = '0';
-            }
+            }*/
+
 
             // Sort of event listener
             $scope.$watch(
                 expression,
                 function( newValue, oldValue ) {
-                    // Ignore first-run values since we've
-                    // already defaulted the element state.
-                    if ( newValue === oldValue ) {
-                        return;
-                    }
-
                     // Show element.
                     if ( newValue ) {
                         element.style.opacity = '1';

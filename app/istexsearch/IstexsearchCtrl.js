@@ -2,6 +2,8 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
 
     $rootScope.showAdvanced=false;
 
+    $rootScope.showResults = false;
+
     if ($rootScope.istexConfigDefault.advancedToLoad)
         $scope.advancedQuery =$rootScope.istexConfigDefault.advancedToLoad;
 
@@ -53,10 +55,11 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                         tab.push({"id": i});
                     }
                     $rootScope.pages = tab;
-                }
                     // We allow results and facets to appear
                     $rootScope.showResults = true;
                     $rootScope.showFacets = true;
+                }
+
             })
             .error(function (e) {
                 console.error("ERROR : Search");

@@ -43,7 +43,6 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                         tab.push({"id": i});
                     }
                     $rootScope.pages = tab;
-
                     // We allow results and facets to appear
                     $rootScope.showResults = true;
                     $rootScope.showFacets = true;

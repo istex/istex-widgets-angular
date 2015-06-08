@@ -1,10 +1,10 @@
 app.directive('istexResults', function () {
     return {
-        template:'' +
-        '<div class="istex-results-noresult" ng-if="noresult">'+
+        template:'{{showResults}}' +
+        '<div class="istex-results-noresult" ng-show="noresult">'+
             'Il n\'y a pas de résultat à afficher !'+
         '</div>'+
-        '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-if="!noresult">'+
+        '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-show="!noresult">'+
             '<div class="istex-results-items-stats" ng-toggle="!hideStats">' +
                 'Environ {{ total | numberize }} résultats <span title="Réseau : {{reseauSearchTime}} sec, Moteur de recherche : {{elasticSearchTime}} sec, Traitements de l\'API : {{istexSearchTime}} sec" ng-if="istexConfigDefault.showQuerySpeed">({{totalSearchTime}} secondes)</span>' +
             '</div>'+
