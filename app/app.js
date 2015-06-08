@@ -1,3 +1,11 @@
+window.myNav = navigator.userAgent.toLowerCase();
+window.myNav = (window.myNav.indexOf('msie') != -1) ? parseInt(window.myNav.split('msie')[1]) : false;
+if (window.myNav && window.myNav <= 8) {
+    var scr = document.getElementsByTagName("script");
+    var lastSrcipt = scr[scr.length - 1];
+    lastSrcipt.insertAdjacentHTML('afterend', '<div id="old">Votre navigateur ne peut pas afficher les widgets ISTEX, veuillez en utiliser un plus récent : Internet Explorer 9 ou plus, Google Chrome, Firefox,...</div>');
+}
+
 if(window.istexConfig.slider !== false)
     var app = angular.module('app', ['rzModule']);
 else
