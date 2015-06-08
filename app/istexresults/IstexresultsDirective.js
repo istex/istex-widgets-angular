@@ -1,8 +1,8 @@
 app.directive('istexResults', function () {
     return {
-        template:'{{showResults}}' +
+        template:'' +
         '<div class="istex-results-noresult" ng-show="noresult">'+
-            'Il n\'y a pas de résultat à afficher !'+
+            '{{istexConfigDefault.labels.results["noresult"] || "Il n\'y a pas de résultat à afficher !"}}'+
         '</div>'+
         '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-show="!noresult">'+
             '<div class="istex-results-items-stats" ng-toggle="!hideStats">' +

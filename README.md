@@ -132,6 +132,7 @@ var istexConfig = {
              'language':"Langue"
          },
          results: {
+             'noresult':"Pas de résultat",
              'abstract':"Pas de résumé",
              'fulltext':"Texte complet",
              'metadata':"Métadonnées"

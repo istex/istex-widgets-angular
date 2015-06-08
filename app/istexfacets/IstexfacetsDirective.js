@@ -17,11 +17,11 @@ app.directive('istexFacets', function () {
                                     '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].bot" ng-change="submitFacetSearch(aggregations)" >' +
                                     ' et ' +
                                     '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].top" ng-change="submitFacetSearch(aggregations)" >' +
-                                    '<span class="istex-facet-copyrightdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
+                                    //'<span class="istex-facet-copyrightdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
                                 '</div>' +
                                 '<div ng-if="istexConfigDefault.slider">' +
                                     '<rzslider class="rzslider" rz-slider-floor="facet.buckets[0].from_as_string" rz-slider-ceil="facet.buckets[0].to_as_string" rz-slider-model="facet.buckets[0].bot" rz-slider-high="facet.buckets[0].top" rz-slider-step="1" ></rzslider>'+
-                                    '<span class="istex-facet-copyrightdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
+                                    //'<span class="istex-facet-copyrightdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
                                 '</div>'+
                             '</div>'+
                             '<div class="istex-facet-{{ facetName }}" ng-switch-when="pubdate">' +
@@ -30,11 +30,11 @@ app.directive('istexFacets', function () {
                                     '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].bot" ng-change="submitFacetSearch(aggregations)" >' +
                                     ' et ' +
                                     '<input type="number" min="{{ facet.buckets[0].from_as_string }}" max="{{ facet.buckets[0].to_as_string }}" ng-model="facet.buckets[0].top" ng-change="submitFacetSearch(aggregations)" >' +
-                                    '<span class="istex-facet-pubdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
+                                    //'<span class="istex-facet-pubdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
                                 '</div>' +
                                 '<div ng-if="istexConfigDefault.slider">' +
                                     '<rzslider class="rzslider" rz-slider-floor="facet.buckets[0].from_as_string" rz-slider-ceil="facet.buckets[0].to_as_string" rz-slider-model="facet.buckets[0].bot" rz-slider-high="facet.buckets[0].top" rz-slider-step="1" ></rzslider>'+
-                                    '<span class="istex-facet-pubdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
+                                    //'<span class="istex-facet-pubdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
                                 '</div>'+
                             '</div>'+
                             '<div class="istex-facet-{{ facetName }}" ng-switch-default>Default behavior</div>'+
