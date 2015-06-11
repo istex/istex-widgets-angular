@@ -14,11 +14,8 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
             // We calculate the request time
             $rootScope.searchTimeA = new Date().getTime();
 
-            if (window.myNav && window.myNav <= 9 ){
-                return $http.jsonp(url+"&callback=JSON_CALLBACK");
-            }else{
-                return $http.get(url);
-            }
+            return $http.jsonp(url+"&callback=JSON_CALLBACK");
+
         },
         defaultSearch: function(q) {
 
@@ -39,11 +36,8 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
             // We calculate the request time
             $rootScope.searchTimeA = new Date().getTime();
 
-            if (window.myNav && window.myNav <= 9 ){
-                return $http.jsonp(url+"&callback=JSON_CALLBACK");
-            }else{
-                return $http.get(url);
-            }
+            return $http.jsonp(url+"&callback=JSON_CALLBACK");
+
         }
     }
 }]);

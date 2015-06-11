@@ -38,6 +38,14 @@ var extend = function ( objects ) {
 // {{ input | filter }}
 // {{ input | filter:option1:option2:optionN }}
 
+app.filter('proxify', function() {
+    return function(input, istexApi) {
+        if (input!=null)
+            input = istexApi+input.substring(20);
+        return input;
+    }
+});
+
 // Put the first letter of a word in upper case, the rest in lower case
 app.filter('capitalize', function() {
     return function(input, scope) {

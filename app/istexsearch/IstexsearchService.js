@@ -21,12 +21,8 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             // We calculate the request time
             $rootScope.searchTimeA = new Date().getTime();
 
-            // We request the url => IstexsearchCtrl.istexSearchService.search()
-            if (window.myNav && window.myNav <= 9 ){
-                return $http.jsonp(url+"&callback=JSON_CALLBACK");
-            }else{
-                return $http.get(url);
-            }
+            return $http.jsonp(url+"&callback=JSON_CALLBACK");
+
         },
         advancedSearch: function(advancedQuery) {
             var advanced ="";

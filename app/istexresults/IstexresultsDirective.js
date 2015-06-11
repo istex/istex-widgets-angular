@@ -6,7 +6,7 @@ app.directive('istexResults', function () {
         '</div>'+
         '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-show="!noresult">'+
             '<div class="istex-results-items-stats" ng-toggle="!hideStats">' +
-                'Environ {{ total | numberize }} résultats <span title="Réseau : {{reseauSearchTime}} sec, Moteur de recherche : {{elasticSearchTime}} sec, Traitements de l\'API : {{istexSearchTime}} sec" ng-if="istexConfigDefault.showQuerySpeed">({{totalSearchTime}} secondes)</span>' +
+                'Environ {{ total }} résultats <span title="Réseau : {{reseauSearchTime}} sec, Moteur de recherche : {{elasticSearchTime}} sec, Traitements de l\'API : {{istexSearchTime}} sec" ng-if="istexConfigDefault.showQuerySpeed">({{totalSearchTime}} secondes)</span>' +
             '</div>'+
             '<div class="istex-results-pagination" ng-if="istexConfigDefault.showPaginationTop">'+
                     //'<a href="#" ng-click="selectPage(firstPageURI.id)" ng-if="pageCourante !== firstPageURI.id"> {{firstPageURI.id}} </a>'+
@@ -30,7 +30,7 @@ app.directive('istexResults', function () {
                         '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
                         '<ul class="istex-results-item-download">'+
                             '<li class="istex-results-item-dl fulltext" ng-repeat="fulltext in document.fulltext">'+
-                                '<a href="{{ fulltext.uri }}" ng-href="{{ fulltext.uri }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
+                                '<a href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" ng-href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
                             '</li>'+
                         '</ul>'+
                     '</div>'+
@@ -38,7 +38,7 @@ app.directive('istexResults', function () {
                         '<h4>{{ (istexConfigDefault.labels.results["metadata"] || "Metadata") }}</h4>'+
                         '<ul class="istex-results-item-download metadata">'+
                             '<li class="istex-results-item-dl" ng-repeat="metadata in document.metadata">'+
-                                '<a href="{{ metadata.uri }}" ng-href="{{ metadata.uri }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
+                                '<a href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" ng-href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
                             '</li>'+
                         '</ul>'+
                     '</div>'+
