@@ -30,7 +30,7 @@ app.directive('istexResults', function () {
                         '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
                         '<ul class="istex-results-item-download">'+
                             '<li class="istex-results-item-dl fulltext" ng-repeat="fulltext in document.fulltext">'+
-                                '<a href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" ng-href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
+                                '<a ng-href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
                             '</li>'+
                         '</ul>'+
                     '</div>'+
@@ -38,7 +38,7 @@ app.directive('istexResults', function () {
                         '<h4>{{ (istexConfigDefault.labels.results["metadata"] || "Metadata") }}</h4>'+
                         '<ul class="istex-results-item-download metadata">'+
                             '<li class="istex-results-item-dl" ng-repeat="metadata in document.metadata">'+
-                                '<a href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" ng-href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
+                                '<a ng-href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
                             '</li>'+
                         '</ul>'+
                     '</div>'+
