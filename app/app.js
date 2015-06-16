@@ -41,7 +41,8 @@ var extend = function ( objects ) {
 app.filter('proxify', function() {
     return function(input, istexApi) {
         if (input!=null && istexApi !== "https://api.istex.fr")
-            input = istexApi+input.substring(20);
+            input = input.replace("https://api.istex.fr", istexApi);
+            //input = istexApi+input.substring(20);
         return input;
     }
 });
