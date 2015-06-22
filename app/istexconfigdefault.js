@@ -84,9 +84,9 @@ app.run(['$rootScope', function($rootScope) {
             },
             facets: {
                 'title' : 'Affiner votre recherche',
-                'corpus' : 'Corpus',
-                'pubdate' : 'Date de publication',
-                'copyrightdate' : 'Début du copyright'
+                'corpusName' : 'Corpus',
+                'publicationDate' : 'Date de publication',
+                'copyrightDate' : 'Début du copyright'
             }
         }
     };
