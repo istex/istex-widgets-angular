@@ -4,7 +4,7 @@ app.run(['$rootScope', function($rootScope) {
         // l'adresse de l'API de l'Istex
         // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
         // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-        istexApi: 'https://api.istex.fr',
+        istexApi: 'http://api-integ.istex.fr',
 
         // pour lancer une recherche au chargement de la page
         // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
@@ -17,7 +17,7 @@ app.run(['$rootScope', function($rootScope) {
 
         // il est possible de ne charger que certaines facettes
         // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate'
-        facetsToLoad: [ 'corpus','pubdate','copyrightdate'],
+        facetsToLoad: [ 'corpusName','publicationDate','copyrightDate'],
 
         // il n'est possible de charger que certains champs de la recherche avancée
         // par défaut, tout les champs sont chargés

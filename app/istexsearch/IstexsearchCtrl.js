@@ -34,13 +34,13 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                     $rootScope.total = result.total;
                     $rootScope.nextPageURI = result.nextPageURI;
                     $rootScope.aggregations = result.aggregations;
-                    if ($rootScope.aggregations.pubdate) {
-                        $rootScope.aggregations.pubdate.buckets[0].top = parseInt($rootScope.aggregations.pubdate.buckets[0].to_as_string);
-                        $rootScope.aggregations.pubdate.buckets[0].bot = parseInt($rootScope.aggregations.pubdate.buckets[0].from_as_string);
+                    if ($rootScope.aggregations.publicationDate) {
+                        $rootScope.aggregations.publicationDate.buckets[0].top = parseInt($rootScope.aggregations.publicationDate.buckets[0].toAsString);
+                        $rootScope.aggregations.publicationDate.buckets[0].bot = parseInt($rootScope.aggregations.publicationDate.buckets[0].fromAsString);
                     }
-                    if ($rootScope.aggregations.copyrightdate) {
-                        $rootScope.aggregations.copyrightdate.buckets[0].top = parseInt($rootScope.aggregations.copyrightdate.buckets[0].to_as_string);
-                        $rootScope.aggregations.copyrightdate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightdate.buckets[0].from_as_string);
+                    if ($rootScope.aggregations.copyrightDate) {
+                        $rootScope.aggregations.copyrightDate.buckets[0].top = parseInt($rootScope.aggregations.copyrightDate.buckets[0].toAsString);
+                        $rootScope.aggregations.copyrightDate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightDate.buckets[0].fromAsString);
                     }
                     // We initialise the page system if there is one
                     $rootScope.maxPagesInPagination = $rootScope.istexConfigDefault.maxPagesInPagination;
