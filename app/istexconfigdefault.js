@@ -77,7 +77,7 @@ app.run(['$rootScope', function($rootScope) {
                 'language':"Langue"
             },
             results: {
-                'noresult':"Pas de résultat",
+                'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",
                 'abstract':"Pas de résumé",
                 'fulltext':"Texte complet",
                 'metadata':"Métadonnées"
