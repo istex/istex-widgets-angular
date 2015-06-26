@@ -4,7 +4,7 @@ app.run(['$rootScope', function($rootScope) {
         // l'adresse de l'API de l'Istex
         // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
         // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-        istexApi: 'http://api-integ.istex.fr',
+        istexApi: 'https://api.istex.fr',
 
         // pour lancer une recherche au chargement de la page
         // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)

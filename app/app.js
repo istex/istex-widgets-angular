@@ -1,3 +1,4 @@
+// If IE8 or less, show error
 window.myNav = navigator.userAgent.toLowerCase();
 window.myNav = (window.myNav.indexOf('msie') != -1) ? parseInt(window.myNav.split('msie')[1]) : false;
 if (window.myNav && window.myNav <= 8) {
@@ -6,6 +7,7 @@ if (window.myNav && window.myNav <= 8) {
     lastSrcipt.insertAdjacentHTML('afterend', '<div id="old">Votre navigateur ne peut pas afficher les widgets ISTEX, veuillez en utiliser un plus récent : Internet Explorer 9 ou plus, Google Chrome, Firefox,...</div>');
 }
 
+// If istexConfig.slider = false, it's not loaded
 if(window.istexConfig.slider !== false)
     var app = angular.module('app', ['rzModule']);
 else
@@ -14,7 +16,7 @@ else
 /********************Functions********************/
 
 // Credit to : http://gomakethings.com/ditching-jquery
-// Permits to merge two Javascript Objects
+// Merges two Javascript Objects
 // @objects = The list of objects that will be merged
 var extend = function ( objects ) {
     var extended = {};
