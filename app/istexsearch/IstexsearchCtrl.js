@@ -34,6 +34,51 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                     $rootScope.total = result.total;
                     $rootScope.nextPageURI = result.nextPageURI;
                     $rootScope.aggregations = result.aggregations;
+
+                    // We mix en and eng languages as well as fr and fre !
+                    var language = $rootScope.aggregations.language.buckets;
+                    var fr, fre, en, eng;
+                    for(var i=0; i < language.length; i++) {
+                        switch(language[i].key) {
+                         case "fr":
+                             fr= language[i];
+                             language.splice(i,1);
+                             i-=1;
+                            break;
+                         case "fre":
+                            fre= language[i];
+                             language.splice(i,1);
+                             i-=1;
+                            break;
+                         case "en":
+                            en= language[i];
+                             language.splice(i,1);
+                             i-=1;
+                            break;
+                         case "eng":
+                            eng= language[i];
+                             language.splice(i,1);
+                             i-=1;
+                            break;
+                         }
+                     }
+                    fr.docCount += fre.docCount;
+                    en.docCount += eng.docCount;
+                    for(var i=0; i < language.length; i++) {
+                        if (language[i].docCount < fr.docCount) {
+                            language.splice(i, 0, fr);
+                            break;
+                        }
+                    }
+                    for(var i=0; i < language.length; i++) {
+                        if(language[i].docCount < en.docCount){
+                            language.splice(i,0,en);
+                            break;
+                        }
+                    }
+                    //language.push(en,fr);
+                    $rootScope.aggregations.language.buckets = language;
+
                     if ($rootScope.aggregations.publicationDate) {
                         $rootScope.aggregations.publicationDate.buckets[0].top = parseInt($rootScope.aggregations.publicationDate.buckets[0].toAsString);
                         $rootScope.aggregations.publicationDate.buckets[0].bot = parseInt($rootScope.aggregations.publicationDate.buckets[0].fromAsString);

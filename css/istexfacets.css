@@ -17,18 +17,18 @@
   padding-bottom: 5px;
   margin-bottom: 5px;
 }
-.istex-facets .istex-facet .istex-facet-corpus {
+.istex-facets .istex-facet .istex-facet-corpus, .istex-facets .istex-facet .istex-facet-language {
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
-.istex-facets .istex-facet .istex-facet-corpus label {
+.istex-facets .istex-facet .istex-facet-corpus label,  .istex-facets .istex-facet .istex-facet-language label{
   display: block;
 }
-.istex-facets .istex-facet .istex-facet-corpus input {
+.istex-facets .istex-facet .istex-facet-corpus input, .istex-facets .istex-facet .istex-facet-language input {
   margin-right: 8px;
 }
-.istex-facets .istex-facet .istex-facet-corpus .istex-facet-corpus-badge, .istex-facets .istex-facet .istex-facet-pubdate .istex-facet-pubdate-badge, .istex-facets .istex-facet .istex-facet-copyrightdate .istex-facet-copyrightdate-badge {
+.istex-facets .istex-facet .istex-facet-corpus .istex-facet-corpus-badge, .istex-facet-language .istex-facet-language-badge, .istex-facets .istex-facet .istex-facet-pubdate .istex-facet-pubdate-badge, .istex-facets .istex-facet .istex-facet-copyrightdate .istex-facet-copyrightdate-badge {
   float: right;
   display: inline-block;
   min-width: 10px;

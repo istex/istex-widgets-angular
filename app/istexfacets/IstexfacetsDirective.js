@@ -11,6 +11,9 @@ app.directive('istexFacets', function () {
                             '<div class="istex-facet-corpus" ng-switch-when="corpusName">'+
                                 '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key }}<span class="istex-facet-corpus-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
                             '</div>'+
+                            '<div class="istex-facet-language" ng-switch-when="language">'+
+                                '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key }}<span class="istex-facet-language-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
+                            '</div>'+
                             '<div class="istex-facet-copyrightdate" ng-switch-when="copyrightDate">' +
                                 '<div ng-if="!istexConfigDefault.slider">' +
                                     'Entre ' +

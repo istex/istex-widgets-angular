@@ -7,17 +7,34 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
 
             // corpusSearch
             var corpus = " AND corpusName:";
-            function urlMaker(element, index, array) {
+            function corpusMaker(element, index, array) {
                 if(element.isChecked){
                     corpus+=element.key+",";
                 }
             }
+            function languageMaker(element, index, array) {
+                if(element.isChecked){
+                    language+=element.key+",";
+                    if(element.key==="fr")
+                        language+="fre,";
+                    if(element.key==="en")
+                        language+="eng,";
+                }
+            }
             if (list.corpusName)
-                list.corpusName.buckets.forEach(urlMaker);
+                list.corpusName.buckets.forEach(corpusMaker);
             corpus = (corpus != " AND corpusName:") ? corpus.substring(0, corpus.length - 1) : corpus="";
             tmp = url.split("&");
             tmp[0] += corpus;
             url= (corpus!==" AND corpusName:") ? tmp.join("&") : url;
+
+            var language = " AND language:";
+            if (list.language)
+                list.language.buckets.forEach(languageMaker);
+            language = (language != " AND language:") ? language.substring(0, language.length - 1) : language="";
+            tmp = url.split("&");
+            tmp[0] += language;
+            url= (language!==" AND language:") ? tmp.join("&") : url;
 
             var bot;
             var top;
