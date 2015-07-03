@@ -62,22 +62,28 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                             break;
                          }
                      }
-                    if(fre)
+                    if(fre){
+                        if(!fr)
+                            fr={key:"fr",docCount:0};
                         fr.docCount += fre.docCount;
-                    if(eng)
+                    }
+                    if(eng) {
+                        if (!en)
+                            en = {key: "en", docCount: 0};
                         en.docCount += eng.docCount;
+                    }
                     if (language.length === 0 && fr)
                         language.push(fr);
                     if (language.length === 0 && en)
                         language.push(en);
                     for(var i=0; i < language.length; i++) {
-                        if (language[i].docCount < fr.docCount) {
+                        if (fr && language[i].docCount < fr.docCount) {
                             language.splice(i, 0, fr);
                             break;
                         }
                     }
                     for(var i=0; i < language.length; i++) {
-                        if(language[i].docCount < en.docCount){
+                        if(en &&language[i].docCount < en.docCount){
                             language.splice(i,0,en);
                             break;
                         }
