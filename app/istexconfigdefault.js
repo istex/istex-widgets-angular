@@ -86,7 +86,9 @@ app.run(['$rootScope', function($rootScope) {
                 'title' : 'Affiner votre recherche',
                 'corpusName' : 'Corpus',
                 'publicationDate' : 'Date de publication',
-                'copyrightDate' : 'Début du copyright'
+                'copyrightDate' : 'Début du copyright',
+                'language':'Langue',
+                'traduction':'fr'
             }
         }
     };

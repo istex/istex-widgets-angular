@@ -4,7 +4,7 @@ window.myNav = (window.myNav.indexOf('msie') != -1) ? parseInt(window.myNav.spli
 if (window.myNav && window.myNav <= 8) {
     var scr = document.getElementsByTagName("script");
     var lastSrcipt = scr[scr.length - 1];
-    lastSrcipt.insertAdjacentHTML('afterend', '<div id="old">Votre navigateur ne peut pas afficher les widgets ISTEX, veuillez en utiliser un plus r�cent : Internet Explorer 9 ou plus, Google Chrome, Firefox,...</div>');
+    lastSrcipt.insertAdjacentHTML('afterend', '<div id="old">Votre navigateur ne peut pas afficher les widgets ISTEX, veuillez en utiliser un plus récent : Internet Explorer 9 ou plus, Google Chrome, Firefox,...</div>');
 }
 
 // If istexConfig.slider = false, it's not loaded
@@ -44,7 +44,6 @@ app.filter('proxify', function() {
     return function(input, istexApi) {
         if (input!=null && istexApi !== "https://api.istex.fr")
             input = input.replace("https://api.istex.fr", istexApi);
-            //input = istexApi+input.substring(20);
         return input;
     }
 });
@@ -88,7 +87,41 @@ app.filter('ellipse', function () {
             }
         }
 
-        return input + (tail || ' �');
+        return input + (tail || ' …');
+    };
+});
+
+// Write the full language name from initials
+// @value = language initials
+// @traduction = language in which the full language name must be written
+app.filter('languagize', function(){
+    return function(input, traduction){
+        if(!input) return '';
+
+        if(traduction==="en"){
+            switch(input){
+                case 'fr' : return 'French';
+                case 'en' : return 'English';
+                case 'es' : return 'Spanish';
+                case 'lat' : return 'Latin';
+                case 'nl' : return 'Dutch';
+                case 'de' : return 'German';
+                case 'it' : return 'Italian';
+                case 'ru' : return 'Russian';
+            }
+        }else{
+            switch(input){
+                case 'fr' : return 'Français';
+                case 'en' : return 'Anglais';
+                case 'es' : return 'Espagnol';
+                case 'lat' : return 'Latin';
+                case 'nl' : return 'Néerlandais';
+                case 'de' : return 'Allemand';
+                case 'it' : return 'Italien';
+                case 'ru' : return 'Russe';
+            }
+        }
+
     };
 });
 
