@@ -62,8 +62,14 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                             break;
                          }
                      }
-                    fr.docCount += fre.docCount;
-                    en.docCount += eng.docCount;
+                    if(fre)
+                        fr.docCount += fre.docCount;
+                    if(eng)
+                        en.docCount += eng.docCount;
+                    if (language.length === 0 && fr)
+                        language.push(fr);
+                    if (language.length === 0 && en)
+                        language.push(en);
                     for(var i=0; i < language.length; i++) {
                         if (language[i].docCount < fr.docCount) {
                             language.splice(i, 0, fr);
