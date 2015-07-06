@@ -16,7 +16,7 @@ app.run(['$rootScope', function($rootScope) {
         focusInputQueryOnLoad: false,
 
         // il est possible de ne charger que certaines facettes
-        // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate'
+        // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','score'
         facetsToLoad: [ 'corpusName','publicationDate','copyrightDate', 'score'],
 
         // il n'est possible de charger que certains champs de la recherche avancée
