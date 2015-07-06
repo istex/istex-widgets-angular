@@ -107,7 +107,14 @@ app.filter('languagize', function(){
                 case 'nl' : return 'Dutch';
                 case 'de' : return 'German';
                 case 'it' : return 'Italian';
+                case 'spa' : return 'Spanish';
+                case 'dut' : return 'Dutch';
+                case 'ger' : return 'German';
+                case 'ita' : return 'Italian';
                 case 'ru' : return 'Russian';
+                case 'grc' : return 'Greek';
+                case 'gre' : return 'Greek';
+                case 'ara' : return 'Arabian';
             }
         }else{
             switch(input){
@@ -118,7 +125,14 @@ app.filter('languagize', function(){
                 case 'nl' : return 'Néerlandais';
                 case 'de' : return 'Allemand';
                 case 'it' : return 'Italien';
+                case 'spa' : return 'Espagnol';
+                case 'dut' : return 'Néerlandais';
+                case 'ger' : return 'Allemand';
+                case 'ita' : return 'Italien';
                 case 'ru' : return 'Russe';
+                case 'grc' : return 'Grec';
+                case 'gre' : return 'Grec';
+                case 'ara' : return 'Arabe';
             }
         }
 

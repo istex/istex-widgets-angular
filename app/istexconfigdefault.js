@@ -64,6 +64,7 @@ app.run(['$rootScope', function($rootScope) {
         showQuerySpeed: true,
 
         // les différents textes paramétrables
+        // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'
         labels: {
             search: {
                 'advancedTitle':"Recherche avancée",
