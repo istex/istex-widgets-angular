@@ -5,6 +5,7 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             // We create the url to call, using the same Query for the basic search
             var url = $rootScope.currentPageURI;
 
+            var tmp;
             // corpusSearch
             var corpus = " AND corpusName:";
             function corpusMaker(element, index, array) {
@@ -49,48 +50,49 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             tmp[0] += wos;
             url= (wos!==" AND wos:") ? tmp.join("&") : url;
 
-            var bot;
-            var top;
+            // Function that creates the url part for range facets
+            var facetURL;
+            var rangeSlider = function(facetName, facet, topValue, botValue){
+                var bot;
+                var top;
+                var facetURL = " AND "+facetName+":[";
+                if(!topValue)
+                    topValue = parseInt(facet.buckets[0].toAsString);
+                if(!botValue)
+                    botValue = parseInt(facet.buckets[0].fromAsString);
+                if (facet){
+                    bot = parseInt(facet.buckets[0].bot);
+                    bot = (!isNaN(bot) && bot > botValue) ? Math.floor(bot) : botValue ;
+                    top = parseInt(facet.buckets[0].top);
+                    top = (!isNaN(top) && top < topValue) ? Math.ceil(top) : topValue ;
+                    if (bot > top){
+                        var tmp = bot;
+                        bot = top;
+                        top = tmp;
+                    }
+                    if(!(bot == botValue && top == topValue))
+                        facetURL += bot+' TO '+top+']';
+                    return facetURL;
+                }
+            };
 
             // pubdateSearch
-            var pubdate = " AND publicationDate:[";
-            if (list.publicationDate){
-                bot = parseInt(list.publicationDate.buckets[0].bot);
-                bot = (!isNaN(bot) && bot > parseInt(list.publicationDate.buckets[0].fromAsString)) ? Math.floor(bot) : parseInt(list.publicationDate.buckets[0].fromAsString) ;
-                top = parseInt(list.publicationDate.buckets[0].top);
-                top = (!isNaN(top) && top < parseInt(list.publicationDate.buckets[0].toAsString)) ? Math.ceil(top) : parseInt(list.publicationDate.buckets[0].toAsString) ;
-
-                if (bot > top){
-                    var tmp = bot;
-                    bot = top;
-                    top = tmp;
-                }
-                if(!(bot == list.publicationDate.buckets[0].fromAsString && top == list.publicationDate.buckets[0].toAsString))
-                    pubdate += bot+' TO '+top+']';
-            }
             tmp = url.split("&");
-            tmp[0] += pubdate;
-            url= (pubdate!==" AND publicationDate:[") ? tmp.join("&") : url;
+            facetURL = rangeSlider("publicationDate",list.publicationDate);
+            tmp[0] += facetURL;
+            url= (facetURL!==" AND publicationDate:[") ? tmp.join("&") : url;
 
             // copyrightdateSearch
-            var copyrightdate = " AND copyrightDate:[";
-            if (list.copyrightDate){
-                bot = parseInt(list.copyrightDate.buckets[0].bot);
-                bot = (!isNaN(bot) && bot > parseInt(list.copyrightDate.buckets[0].fromAsString)) ? Math.floor(bot) : parseInt(list.copyrightDate.buckets[0].fromAsString) ;
-                top = parseInt(list.copyrightDate.buckets[0].top);
-                top = (!isNaN(top) && top < parseInt(list.copyrightDate.buckets[0].toAsString)) ? Math.ceil(top) : parseInt(list.copyrightDate.buckets[0].toAsString) ;
-
-                if (bot > top){
-                    tmp = bot;
-                    bot = top;
-                    top = tmp;
-                }
-                if(!(bot == list.copyrightDate.buckets[0].fromAsString && top == list.copyrightDate.buckets[0].toAsString))
-                    copyrightdate += bot+' TO '+top+']';
-            }
             tmp = url.split("&");
-            tmp[0] += copyrightdate;
-            url= (copyrightdate!==" AND copyrightDate:[") ? tmp.join("&") : url;
+            facetURL = rangeSlider("copyrightDate",list.copyrightDate);
+            tmp[0] += facetURL;
+            url= (facetURL!==" AND copyrightDate:[") ? tmp.join("&") : url;
+
+            // scoreSearch
+            tmp = url.split("&");
+            facetURL = rangeSlider("score",list.score);
+            tmp[0] += facetURL;
+            url= (facetURL!==" AND score:[") ? tmp.join("&") : url;
 
 
             $rootScope.currentFacetsURI = url;
