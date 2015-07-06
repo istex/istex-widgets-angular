@@ -29,7 +29,7 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                     $rootScope.istexSearchTime = (result.stats['istex-api'].took / 1000).toFixed(2);
                     $rootScope.reseauSearchTime = ($rootScope.totalSearchTime - $rootScope.elasticSearchTime - $rootScope.istexSearchTime).toFixed(2);
 
-                    // We associate the datas to the variables used in the directives with {{ }}
+                    // We associate the data to the variables used in the directives with {{ }}
                     $rootScope.documents = result.hits;
                     $rootScope.total = result.total;
                     $rootScope.nextPageURI = result.nextPageURI;
@@ -42,6 +42,12 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                         $rootScope.aggregations.copyrightDate.buckets[0].top = parseInt($rootScope.aggregations.copyrightDate.buckets[0].toAsString);
                         $rootScope.aggregations.copyrightDate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightDate.buckets[0].fromAsString);
                     }
+                    if ($rootScope.aggregations.score) {
+                        $rootScope.aggregations.score.buckets[0].top = 10;
+                        $rootScope.aggregations.score.buckets[0].bot = 0;
+                    }
+
+
                     // We initialise the page system if there is one
                     $rootScope.maxPagesInPagination = $rootScope.istexConfigDefault.maxPagesInPagination;
                     $rootScope.nbrPages = Math.ceil($rootScope.total / $rootScope.istexConfigDefault.pageSize);
