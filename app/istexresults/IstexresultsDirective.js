@@ -26,22 +26,25 @@ app.directive('istexResults', function () {
                     '<p class="istex-results-item-abstract" ng-if="document.abstract" title="{{ document.abstract }}"><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
                     '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">{{ istexConfigDefault.labels.results[\'abstract\'] || "Pas de résumé disponible pour cet article" }}</p>'+
                     '<div class="istex-results-item-corpus">{{ document.corpusName }}</div>'+
-                    '<div class="download fulltext">'+
-                        '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
-                        '<ul class="istex-results-item-download">'+
-                            '<li class="istex-results-item-dl fulltext" ng-repeat="fulltext in document.fulltext">'+
-                                '<a ng-href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
-                            '</li>'+
-                        '</ul>'+
-                    '</div>'+
-                    '<div class="download metadata">'+
-                        '<h4>{{ (istexConfigDefault.labels.results["metadata"] || "Metadata") }}</h4>'+
-                        '<ul class="istex-results-item-download metadata">'+
-                            '<li class="istex-results-item-dl" ng-repeat="metadata in document.metadata">'+
-                                '<a ng-href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
-                            '</li>'+
-                        '</ul>'+
-                    '</div>'+
+                    '<div>Score : <div class="star-rating"><div class="full-star" style="width: {{document.qualityIndicators.score*10 || 0}}%"></div><div class="empty-star"> </div></div></div>'+
+                    '<div style="display: block">'+
+                        '<div class="download fulltext">'+
+                            '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
+                            '<ul class="istex-results-item-download">'+
+                                '<li class="istex-results-item-dl fulltext" ng-repeat="fulltext in document.fulltext">'+
+                                    '<a ng-href="{{ fulltext.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
+                                '</li>'+
+                            '</ul>'+
+                        '</div>'+
+                        '<div class="download metadata">'+
+                            '<h4>{{ (istexConfigDefault.labels.results["metadata"] || "Metadata") }}</h4>'+
+                            '<ul class="istex-results-item-download metadata">'+
+                                '<li class="istex-results-item-dl" ng-repeat="metadata in document.metadata">'+
+                                    '<a ng-href="{{ metadata.uri | proxify:istexConfigDefault.istexApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
+                                '</li>'+
+                            '</ul>'+
+                        '</div>'+
+                    '</div>' +
                     '<div class="istex-results-item-bottom"></div>'+
                     '<hr style="border-top-color: black;"/>'+
                 '</li>' +

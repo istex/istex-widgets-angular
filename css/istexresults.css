@@ -102,6 +102,28 @@ ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.i
 ol.istex-results-items li.istex-results-item div.istex-results-item-bottom {
   clear: both;
 }
+ol.istex-results-items li.istex-results-item .star-rating {
+  position: relative;
+  display: inline-block;
+  height: 20px;
+  width: 130px;
+}
+ol.istex-results-items li.istex-results-item .full-star {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 50%;
+  background-image: url('../public/img/full-star.png');
+  background-repeat: no-repeat;
+  background-size: 130px;
+}
+ol.istex-results-items li.istex-results-item .empty-star {
+  width: 100%;
+  height: 100%;
+  background-image: url('../public/img/star.png');
+  background-repeat: no-repeat;
+  background-size: 130px;
+}
 .istex-results-pagination {
   margin: auto;
   text-align: center;
