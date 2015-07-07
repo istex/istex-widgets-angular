@@ -12,6 +12,11 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                     corpus+=element.key+",";
                 }
             }
+            function wosMaker(element, index, array) {
+                if(element.isChecked){
+                    wos+="\""+element.key.replace("&","%26")+"\",";
+                }
+            }
             function languageMaker(element, index, array) {
                 if(element.isChecked){
                     language+=element.key+",";
@@ -35,6 +40,14 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             tmp = url.split("&");
             tmp[0] += language;
             url= (language!==" AND language:") ? tmp.join("&") : url;
+
+            var wos = " AND wos:(";
+            if (list.wos)
+                list.wos.buckets.forEach(wosMaker);
+            wos = (wos != " AND wos:(") ? wos.substring(0, wos.length - 1)+")" : wos="";
+            tmp = url.split("&");
+            tmp[0] += wos;
+            url= (wos!==" AND wos:") ? tmp.join("&") : url;
 
             var bot;
             var top;
