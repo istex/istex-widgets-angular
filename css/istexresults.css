@@ -113,7 +113,7 @@ ol.istex-results-items li.istex-results-item .full-star {
   z-index: 1;
   height: 100%;
   width: 50%;
-  background-image: url('../public/img/full-star.png');
+  background-image: url('../public/img/full-stars.png');
   background-repeat: no-repeat;
   background-size: 130px;
 }
