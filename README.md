@@ -16,7 +16,6 @@ On peut aussi utiliser des balises classiques avec des attributs spéciaux :
 ```html
 <div istex-auth></div>
 ```
-A noter que la première méthode ne marche pas sur les vieux navigateurs (IE8...)
 
 Voici ce que ca peut donner sur une page quasi vierge :
 
@@ -56,94 +55,100 @@ La liste des différents paramètres se présente comme ceci (et est sujette à 
 
 ```javascript
 var istexConfig = {
+
     // l'adresse de l'API de l'Istex
     // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
-     // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-     istexApi: 'https://api.istex.fr',
+    // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
+    istexApi: 'https://api.istex.fr',
 
-     // pour lancer une recherche au chargement de la page
-     // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-     // si vous ne voulez pas de recherche au d�marrage, ne mettez rien (ou query: false)
-     // si vous mettez query: "", les r�sultats seront tous les documents
-     query: false,
+    // pour lancer une recherche au chargement de la page
+    // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
+    // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+    // si vous mettez query: "", les résultats seront tous les documents
+    query: false,
 
-     // il est possible de mettre le focus sur la barre de recherche au chargement de la page
-     focusInputQueryOnLoad: false,
+    // il est possible de mettre le focus sur la barre de recherche au chargement de la page
+    focusInputQueryOnLoad: false,
 
-     // il est possible de ne charger que certaines facettes
-     // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate'
-     facetsToLoad: [ 'corpus','pubdate','copyrightdate'],
+    // il est possible de ne charger que certaines facettes
+    // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
+    facetsToLoad: ['corpusName','publicationDate','copyrightDate','language','wos','score'],
 
-     // il n'est possible de charger que certains champs de la recherche avancée
-     // par défaut, tout les champs sont chargés
-     // on peut mettre des valeurs par défaut aux champs au lieu de guillemets vides
-     // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
-     advancedToLoad: {
-         'author.name':"",
-         'host.editor.name':"",
-         'genre':"",
-         'host.genre':"",
-         'subject.value':"",
-         'host.subject.value':"",
-         'language':""
-     },
+    // il n'est possible de charger que certains champs de la recherche avancée
+    // par défaut, tout les champs sont chargés
+    // on peut mettre des valeurs par défaut aux champs au lieu de guillemets vides
+    // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
+    advancedToLoad: {
+        'author.name':"",
+        'host.editor.name':"",
+        'genre':"",
+        'host.genre':"",
+        'subject.value':"",
+        'host.subject.value':"",
+        'language':""
+    },
 
-     // il est possible d' soit un slider soit deux inputs lorsque les facettes sont des dates
-     // si vous ne voulez pas de slider, vous n'êtes pas obligés d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
-     slider:true,
+    // il est possible d'avoir soit un slider soit deux inputs lorsque les facettes sont des dates
+    // si vous voulez le slider, n'oubliez pas d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
+    slider:true,
 
-     // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
-     showPaginationTop: true,
-     showPaginationBot: true,
+    // il est possible de cacher la zone de pagination en haut et/ou en bas avec ces paramètres
+    showPaginationTop: true,
+    showPaginationBot: true,
 
-     // nombre de résultats souhaités par page
-     pageSize: 10,
+    // nombre de résultats souhaités par page
+    pageSize: 10,
 
-     // nombre max de pages à montrer dans la zone de pagination
-     maxPagesInPagination: 10,
+    // nombre max de pages à montrer dans la zone de pagination
+    maxPagesInPagination: 10,
 
-     // le nombre max de caractères du résumé à afficher
-     abstractLength: 250,
+    // le nombre max de caractères du résumé à afficher
+    abstractLength: 250,
 
-     // le nombre max de caractères du titre à afficher
+    // le nombre max de caractères du titre à afficher
 
-     titleLength: 150,
+    titleLength: 150,
 
-     // PAS ENCORE IMPLEMENTE
-     // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
-     fullTextOnTitle: 'pdf',
+    // PAS ENCORE IMPLEMENTE
+    // le format qu'on souhaite voir s'ouvrir quand on clique sur le titre
+    fullTextOnTitle: 'pdf',
 
-     // il est possible de cacher l'affichage de la vitesse de la requête
-     // ex: "Environ 8 933 993 résultats (0.24 secondes)"
-     // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
-     showQuerySpeed: true,
+    // il est possible de cacher l'affichage de la vitesse de la requête
+    // ex: "Environ 8 933 993 résultats (0.24 secondes)"
+    // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
+    showQuerySpeed: true,
 
-     // les différents textes paramétrables
-     labels: {
-         search: {
-             'advancedTitle':"Recherche avancée",
-             'placeholder':"Votre requête ici ...",
-             'author.name':"Auteur",
-             'host.editor.name':"Editeur",
-             'genre':"Genre de document",
-             'host.genre':"Genre de série",
-             'subject.value':"Sujet du document",
-             'host.subject.value':"Sujet de la série",
-             'language':"Langue"
-         },
-         results: {
-             'noresult':"Pas de résultat",
-             'abstract':"Pas de résumé",
-             'fulltext':"Texte complet",
-             'metadata':"Métadonnées"
-         },
-         facets: {
-             'title' : 'Affiner votre recherche',
-             'corpus' : 'Corpus',
-             'pubdate' : 'Date de publication',
-             'copyrightdate' : 'Début du copyright'
-         }
-     }
+    // les différents textes paramétrables
+    // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'
+    labels: {
+        search: {
+            'advancedTitle':"Recherche avancée",
+            'placeholder':"Votre requête ici ...",
+            'author.name':"Auteur",
+            'host.editor.name':"Editeur",
+            'genre':"Genre de document",
+            'host.genre':"Genre de série",
+            'subject.value':"Sujet du document",
+            'host.subject.value':"Sujet de la série",
+            'language':"Langue"
+        },
+        results: {
+            'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",
+            'abstract':"Pas de résumé",
+            'fulltext':"Texte complet",
+            'metadata':"Métadonnées"
+        },
+        facets: {
+            'title' : 'Affiner votre recherche',
+            'corpusName' : 'Corpus',
+            'publicationDate' : 'Date de publication',
+            'copyrightDate' : 'Début du copyright',
+            'wos':'Catégorie',
+            'language':'Langue',
+            'traduction':'fr'
+        }
+    }
+
 }
 
 ```
@@ -169,7 +174,7 @@ Il permet aussi de gérer le système de pagination et la recherche au chargemen
 
 Ce widget permet d'insérer dans la page HTML des facettes permettant d'affiner la recherche courante de l'utilisateur. A l'aide de la facette corpus, on peut ainsi n'afficher que les résultats provenant d'un éditeur précis.
 Les facettes actuellement gérées sont les suivantes :
-- corpus, pubdate, copyrightdate
+- corpusName, publicationDate, copyrightDate, language, score
 
 Il est possible de n'afficher que certaines facettes en modifiant le paramètre ``facetsToLoad`` dans istexConfig.
 
@@ -250,6 +255,8 @@ On a aussi :
   - Les versions minifiés du css et du javascript des widgets
   - Un fichier index.html qui utilise les widgets avec le css, Bootstrap et les Sliders
   - Un fichier basique.html qui utilise juste les widgets et rien d'autre
+  - Un fichier example1.html qui intervertit l'affichage des résultats et des facettes
+  - Un fichier example2.html qui utilise juste le widget résultat et la recherche au chargement de la page
   - Un dossier img qui contient toutes les images liées aux widgets
   - Un dossier slider contenant le code nécessaire à la création et géstion de la directive rzslider (pour les facettes pubdate et copyrightdate par example) indépendant de jQuery, créé par rzajac :
     [angularjs-slider](https://github.com/rzajac/angularjs-slider)
