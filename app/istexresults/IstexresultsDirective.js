@@ -26,7 +26,7 @@ app.directive('istexResults', function () {
                     '<p class="istex-results-item-abstract" ng-if="document.abstract" title="{{ document.abstract }}"><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
                     '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">{{ istexConfigDefault.labels.results[\'abstract\'] || "Pas de résumé disponible pour cet article" }}</p>'+
                     '<div class="istex-results-item-corpus">{{ document.corpusName }}</div>'+
-                    '<div>Score : <div class="star-rating"><div class="full-star" ng-style="{width: \'{{document.qualityIndicators.score*10 || 0}}%\'}"></div><div class="empty-star">{{document.qualityIndicators.score || 0}}</div></div></div>'+
+                    '<div><b>Score</b> : <div class="star-rating"><div class="full-star" ng-style="{width: \'{{document.qualityIndicators.score*10 || 0}}%\'}"></div><div class="empty-star">{{document.qualityIndicators.score || 0}}</div></div></div>'+
                     '<div style="display: block">'+
                         '<div class="download fulltext">'+
                             '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+

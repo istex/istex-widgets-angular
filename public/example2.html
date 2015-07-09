@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Istex - Widgets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="slider/rzslider.css">
+    <link rel="stylesheet" href="style.min.css">
+
+
+</head>
+<body>
+
+<div class="container" >
+
+    <div class="blog-header">
+        <h1 class="blog-title">Exemple 2 : Widget résultats avec "science" comme recherche par défaut</h1>
+        <p class="lead blog-description">Cette page Web, réalisée à l'aide de <a href="http://getbootstrap.com/">Bootstrap</a> et
+            <a href="https://angularjs.org/">AngularJS</a> montre comment les <a href="https://github.com/istex/istex-widgets-angular">widgets Istex</a> peuvent être intégrés à un site Web tier.</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-12 blog-main">
+
+            <div class="blog-post">
+
+                <istex-results></istex-results>
+
+            </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+<script>
+    var istexConfig = {
+        query:'science',
+        showPaginationTop: false
+    };
+</script>
+
+<!-- Dependencies -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="slider/rzslider.js"></script>
+<script src="app.min.js"></script>
+
+</body>
+</html>
