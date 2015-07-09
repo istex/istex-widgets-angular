@@ -115,6 +115,7 @@ app.filter('languagize', function(){
                 case 'grc' : return 'Greek';
                 case 'gre' : return 'Greek';
                 case 'ara' : return 'Arabian';
+                default : return input;
             }
         }else{
             switch(input){
@@ -133,6 +134,7 @@ app.filter('languagize', function(){
                 case 'grc' : return 'Grec';
                 case 'gre' : return 'Grec';
                 case 'ara' : return 'Arabe';
+                default : return input;
             }
         }
 
