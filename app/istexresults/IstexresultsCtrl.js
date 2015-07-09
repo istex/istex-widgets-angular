@@ -21,14 +21,76 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                     $rootScope.total = result.total;
                     $rootScope.nextPageURI = result.nextPageURI;
                     $rootScope.aggregations = result.aggregations;
-                    if ($rootScope.aggregations.pubdate) {
-                        $rootScope.aggregations.pubdate.buckets[0].top = parseInt($rootScope.aggregations.pubdate.buckets[0].to_as_string);
-                        $rootScope.aggregations.pubdate.buckets[0].bot = parseInt($rootScope.aggregations.pubdate.buckets[0].from_as_string);
+
+                    // We mix en and eng languages as well as fr and fre !
+                    var language = $rootScope.aggregations.language.buckets;
+                    var fr, fre, en, eng;
+                    for(var i=0; i < language.length; i++) {
+                        switch(language[i].key) {
+                            case "fr":
+                                fr= language[i];
+                                language.splice(i,1);
+                                i-=1;
+                                break;
+                            case "fre":
+                                fre= language[i];
+                                language.splice(i,1);
+                                i-=1;
+                                break;
+                            case "en":
+                                en= language[i];
+                                language.splice(i,1);
+                                i-=1;
+                                break;
+                            case "eng":
+                                eng= language[i];
+                                language.splice(i,1);
+                                i-=1;
+                                break;
+                        }
                     }
-                    if ($rootScope.aggregations.copyrightdate) {
-                        $rootScope.aggregations.copyrightdate.buckets[0].top = parseInt($rootScope.aggregations.copyrightdate.buckets[0].to_as_string);
-                        $rootScope.aggregations.copyrightdate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightdate.buckets[0].from_as_string);
+                    if(fre){
+                        if(!fr)
+                            fr={key:"fr",docCount:0};
+                        fr.docCount += fre.docCount;
                     }
+                    if(eng) {
+                        if (!en)
+                            en = {key: "en", docCount: 0};
+                        en.docCount += eng.docCount;
+                    }
+                    if (language.length === 0 && fr)
+                        language.push(fr);
+                    if (language.length === 0 && en)
+                        language.push(en);
+                    for(var i=0; i < language.length; i++) {
+                        if (fr && language[i].docCount < fr.docCount) {
+                            language.splice(i, 0, fr);
+                            break;
+                        }
+                    }
+                    for(var i=0; i < language.length; i++) {
+                        if(en &&language[i].docCount < en.docCount){
+                            language.splice(i,0,en);
+                            break;
+                        }
+                    }
+                    //language.push(en,fr);
+                    $rootScope.aggregations.language.buckets = language;
+
+                    if ($rootScope.aggregations.publicationDate) {
+                        $rootScope.aggregations.publicationDate.buckets[0].top = parseInt($rootScope.aggregations.publicationDate.buckets[0].toAsString);
+                        $rootScope.aggregations.publicationDate.buckets[0].bot = parseInt($rootScope.aggregations.publicationDate.buckets[0].fromAsString || 0);
+                    }
+                    if ($rootScope.aggregations.copyrightDate) {
+                        $rootScope.aggregations.copyrightDate.buckets[0].top = parseInt($rootScope.aggregations.copyrightDate.buckets[0].toAsString);
+                        $rootScope.aggregations.copyrightDate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightDate.buckets[0].fromAsString || 0);
+                    }
+                    if ($rootScope.aggregations.score) {
+                        $rootScope.aggregations.score.buckets[0].top = 10;
+                        $rootScope.aggregations.score.buckets[0].bot = 0;
+                    }
+
 
                     // We initialise the page system if there is one
                     $rootScope.maxPagesInPagination = $rootScope.istexConfigDefault.maxPagesInPagination;
