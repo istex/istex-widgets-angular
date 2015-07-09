@@ -107,6 +107,9 @@ ol.istex-results-items li.istex-results-item .star-rating {
   display: inline-block;
   height: 20px;
   width: 130px;
+  text-indent: 110%;
+  white-space: nowrap;
+  overflow: hidden;
 }
 ol.istex-results-items li.istex-results-item .full-star {
   position: absolute;

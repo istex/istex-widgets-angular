@@ -23,60 +23,62 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                     $rootScope.aggregations = result.aggregations;
 
                     // We mix en and eng languages as well as fr and fre !
-                    var language = $rootScope.aggregations.language.buckets;
-                    var fr, fre, en, eng;
-                    for(var i=0; i < language.length; i++) {
-                        switch(language[i].key) {
-                            case "fr":
-                                fr= language[i];
-                                language.splice(i,1);
-                                i-=1;
-                                break;
-                            case "fre":
-                                fre= language[i];
-                                language.splice(i,1);
-                                i-=1;
-                                break;
-                            case "en":
-                                en= language[i];
-                                language.splice(i,1);
-                                i-=1;
-                                break;
-                            case "eng":
-                                eng= language[i];
-                                language.splice(i,1);
-                                i-=1;
-                                break;
+                    if($rootScope.aggregations.language) {
+                        var language = $rootScope.aggregations.language.buckets;
+                        var fr, fre, en, eng;
+                        for (var i = 0; i < language.length; i++) {
+                            switch (language[i].key) {
+                                case "fr":
+                                    fr = language[i];
+                                    language.splice(i, 1);
+                                    i -= 1;
+                                    break;
+                                case "fre":
+                                    fre = language[i];
+                                    language.splice(i, 1);
+                                    i -= 1;
+                                    break;
+                                case "en":
+                                    en = language[i];
+                                    language.splice(i, 1);
+                                    i -= 1;
+                                    break;
+                                case "eng":
+                                    eng = language[i];
+                                    language.splice(i, 1);
+                                    i -= 1;
+                                    break;
+                            }
                         }
-                    }
-                    if(fre){
-                        if(!fr)
-                            fr={key:"fr",docCount:0};
-                        fr.docCount += fre.docCount;
-                    }
-                    if(eng) {
-                        if (!en)
-                            en = {key: "en", docCount: 0};
-                        en.docCount += eng.docCount;
-                    }
-                    if (language.length === 0 && fr)
-                        language.push(fr);
-                    if (language.length === 0 && en)
-                        language.push(en);
-                    for(var i=0; i < language.length; i++) {
-                        if (fr && language[i].docCount < fr.docCount) {
-                            language.splice(i, 0, fr);
-                            break;
+                        if (fre) {
+                            if (!fr)
+                                fr = {key: "fr", docCount: 0};
+                            fr.docCount += fre.docCount;
                         }
-                    }
-                    for(var i=0; i < language.length; i++) {
-                        if(en &&language[i].docCount < en.docCount){
-                            language.splice(i,0,en);
-                            break;
+                        if (eng) {
+                            if (!en)
+                                en = {key: "en", docCount: 0};
+                            en.docCount += eng.docCount;
                         }
+                        if (language.length === 0 && fr)
+                            language.push(fr);
+                        if (language.length === 0 && en)
+                            language.push(en);
+                        for (var i = 0; i < language.length; i++) {
+                            if (fr && language[i].docCount < fr.docCount) {
+                                language.splice(i, 0, fr);
+                                break;
+                            }
+                        }
+                        for (var i = 0; i < language.length; i++) {
+                            if (en && language[i].docCount < en.docCount) {
+                                language.splice(i, 0, en);
+                                break;
+                            }
+                        }
+                        //language.push(en,fr);
+                        $rootScope.aggregations.language.buckets = language;
                     }
-                    //language.push(en,fr);
-                    $rootScope.aggregations.language.buckets = language;
 
                     if ($rootScope.aggregations.publicationDate) {
                         $rootScope.aggregations.publicationDate.buckets[0].top = parseInt($rootScope.aggregations.publicationDate.buckets[0].toAsString);
