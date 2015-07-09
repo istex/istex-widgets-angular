@@ -93,11 +93,11 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
 
                     if ($rootScope.aggregations.publicationDate) {
                         $rootScope.aggregations.publicationDate.buckets[0].top = parseInt($rootScope.aggregations.publicationDate.buckets[0].toAsString);
-                        $rootScope.aggregations.publicationDate.buckets[0].bot = parseInt($rootScope.aggregations.publicationDate.buckets[0].fromAsString);
+                        $rootScope.aggregations.publicationDate.buckets[0].bot = parseInt($rootScope.aggregations.publicationDate.buckets[0].fromAsString || 0);
                     }
                     if ($rootScope.aggregations.copyrightDate) {
                         $rootScope.aggregations.copyrightDate.buckets[0].top = parseInt($rootScope.aggregations.copyrightDate.buckets[0].toAsString);
-                        $rootScope.aggregations.copyrightDate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightDate.buckets[0].fromAsString);
+                        $rootScope.aggregations.copyrightDate.buckets[0].bot = parseInt($rootScope.aggregations.copyrightDate.buckets[0].fromAsString || 0);
                     }
                     if ($rootScope.aggregations.score) {
                         $rootScope.aggregations.score.buckets[0].top = 10;
