@@ -1,0 +1,27 @@
+.istex-results-pagination ul{
+    padding: 0;
+}
+.istex-results-pagination ul li, .istex-results-pagination ul, div.istex-results-pagination .istex-results-pagination-prec, div.istex-results-pagination .istex-results-pagination-prec{
+    display: inline-block;
+}
+
+.istex-results-item .star-rating{
+    display: inline-block;
+}
+
+.istex-results-item .istex-results-item-download .istex-results-item-dl{
+    display: inline-block;
+    padding-right: 10px;
+}
+#istex-widget-facets .istex-facets .istex-facet{
+    padding-bottom: 10px;
+}
+#istex-widget-facets .istex-facets .istex-facet .istex-facet-name{
+    margin: 5px;
+}
+#istex-widget-facets .istex-facets .istex-facet li{
+    list-style-type: none;
+}
+#istex-widget-facets .istex-facets .istex-facet li span{
+    padding-left: 10px;
+}
