@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Istex - Widgets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="slider/rzslider.css">
+    <link rel="stylesheet" href="style.min.css">
+    <style>
+        .istex-advanced-wrapper .istex-advanced {
+            display: block;
+            width: 100%;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container" >
+
+    <div class="blog-header">
+        <h1 class="blog-title">Exemple 3 : Recherche à gauche et résultats à droite</h1>
+        <p class="lead blog-description">Une recherche est automatiquement lancée au chargement de la page avec le mot "chance", la recherche avancée est composée d'Auteur, Genre de document et Langue et est affichée en verticale, il n'y a que 4 résultats affichés par page et la pagination a une taille de 16 et il n'y en a pas en bas</p>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-3 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <br/>
+                <istex-search></istex-search>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+        <div class="col-sm-8 blog-main">
+
+            <div class="blog-post">
+
+                <istex-results></istex-results>
+
+            </div><!-- /.blog-post -->
+
+        </div><!-- /.blog-main -->
+
+
+
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+<script>
+
+    var istexConfig = {
+        titleLength: 150,
+        abstractLength: 300,
+        pageSize: 4,
+        maxPagesInPagination: 16,
+        labels: {
+            search: {
+                'advancedTitle':"Cliquer ici pour la recherche avancée",
+                'placeholder':"Votre requête ici ...",
+                'author.name':"Auteur",
+                'host.editor.name':"Editeur",
+                'genre':"Genre de document",
+                'host.genre':"Genre de série",
+                'subject.value':"Sujet du document",
+                'host.subject.value':"Sujet de la série",
+                'language':"Langue"
+            },
+            results: {
+                'noresult':"Pas de résultat",
+                'abstract':"Pas de résumé",
+                'fulltext':"Texte complet",
+                'metadata':"Métadonnées"
+            },
+            facets: {
+                'title' : 'Affiner votre recherche',
+                'corpusName' : 'Editeur',
+                'publicationDate' : 'Date de publication',
+                'copyrightDate' : 'Début du copyright',
+                'language' : 'Langue',
+                'wos' : 'Catégorie'
+            }
+        },
+        advancedToLoad: {
+            'author.name':"",
+            'genre':"",
+            'language':""
+        },
+        focusInputQueryOnLoad: true,
+        query:'chance',
+        slider:false,
+        showPaginationBot: false
+    };
+</script>
+
+<!-- Dependencies -->
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="slider/rzslider.js"></script>
+<script src="app.min.js"></script>
+
+</body>
