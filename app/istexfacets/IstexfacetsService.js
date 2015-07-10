@@ -51,7 +51,7 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             url= (wos!==" AND wos:") ? tmp.join("&") : url;
 
             // Function that creates the url part for range facets
-            var facetURL;
+            var facetURL="";
             var rangeSlider = function(facetName, facet, topValue, botValue){
                 var bot;
                 var top;
@@ -77,23 +77,29 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             };
 
             // pubdateSearch
-            tmp = url.split("&");
-            facetURL = rangeSlider("publicationDate",list.publicationDate);
-            tmp[0] += facetURL;
-            url= (facetURL!==" AND publicationDate:[") ? tmp.join("&") : url;
+
+            if (list.publicationDate) {
+                tmp = url.split("&");
+                facetURL = rangeSlider("publicationDate", list.publicationDate);
+                tmp[0] += facetURL;
+                url = (facetURL && facetURL !== " AND publicationDate:[") ? tmp.join("&") : url;
+            }
 
             // copyrightdateSearch
-            tmp = url.split("&");
-            facetURL = rangeSlider("copyrightDate",list.copyrightDate);
-            tmp[0] += facetURL;
-            url= (facetURL!==" AND copyrightDate:[") ? tmp.join("&") : url;
+            if (list.copyrightDate) {
+                tmp = url.split("&");
+                facetURL = rangeSlider("copyrightDate", list.copyrightDate);
+                tmp[0] += facetURL;
+                url = (facetURL && facetURL !== " AND copyrightDate:[") ? tmp.join("&") : url;
+            }
 
             // scoreSearch
-            tmp = url.split("&");
-            facetURL = rangeSlider("score",list.score);
-            tmp[0] += facetURL;
-            url= (facetURL!==" AND score:[") ? tmp.join("&") : url;
-
+            if (list.score) {
+                tmp = url.split("&");
+                facetURL = rangeSlider("score", list.score);
+                tmp[0] += facetURL;
+                url = (facetURL && facetURL !== " AND score:[") ? tmp.join("&") : url;
+            }
 
             $rootScope.currentFacetsURI = url;
 
