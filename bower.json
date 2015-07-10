@@ -1,6 +1,6 @@
 {
   "name": "istex-widgets-angular",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "https://github.com/istex/istex-widgets-angular",
   "authors": ["Thomas Frantz"],
   "description": "Widgets istex with AngularJS",

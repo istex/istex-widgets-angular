@@ -285,10 +285,16 @@ On charge les scripts de manière asynchrone en remplaçant les balises par une 
 
 Au final, l'utilisateur pourra accéder aux différentes version des widgets sur http://test-widget-istex.infra.univ-lorraine.fr de cette façon :
 - Pour utiliser la dernière version stable des widgets, les fichiers sont présents ici :
-  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/angular/angular.min.js
-  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/bootstrap/dist/css/bootstrap.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/style.min.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/app.min.js
-  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.css
-  - http://test-widget-istex.infra.univ-lorraine.fr/slider/rzslider.js
+  - http://istex.github.io/v1.3.3/bower_components/angular/angular.min.js
+  - http://istex.github.io/v1.3.3/bower_components/bootstrap/dist/css/bootstrap.min.css
+  - http://istex.github.io/v1.3.3/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
+  - http://istex.github.io/v1.3.3/styleAngular/style.min.css
+  - http://istex.github.io/v1.3.3/app.min.js
+  - http://istex.github.io/v1.3.3/slider/rzslider.css
+  - http://istex.github.io/v1.3.3/slider/rzslider.js
+- Pour visualiser les différents exemples cliquez sur les liens suivants :
+  - http://istex.github.io/v1.3.3/
+  - http://istex.github.io/v1.3.3/exemple1
+  - http://istex.github.io/v1.3.3/exemple2
+  - http://istex.github.io/v1.3.3/exemple3
+  - http://istex.github.io/v1.3.3/basique
