@@ -19,7 +19,7 @@
 
     <div class="blog-header">
         <h1 class="blog-title">Exemple 1 : Facettes à gauche et résultats à droite</h1>
-        <p class="lead blog-description"> Il y a juste les facettes corpusName et publicationDate, il n'y a pas de recherche avancée ni de slider et il y a un focus automatique sur la barre de recherche au chargement de la page</p>
+        <p class="lead blog-description"> Il y a juste les facettes corpusName et publicationDate, cachées par défaut. Il n'y a pas de recherche avancée ni de slider et il y a un focus automatique sur la barre de recherche au chargement de la page</p>
     </div>
 
     <div class="row">
@@ -89,6 +89,7 @@
         facetsToLoad: [ 'corpusName','publicationDate'],
         advancedToLoad:false,
         focusInputQueryOnLoad: true,
+        shownFacet:false,
         slider:false
     };
 </script>

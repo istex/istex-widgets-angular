@@ -118,6 +118,9 @@ var istexConfig = {
     // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
     showQuerySpeed: true,
 
+    // on peut plier ou déplier les facettes par défaut
+    shownFacet: true,
+
     // les différents textes paramétrables
     // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'
     labels: {
@@ -283,7 +286,7 @@ On charge les scripts de manière asynchrone en remplaçant les balises par une 
 <!-- <script src="app.min.js"></script> -->
 ```
 
-Au final, l'utilisateur pourra accéder aux différentes version des widgets sur http://test-widget-istex.infra.univ-lorraine.fr de cette façon :
+Au final, l'utilisateur pourra accéder aux différentes versions des widgets sur de cette façon :
 - Pour utiliser la dernière version stable des widgets, les fichiers sont présents ici :
   - http://istex.github.io/v1.3.3/bower_components/angular/angular.min.js
   - http://istex.github.io/v1.3.3/bower_components/bootstrap/dist/css/bootstrap.min.css

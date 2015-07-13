@@ -63,6 +63,9 @@ app.run(['$rootScope', function($rootScope) {
         // si showQuerySpeed vaut false, "(0.24 secondes)" ne sera pas affiché
         showQuerySpeed: true,
 
+        // on peut plier ou déplier les facettes par défaut
+        shownFacet: true,
+
         // les différents textes paramétrables
         // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'
         labels: {

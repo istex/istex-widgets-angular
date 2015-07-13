@@ -16,6 +16,7 @@
   border-bottom: 1px solid #AAA;
   padding-bottom: 5px;
   margin-bottom: 5px;
+  cursor: pointer;
 }
 .istex-facets .istex-facet .istex-facet-corpus, .istex-facets .istex-facet .istex-facet-language, .istex-facets .istex-facet .istex-facet-wos {
   padding: 0;

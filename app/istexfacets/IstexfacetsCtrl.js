@@ -1,6 +1,7 @@
 app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFacetsService', function ($scope, $rootScope, $timeout, istexFacetsService) {
 
     $rootScope.showFacets = false;
+    $rootScope.shownFacet = $rootScope.istexConfigDefault.shownFacet;
 
     // If slider is true, we listen to the event that triggers when you let the cursor down to launch the request
     if($rootScope.istexConfigDefault.slider) {
