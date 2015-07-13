@@ -26,6 +26,7 @@
 }
 #istex-widget-facets .istex-facets .istex-facet .istex-facet-name{
     margin: 5px;
+    cursor: pointer;
 }
 #istex-widget-facets .istex-facets .istex-facet li{
     list-style-type: none;
