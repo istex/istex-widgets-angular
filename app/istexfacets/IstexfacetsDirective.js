@@ -6,7 +6,7 @@ app.directive('istexFacets', function () {
                 '<h3 class="istex-facets-title">{{ istexConfigDefault.labels.facets["title"] || "Affiner votre recherche" }}</h3>'+
                 '<form class="istex-facets" >'+
                     '<div class="istex-facet" ng-repeat="(facetName, facet) in aggregations">' +
-                        '<h4 class="istex-facet-name" ng-click="shownFacet = !shownFacet;">{{ (istexConfigDefault.labels.facets[facetName] || facetName) | capitalize }}<img src="img/arrow-d.png" ng-class="shownFacet ? \'icon arrow\' : \'icon arrow flipped\'" ng-style="shownFacet && { width: \'silver\', display: \'inline-block\'} || { color: \'gold\', display: \'inline-block\' }"></h4>'+
+                        '<h4 class="istex-facet-name" ng-click="shownFacet = !shownFacet;">{{ (istexConfigDefault.labels.facets[facetName] || facetName) | capitalize }}<div ng-class="shownFacet ? \'icon arrow\' : \'icon arrow flipped\'" ng-style="shownFacet && { width: \'silver\', display: \'inline-block\'} || { color: \'gold\', display: \'inline-block\' }"></div></h4>'+
                         '<div class="animate-switch-container" ng-switch on="facetName">'+
                             '<div class="istex-facet-corpus" ng-switch-when="corpusName" ng-if="shownFacet">'+
                                 '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key }}<span class="istex-facet-corpus-badge" >{{ badge.docCount | numberize }}</span></label></li>'+

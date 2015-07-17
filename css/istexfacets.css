@@ -54,11 +54,16 @@
   top: 6px;
   left: 6px;
 }
-.istex-facets .istex-facet img.icon.arrow {
+.istex-facets .istex-facet .icon.arrow {
+  background: url("../public/img/arrow-d.png") no-repeat scroll 0 0 transparent;
+  background-size: 20px 20px;
+  display: inline-block;
   width: 20px;
+  height: 20px;
   margin-left: 10px;
+  vertical-align: bottom;
 }
-.istex-facets .istex-facet img.icon.arrow.flipped {
+.istex-facets .istex-facet .icon.arrow.flipped {
   -webkit-transform: rotate(-90deg);
   transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
