@@ -54,4 +54,12 @@
   top: 6px;
   left: 6px;
 }
-
+.istex-facets .istex-facet img.icon.arrow {
+  width: 20px;
+  margin-left: 10px;
+}
+.istex-facets .istex-facet img.icon.arrow.flipped {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+}
