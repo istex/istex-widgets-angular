@@ -63,6 +63,9 @@ ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.i
 ol.istex-results-items li.istex-results-item div.download {
   display: inline-block; margin-right: 10px;
 }
+ol.istex-results-items li.istex-results-item div.download.metadata {
+  float:right;
+}
 ol.istex-results-items li.istex-results-item ul.istex-results-item-download li.istex-results-item-dl a {
   padding: 2px;
   margin: 0;

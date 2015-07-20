@@ -2,6 +2,15 @@
 
 Widgets (auth, search, results, facets) permettant de créer rapidement des interface Web d'interrogation des ressources ISTEX avec AngularJS.
 
+## Exemples
+
+Pour visualiser les différents exemples cliquez sur les liens suivants :
+  - http://istex.github.io/
+  - http://istex.github.io/exemple1
+  - http://istex.github.io/exemple2
+  - http://istex.github.io/exemple3
+  - http://istex.github.io/basique
+
 ## Usage classique des widgets
 
 Exemple d'utilisation classique des widgets search et results. Il est nécessaire dans un premier temps de charger les fichiers JS et CSS des widgets Istex (à la fin du body pour charger les fichiers après que la page soit affichée) ainsi que la bibliothèque AngularJS qui est une dépendance nécessaire.
@@ -57,14 +66,16 @@ La liste des différents paramètres se présente comme ceci (et est sujette à 
 var istexConfig = {
 
     // l'adresse de l'API de l'Istex
-    // pour une ezproxyfication, réglez ici l'adresse ezproxyfiée
+   istexApi: 'https://api.istex.fr',
+    // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
+    // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
     // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-    istexApi: 'https://api.istex.fr',
+    proxyApi: 'https://api.istex.fr',
 
     // pour lancer une recherche au chargement de la page
     // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-    // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
-    // si vous mettez query: "", les résultats seront tous les documents
+    // si vous ne voulez pas de recherche au d�marrage, ne mettez rien (ou query: false)
+    // si vous mettez query: "", les r�sultats seront tous les documents
     query: false,
 
     // il est possible de mettre le focus sur la barre de recherche au chargement de la page
@@ -72,7 +83,7 @@ var istexConfig = {
 
     // il est possible de ne charger que certaines facettes
     // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
-    facetsToLoad: ['corpusName','publicationDate','copyrightDate','language','wos','score'],
+    facetsToLoad: [ 'corpusName','publicationDate','copyrightDate','language','wos','score'],
 
     // il n'est possible de charger que certains champs de la recherche avancée
     // par défaut, tout les champs sont chargés
@@ -88,7 +99,7 @@ var istexConfig = {
         'language':""
     },
 
-    // il est possible d'avoir soit un slider soit deux inputs lorsque les facettes sont des dates
+    // il est possible d' soit un slider soit deux inputs lorsque les facettes sont des dates
     // si vous voulez le slider, n'oubliez pas d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
     slider:true,
 
@@ -288,6 +299,14 @@ On charge les scripts de manière asynchrone en remplaçant les balises par une 
 
 Au final, l'utilisateur pourra accéder aux différentes versions des widgets sur de cette façon :
 - Pour utiliser la dernière version stable des widgets, les fichiers sont présents ici :
+  - http://istex.github.io/bower_components/angular/angular.min.js
+  - http://istex.github.io/bower_components/bootstrap/dist/css/bootstrap.min.css
+  - http://istex.github.io/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
+  - http://istex.github.io/styleAngular/style.min.css
+  - http://istex.github.io/app.min.js
+  - http://istex.github.io/slider/rzslider.css
+  - http://istex.github.io/slider/rzslider.js
+- Pour utiliser la version 1.3.3 des widgets, les fichiers sont présents ici :
   - http://istex.github.io/v1.3.3/bower_components/angular/angular.min.js
   - http://istex.github.io/v1.3.3/bower_components/bootstrap/dist/css/bootstrap.min.css
   - http://istex.github.io/v1.3.3/bower_components/bootstrap/dist/css/bootstrap-theme.min.css
@@ -295,9 +314,3 @@ Au final, l'utilisateur pourra accéder aux différentes versions des widgets su
   - http://istex.github.io/v1.3.3/app.min.js
   - http://istex.github.io/v1.3.3/slider/rzslider.css
   - http://istex.github.io/v1.3.3/slider/rzslider.js
-- Pour visualiser les différents exemples cliquez sur les liens suivants :
-  - http://istex.github.io/v1.3.3/
-  - http://istex.github.io/v1.3.3/exemple1
-  - http://istex.github.io/v1.3.3/exemple2
-  - http://istex.github.io/v1.3.3/exemple3
-  - http://istex.github.io/v1.3.3/basique
