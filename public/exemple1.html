@@ -19,7 +19,7 @@
 
     <div class="blog-header">
         <h1 class="blog-title">Exemple 1 : Facettes à gauche et résultats à droite</h1>
-        <p class="lead blog-description"> Il y a juste les facettes corpusName et publicationDate, cachées par défaut. Il n'y a pas de recherche avancée ni de slider et il y a un focus automatique sur la barre de recherche au chargement de la page</p>
+        <p class="lead blog-description"> Il y a juste les facettes corpusName et publicationDate, cachées par défaut. Il n'y a pas de recherche avancée ni de slider et il y a un focus automatique sur la barre de recherche au chargement de la page. <br/>Le proxy peut être réglé sur le proxy de l'<a href="exemple1?proxy=https://api-istex-fr.bases-doc.univ-lorraine.fr">UL</a></p>
     </div>
 
     <div class="row">
@@ -54,9 +54,12 @@
 </div><!-- /.container -->
 
 <script>
+//https://api-istex-fr.bases-doc.univ-lorraine.fr
+    var querystring = window.location.search.substring(1).split("=");
+    var proxy = querystring[0]==="proxy" ? querystring[1] : "https://api.istex.fr";
 
     var istexConfig = {
-        //istexApi: 'https://api-istex-fr.bases-doc.univ-lorraine.fr',
+        proxyApi: proxy,
         titleLength: 80,
         abstractLength: 160,
         labels: {
