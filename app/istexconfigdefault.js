@@ -21,6 +21,9 @@ app.run(['$rootScope', function($rootScope) {
         // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
         facetsToLoad: [ 'corpusName','publicationDate','copyrightDate','language','wos','score'],
 
+        // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
+        hideButton:false,
+
         // il n'est possible de charger que certains champs de la recherche avancée
         // par défaut, tout les champs sont chargés
         // on peut mettre des valeurs par défaut aux champs au lieu de guillemets vides

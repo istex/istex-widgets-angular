@@ -198,3 +198,18 @@ p.istex-results-error span.istex-results-error-raw {
   font-size: small;
   font-style: italic;
 }
+div.istex-hidebutton{
+  width: 250px;
+  height: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid #949494;
+  cursor: pointer;
+  background-image: url(../public/img/istexsearch-search-logo.png);
+  background-size: auto 90%;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  background-position-y: center;
+  text-align: end;
+  color: grey;
+}
