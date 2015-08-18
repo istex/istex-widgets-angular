@@ -205,6 +205,7 @@ div.istex-hidebutton{
   padding-right: 5px;
   border: 1px solid #949494;
   cursor: pointer;
+  background-color: white;
   background-image: url(../public/img/istexsearch-search-logo.png);
   background-size: auto 90%;
   background-repeat: no-repeat;
@@ -212,4 +213,7 @@ div.istex-hidebutton{
   background-position-y: center;
   text-align: end;
   color: grey;
+}
+div.istex-hidebutton:active{
+  background-color: #DBDBDB;
 }
