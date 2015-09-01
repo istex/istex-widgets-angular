@@ -87,6 +87,7 @@ app.run(['$rootScope', function($rootScope) {
             },
             results: {
                 'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",
+                'showResult':"Affichez les résultats",
                 'abstract':"Pas de résumé",
                 'fulltext':"Texte complet",
                 'metadata':"Métadonnées"

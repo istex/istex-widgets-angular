@@ -2,9 +2,9 @@ app.directive('istexResults', function () {
     return {
         template:'' +
         '<div class="istex-results-noresult" ng-show="noresult">'+
-            '{{istexConfigDefault.labels.results["noresult"] || "Il n\'y a pas de résultat à afficher !"}}'+
+            '{{istexConfigDefault.labels.results.noresult || "Il n\'y a pas de résultat à afficher chaaaa !"}}'+
         '</div>'+
-        '<div class="istex-hidebutton" ng-click="istexConfigDefault.hideButton = false;" ng-show="!noresult && istexConfigDefault.hideButton" title="Cliquez pour afficher les résultats">{{ total || ". . . . . . . . ." | numberize }} documents</div>'+
+        '<div class="istex-hidebutton" ng-click="istexConfigDefault.hideButton = false;" ng-show="!noresult && istexConfigDefault.hideButton" title="{{istexConfigDefault.labels.results.showResult || \'Cliquez pour afficher les résultats\'}}">{{ total || ". . . . . . . . ." | numberize }} documents</div>'+
         '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-show="!noresult && !istexConfigDefault.hideButton">'+
             '<div class="istex-results-items-stats" ng-toggle="!hideStats">' +
                 'Environ {{ total | numberize }} résultats <span title="Réseau : {{reseauSearchTime}} sec, Moteur de recherche : {{elasticSearchTime}} sec, Traitements de l\'API : {{istexSearchTime}} sec" ng-if="istexConfigDefault.showQuerySpeed">({{totalSearchTime}} secondes)</span>' +
