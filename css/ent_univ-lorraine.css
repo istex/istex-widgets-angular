@@ -1,0 +1,43 @@
+/* Barre de recherche */
+#istex-widget-search .istex-search-form span input.istex-search-input {
+	padding: 0.2em 0.4em;
+	width: 75%;
+}
+#istex-widget-search .istex-search-form span {
+	overflow: visible;
+}
+#istex-widget-search .istex-search-form input.istex-search-submit {
+	width: 24%;
+	padding: 0.2em 0.4em;
+	color: #478DA7;
+}
+#istex-widget-search .istex-search-form input.istex-search-submit:hover {
+	background-color: #478DA7;
+	color: white;
+} 
+
+
+/* Liens */
+.istex-results-pagination ul li .istex-results-pagination-page-selected{
+	color: #65635C;
+}
+
+/* Textes */
+#istex-widget-results .istex-results-items li.istex-results-item, #istex-widget-facets .istex-facets .istex-facet li, ol.istex-results-items li.istex-results-item p.istex-results-item-abstract{
+	color: #65635C;
+}
+ol.istex-results-items istex-results-item b{
+	font-size: 14px;
+}
+
+/* Titre du bloc facette */
+#istex-widget-facets .istex-facets h3.istex-facets-title{
+	background-image: none;
+	color: #65635C;
+	font-size: 24px;
+}
+
+/* Slider */
+rzslider span.rz-bar.rz-selection, rzslider span.rz-pointer{
+	background-color: #478DA7;
+}

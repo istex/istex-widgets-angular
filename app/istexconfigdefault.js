@@ -6,7 +6,7 @@ app.run(['$rootScope', function($rootScope) {
         // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
         // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
         // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-        proxyApi: 'https://api.istex.fr',
+        proxyApi: 'https://api-istex-fr.bases-doc.univ-lorraine.fr',
 
         // pour lancer une recherche au chargement de la page
         // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)

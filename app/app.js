@@ -100,40 +100,60 @@ app.filter('languagize', function(){
 
         if(traduction==="en"){
             switch(input){
-                case 'fr' : return 'French';
-                case 'en' : return 'English';
-                case 'es' : return 'Spanish';
+                case 'fre' : return 'French';
+                case 'eng' : return 'English';
                 case 'lat' : return 'Latin';
-                case 'nl' : return 'Dutch';
-                case 'de' : return 'German';
-                case 'it' : return 'Italian';
+                case 'deu' : return 'German';
+                case 'ger' : return 'German';
                 case 'spa' : return 'Spanish';
                 case 'dut' : return 'Dutch';
-                case 'ger' : return 'German';
                 case 'ita' : return 'Italian';
-                case 'ru' : return 'Russian';
+                case 'por' : return 'Portuguese';
+                case 'rus' : return 'Russian';
+                case 'wel' : return 'Welsh';
+                case 'glg' : return 'Galician';
                 case 'grc' : return 'Greek';
                 case 'gre' : return 'Greek';
                 case 'ara' : return 'Arabian';
+                case 'heb' : return 'Hebrew';
+                case 'pol' : return 'Polish';
+                case 'dan' : return 'Danish';
+                case 'swe' : return 'Swedish';
+                case 'moh' : return 'Mohawk';
+                case 'syr' : return 'Syriac';
+                case 'per' : return 'Persian';
+                case 'frm' : return 'French, Middle';
+                case 'mul' : return 'Multiple languages';
+                case 'unknown' : return 'Unknown';
                 default : return input;
             }
         }else{
             switch(input){
-                case 'fr' : return 'Français';
-                case 'en' : return 'Anglais';
-                case 'es' : return 'Espagnol';
+                case 'fre' : return 'Français';
+                case 'eng' : return 'Anglais';
                 case 'lat' : return 'Latin';
-                case 'nl' : return 'Néerlandais';
-                case 'de' : return 'Allemand';
-                case 'it' : return 'Italien';
+                case 'deu' : return 'Allemand';
+                case 'ger' : return 'Allemand';
                 case 'spa' : return 'Espagnol';
                 case 'dut' : return 'Néerlandais';
-                case 'ger' : return 'Allemand';
                 case 'ita' : return 'Italien';
-                case 'ru' : return 'Russe';
+                case 'por' : return 'Portugais';
+                case 'rus' : return 'Russe';
+                case 'wel' : return 'Gallois';
+                case 'glg' : return 'Galicien';
                 case 'grc' : return 'Grec';
                 case 'gre' : return 'Grec';
                 case 'ara' : return 'Arabe';
+                case 'heb' : return 'Hébreu';
+                case 'pol' : return 'Polonais';
+                case 'dan' : return 'Danois';
+                case 'swe' : return 'Suédois';
+                case 'moh' : return 'Mohawk';
+                case 'syr' : return 'Syriaque';
+                case 'per' : return 'Persan';
+                case 'frm' : return 'Français moyen';
+                case 'mul' : return 'Multilingue';
+                case 'unknown' : return 'Non spécifié';
                 default : return input;
             }
         }
