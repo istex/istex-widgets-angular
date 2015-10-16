@@ -3,7 +3,8 @@
   margin: 0;
 }
 .istex-search-form span {
-  display: block;
+  display: inline-block;
+  width:90%;
   overflow: hidden;
   padding: 0 0px;
 }
@@ -72,4 +73,7 @@
 .istex-advanced-wrapper .istex-advanced {
   display: inline-block;
   width: 25%;
+}
+.istex-advanced-wrapper .istex-advanced-button{
+  display: inline-block;
 }
