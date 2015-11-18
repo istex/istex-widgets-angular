@@ -8,12 +8,13 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             var query = (scope.query) ? scope.query.toString() : "";
             var advanced = this.advancedSearch(scope.advancedQuery);
             url += (query !="") ? query : "*";
-            url += (advanced != "") ? advanced : "";
+            url += (advanced !="") ? advanced : "";
             url += "&output=*";
             url += "&stats=1";
+            var operator = "&defaultOperator="+$rootScope.istexConfigDefault.operator;
             var facets = "&facet="+$rootScope.istexConfigDefault.facetsToLoad.join();
             var size = "&size="+$rootScope.istexConfigDefault.pageSize;
-            url+= facets + size;
+            url+= operator + facets + size;
 
             // We save the url
             $rootScope.currentPageURI = url;

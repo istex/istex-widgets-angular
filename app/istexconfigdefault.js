@@ -14,6 +14,10 @@ app.run(['$rootScope', function($rootScope) {
         // si vous mettez query: "", les r�sultats seront tous les documents
         query: false,
 
+        // les termes de la recherche sont liés par l'opérateur logique voulu
+        // les deux valeurs possibles sont "OR" (OU) et "AND" (ET)
+        operator:"AND",
+
         // il est possible de mettre le focus sur la barre de recherche au chargement de la page
         focusInputQueryOnLoad: false,
 
