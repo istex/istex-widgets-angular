@@ -56,7 +56,6 @@ app.run(['$rootScope', function($rootScope) {
         abstractLength: 250,
 
         // le nombre max de caractères du titre à afficher
-
         titleLength: 150,
 
         // PAS ENCORE IMPLEMENTE
