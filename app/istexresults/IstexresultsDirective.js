@@ -33,7 +33,7 @@ app.directive('istexResults', function () {
                             '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
                             '<ul class="istex-results-item-download">'+
                                 '<li class="istex-results-item-dl fulltext" ng-repeat="fulltext in document.fulltext">'+
-                                    '<a ng-href="{{ fulltext.uri | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le ou les fichiers {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
+                                    '<a ng-href="{{ fulltext.uri | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-{{ fulltext.extension }}" title="Télécharger le fichier {{ fulltext.extension | uppercase }}" target="_blank">{{ fulltext.extension | uppercase }}</a>'+
                                 '</li>'+
                             '</ul>'+
                         '</div>'+
@@ -41,7 +41,15 @@ app.directive('istexResults', function () {
                             '<h4>{{ (istexConfigDefault.labels.results["metadata"] || "Metadata") }}</h4>'+
                             '<ul class="istex-results-item-download metadata">'+
                                 '<li class="istex-results-item-dl" ng-repeat="metadata in document.metadata">'+
-                                    '<a ng-href="{{ metadata.uri | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le ou les fichiers {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
+                                    '<a ng-href="{{ metadata.uri | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-{{ metadata.extension }}" title="Télécharger le fichier {{ metadata.extension | uppercase }}" target="_blank">{{ metadata.extension | uppercase }}</a>'+
+                                '</li>'+
+                            '</ul>'+
+                        '</div>'+
+                        '<div class="download enrichment" ng-if="document.enrichments">'+
+                            '<h4>{{ (istexConfigDefault.labels.results["enrichment"] || "Enrichissements") }}</h4>'+
+                            '<ul class="istex-results-item-download enrichment">'+
+                                '<li class="istex-results-item-dl" ng-repeat="enrichment in document.enrichments">'+
+                                    '<a ng-href="{{ enrichment.uri | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-xml" title="Télécharger le fichier {{ enrichment.type }}" target="_blank">XML</a>'+
                                 '</li>'+
                             '</ul>'+
                         '</div>'+

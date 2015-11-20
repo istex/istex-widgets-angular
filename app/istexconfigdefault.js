@@ -93,7 +93,8 @@ app.run(['$rootScope', function($rootScope) {
                 'showResult':"Affichez les résultats",
                 'abstract':"Pas de résumé",
                 'fulltext':"Texte complet",
-                'metadata':"Métadonnées"
+                'metadata':"Métadonnées",
+                'enrichment':"Enrichissements"
             },
             facets: {
                 'title' : 'Affiner votre recherche',
