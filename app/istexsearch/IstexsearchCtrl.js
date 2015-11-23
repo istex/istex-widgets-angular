@@ -4,6 +4,8 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
 
     $rootScope.showResults = false;
 
+    $rootScope.showLoading = false;
+
     if ($rootScope.istexConfigDefault.advancedToLoad)
         $scope.advancedQuery =$rootScope.istexConfigDefault.advancedToLoad;
 
@@ -17,7 +19,7 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
         // While the query is being processed, we hide the old results
         $rootScope.showResults = false;
         $rootScope.showFacets = false;
-
+        $rootScope.showLoading = true;
         istexSearchService.search($scope)
             .success(function (result) {
                 // We calculate the time taken to make the search
@@ -63,6 +65,7 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                     }
                     $rootScope.pages = tab;
                     // We allow results and facets to appear
+                    $rootScope.showLoading = false;
                     $rootScope.showResults = true;
                     $rootScope.showFacets = true;
                 }

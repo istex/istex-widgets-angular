@@ -13,6 +13,7 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
     $scope.submitFacetSearch = function(list){
 
         $rootScope.showResults = false;
+        $rootScope.showLoading = true;
 
         istexFacetsService.facetSearch($scope, list)
             .success(function (result) {
@@ -44,6 +45,7 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
                     $rootScope.pages = tab;
 
                     $rootScope.showResults = true;
+                    $rootScope.showLoading = false;
                 }
             })
             .error(function (e) {

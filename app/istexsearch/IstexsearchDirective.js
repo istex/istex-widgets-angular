@@ -21,7 +21,7 @@ app.directive('istexSearch', function () {
                     '</div>'+
                 '</div>' +
                 '<p class="istex-search-error"></p>'+
-                '<div class="istex-search-loading" title="Recherche en cours" ng-toggle="!showResults" ></div>'+
+                '<div class="istex-search-loading" title="Recherche en cours" ng-toggle="showLoading" ></div>'+
             '</form>' +
         '</div>'
     };

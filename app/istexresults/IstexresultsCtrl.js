@@ -2,6 +2,9 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
     $rootScope.showResults = false;
 
+    // If there is a default request, show the loading gif
+    if($rootScope.istexConfigDefault.query !== false) $rootScope.showLoading = true;
+
 
     // If there is a default request to query on page loading we do it
     if($rootScope.istexConfigDefault.query !== false){
@@ -52,6 +55,7 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                     // We allow results and facets to appear
                     $rootScope.showResults = true;
                     $rootScope.showFacets = true;
+                    $rootScope.showLoading = false;
                 }
             })
             .error(function (e) {
@@ -60,6 +64,8 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
     }
 
     $scope.selectPage = function(numPage){
+
+        $rootScope.showLoading = true;
 
         var page = (numPage-1)*$rootScope.istexConfigDefault.pageSize;
 
@@ -98,6 +104,7 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
                 $rootScope.hideResults = false;
                 $rootScope.hideStats = false;
+                $rootScope.showLoading = false;
             })
             .error(function (e) {
                 console.error("ERROR : Pagination");
