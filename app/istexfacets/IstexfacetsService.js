@@ -4,51 +4,48 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
 
             // We create the url to call, using the same Query for the basic search
             var url = $rootScope.currentPageURI;
-
             var tmp;
+            var between = " OR ";
+            var nbrCharBetween = between.length;
             // corpusSearch
-            var corpus = " AND corpusName:";
+            var corpus = " AND corpusName:(";
             function corpusMaker(element, index, array) {
                 if(element.isChecked){
-                    corpus+=element.key+",";
+                    corpus+=element.key+between;
                 }
             }
             function wosMaker(element, index, array) {
                 if(element.isChecked){
-                    wos+="\""+element.key.replace("&","%26")+"\",";
+                    wos+="\""+element.key.replace("&","%26")+"\""+between;
                 }
             }
             function languageMaker(element, index, array) {
                 if(element.isChecked){
-                    language+=element.key+",";
-                    if(element.key==="fr")
-                        language+="fre,";
-                    if(element.key==="en")
-                        language+="eng,";
+                    language+=element.key+between;
                 }
             }
             if (list.corpusName)
                 list.corpusName.buckets.forEach(corpusMaker);
-            corpus = (corpus != " AND corpusName:") ? corpus.substring(0, corpus.length - 1) : corpus="";
+            corpus = (corpus != " AND corpusName:(") ? corpus.substring(0, corpus.length - nbrCharBetween)+")" : corpus="";
             tmp = url.split("&");
             tmp[0] += corpus;
-            url= (corpus!==" AND corpusName:") ? tmp.join("&") : url;
+            url= (corpus!==" AND corpusName:(") ? tmp.join("&") : url;
 
-            var language = " AND language:";
+            var language = " AND language:(";
             if (list.language)
                 list.language.buckets.forEach(languageMaker);
-            language = (language != " AND language:") ? language.substring(0, language.length - 1) : language="";
+            language = (language != " AND language:(") ? language.substring(0, language.length - nbrCharBetween)+")" : language="";
             tmp = url.split("&");
             tmp[0] += language;
-            url= (language!==" AND language:") ? tmp.join("&") : url;
+            url= (language!==" AND language:(") ? tmp.join("&") : url;
 
             var wos = " AND wos:(";
             if (list.wos)
                 list.wos.buckets.forEach(wosMaker);
-            wos = (wos != " AND wos:(") ? wos.substring(0, wos.length - 1)+")" : wos="";
+            wos = (wos != " AND wos:(") ? wos.substring(0, wos.length - nbrCharBetween)+")" : wos="";
             tmp = url.split("&");
             tmp[0] += wos;
-            url= (wos!==" AND wos:") ? tmp.join("&") : url;
+            url= (wos!==" AND wos:(") ? tmp.join("&") : url;
 
             // Function that creates the url part for range facets
             var facetURL="";
