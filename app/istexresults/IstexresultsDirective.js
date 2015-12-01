@@ -11,14 +11,14 @@ app.directive('istexResults', function () {
             '</div>'+
             '<div class="istex-results-pagination" ng-if="istexConfigDefault.showPaginationTop">'+
                     //'<a href="#" ng-click="selectPage(firstPageURI.id)" ng-if="pageCourante !== firstPageURI.id"> {{firstPageURI.id}} </a>'+
-                    '<a href="#" class="istex-results-pagination-prec" title="Page précédente" ng-click="selectPage(pageCourante-1)" ng-if="pageCourante !== firstPageURI.id"> < </a>'+
+                    '<a href="" class="istex-results-pagination-prec" title="Page précédente" ng-click="selectPage(pageCourante-1)" ng-if="pageCourante !== firstPageURI.id"> < </a>'+
                     '<ul class="istex-results-pagination-plist">'+
                         '<li ng-repeat="page in pages" >' +
-                            '<a href="#" ng-click="selectPage(page.id)" ng-if="pageCourante !== page.id ">{{page.id}}</a>' +
+                            '<a href="" ng-click="selectPage(page.id)" ng-if="pageCourante !== page.id ">{{page.id}}</a>' +
                             '<span class="istex-results-pagination-page-selected" ng-if="pageCourante === page.id">{{page.id}}</span>' +
                         '</li>'+
                     '</ul>'+
-                    '<a href="#" class="istex-results-pagination-next" title="Page suivante" ng-click="selectPage(pageCourante+1)" ng-if="pageCourante !== lastPageURI.id"> > </a>'+
+                    '<a href="" class="istex-results-pagination-next" title="Page suivante" ng-click="selectPage(pageCourante+1)" ng-if="pageCourante !== lastPageURI.id"> > </a>'+
                     //'<a href="#" ng-click="selectPage(lastPageURI.id)" ng-if="pageCourante !== lastPageURI.id"> {{lastPageURI.id}} </a>'+
             '</div>'+
             '<ol class="istex-results-items" ng-toggle="!hideResults">'+
@@ -60,14 +60,14 @@ app.directive('istexResults', function () {
             '</ol>'+
             '<div class="istex-results-pagination" ng-if="istexConfigDefault.showPaginationBot">'+
                 //'<a href="#" ng-click="selectPage(firstPageURI.id)" ng-if="pageCourante !== firstPageURI.id"> {{firstPageURI.id}} </a>'+
-                '<a href="#" class="istex-results-pagination-prec" title="Page précédente" ng-click="selectPage(pageCourante-1)" ng-if="pageCourante !== firstPageURI.id"> < </a>'+
+                '<a href="#istex-widget-search" class="istex-results-pagination-prec" title="Page précédente" ng-click="selectPage(pageCourante-1)" ng-if="pageCourante !== firstPageURI.id"> < </a>'+
                 '<ul class="istex-results-pagination-plist">'+
                     '<li ng-repeat="page in pages" >' +
-                        '<a href="#" ng-click="selectPage(page.id)" ng-if="pageCourante !== page.id ">{{page.id}}</a>' +
+                        '<a href="#istex-widget-search" ng-click="selectPage(page.id)" ng-if="pageCourante !== page.id ">{{page.id}}</a>' +
                         '<span class="istex-results-pagination-page-selected" ng-if="pageCourante === page.id">{{page.id}}</span>' +
                     '</li>'+
                 '</ul>'+
-                '<a href="#" class="istex-results-pagination-next" title="Page suivante" ng-click="selectPage(pageCourante+1)" ng-if="pageCourante !== lastPageURI.id"> > </a>'+
+                '<a href="#istex-widget-search" class="istex-results-pagination-next" title="Page suivante" ng-click="selectPage(pageCourante+1)" ng-if="pageCourante !== lastPageURI.id"> > </a>'+
                 //'<a href="#" ng-click="selectPage(lastPageURI.id)" ng-if="pageCourante !== lastPageURI.id"> {{lastPageURI.id}} </a>'+
             '</div>'+
         '</div>'
