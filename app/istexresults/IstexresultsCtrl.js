@@ -5,11 +5,12 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
     // If there is a default request, show the loading gif
     if($rootScope.istexConfigDefault.query !== false) $rootScope.showLoading = true;
 
-
     // If there is a default request to query on page loading we do it
     if($rootScope.istexConfigDefault.query !== false){
         istexResultsService.defaultSearch($rootScope.istexConfigDefault.query)
             .success(function (result) {
+                $rootScope.showError = false;
+
                 // We calculate the time taken to make the search
                 $rootScope.searchTimeB = new Date().getTime();
                 $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
@@ -59,6 +60,8 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                 }
             })
             .error(function (e) {
+                $rootScope.showLoading = false;
+                $rootScope.showError = true;
                 console.error("ERROR : Default Search");
             });
     }
@@ -92,6 +95,8 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
         istexResultsService.search(page)
             .success(function (result) {
+                $rootScope.showError = false;
+
                 // We calculate the time taken to make the search with facets
                 $rootScope.searchTimeB = new Date().getTime();
                 $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
@@ -107,6 +112,8 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                 $rootScope.showLoading = false;
             })
             .error(function (e) {
+                $rootScope.showLoading = false;
+                $rootScope.showError = true;
                 console.error("ERROR : Pagination");
             });
     }

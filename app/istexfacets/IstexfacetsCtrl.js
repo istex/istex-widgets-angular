@@ -17,6 +17,8 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
 
         istexFacetsService.facetSearch($scope, list)
             .success(function (result) {
+                $rootScope.showError = false;
+
                 // We calculate the time taken to make the search with facets
                 $rootScope.searchTimeB = new Date().getTime();
                 $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
@@ -49,6 +51,8 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
                 }
             })
             .error(function (e) {
+                $rootScope.showLoading = false;
+                $rootScope.showError = true;
                 console.log("ERROR : Corpus Search");
             });
     };
