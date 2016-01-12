@@ -34,11 +34,10 @@ app.run(['$rootScope', function($rootScope) {
         // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
         advancedToLoad: {
             'author.name':"",
-            'host.editor.name':"",
             'genre':"",
+            'host.title':"",
             'host.genre':"",
             'subject.value':"",
-            'host.subject.value':"",
             'language':""
         },
 
@@ -79,14 +78,22 @@ app.run(['$rootScope', function($rootScope) {
         labels: {
             search: {
                 'advancedTitle':"Recherche avancée",
-                'placeholder':"Votre requête ici ...",
                 'author.name':"Auteur",
-                'host.editor.name':"Editeur",
-                'genre':"Genre de document",
-                'host.genre':"Genre de série",
+                'host.title':"Titre de la collection",
+                'genre':"Genre du document",
+                'host.genre':"Genre de la collection",
                 'subject.value':"Sujet du document",
-                'host.subject.value':"Sujet de la série",
-                'language':"Langue"
+                'language':"Langue",
+                placeholder:{
+                    'main':"Votre requête ici ...",
+                    'author.name':"ex : Dijkstra",
+                    'host.editor.name':"",
+                    'host.title':"ex : Journal of Algebra",
+                    'genre':"ex : article, paper, ...",
+                    'host.genre':" ex : ebook, reviews, ...",
+                    'subject.value':"ex : cell division",
+                    'language':"3 lettres : fre, eng, ita, ..."
+                }
             },
             results: {
                 'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",

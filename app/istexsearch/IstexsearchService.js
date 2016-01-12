@@ -29,7 +29,7 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             var advanced ="";
             for (var prop in advancedQuery) {
                 if (Object.prototype.hasOwnProperty.call(advancedQuery, prop) && advancedQuery[prop] != "") {
-                    advanced +=" AND "+prop+":"+advancedQuery[prop];
+                   advanced += " AND " + prop + ":" + advancedQuery[prop];
                 }
             }
             return advanced;
