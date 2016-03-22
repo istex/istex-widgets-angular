@@ -4,17 +4,17 @@
   "description": "Widgets istex with AngularJS",
   "license": "CeCILL",
   "author": "Thomas Frantz <thom.frantz@gmail.com>",
-  "contributors": [{
-    "name": "",
-    "email": ""
-  }],
+  "contributors": [
+    {
+      "name": "",
+      "email": ""
+    }
+  ],
   "scripts": {
     "js": "uglifyjs app/app.js app/istexfacets/IstexfacetsDirective.js app/istexfacets/IstexfacetsCtrl.js app/istexfacets/IstexfacetsService.js app/istexsearch/IstexsearchDirective.js app/istexsearch/IstexsearchCtrl.js app/istexsearch/IstexsearchService.js app/istexresults/IstexresultsDirective.js app/istexresults/IstexresultsCtrl.js app/istexresults/IstexresultsService.js app/istexconfigdefault.js -o public/app.min.js -cE",
     "css": "cleancss -o public/style.min.css css/istexsearch.css css/istexfacets.css css/istexresults.css",
-	"jscss": "npm run js && npm run css",
+    "jscss": "npm run js && npm run css",
     "server": "http-server",
-
-
     "prepublish": "npm run js && npm run css && bower install"
   },
   "repository": {
@@ -35,11 +35,12 @@
   ],
   "dependencies": {
     "bower": "~1.4.1",
-	"uglify-js": "~2.4.23",
+    "uglify-js": "~2.4.23",
     "clean-css": "~3.2.10"
   },
   "devDependencies": {
-    "http-server": "~0.8.0"
+    "angular": "^1.5.2",
+    "http-server": "^0.9.0"
   },
   "private": true
 }
