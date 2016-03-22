@@ -1,6 +1,6 @@
 # Widgets ISTEX avec AngularJS
 
-Widgets (auth, search, results, facets) permettant de créer rapidement des interface Web d'interrogation des ressources ISTEX avec AngularJS.
+Widgets (search, results, facets) permettant de créer rapidement des interface Web d'interrogation des ressources ISTEX avec AngularJS.
 
 ## Exemples
 
@@ -19,11 +19,11 @@ On peut aussi charger la bibliothèque Bootstrap pour un meilleur rendu et la di
 Ensuite vous pouvez placer deux balises (zone de recherche & zone de résultats) où vous le souhaitez dans votre page HTML.
 Ces balises ont des noms spécifiques pour chaque widget :
 ```html
-<istex-auth>, <istex-search>, <istex-results>, <istex-facets>
+<istex-search>, <istex-results>, <istex-facets>
 ```
 On peut aussi utiliser des balises classiques avec des attributs spéciaux :
 ```html
-<div istex-auth></div>
+<div istex-search></div>
 ```
 
 Voici ce que ca peut donner sur une page quasi vierge :
@@ -167,11 +167,8 @@ var istexConfig = {
 
 ```
 
-Remarque : ces paramètres doivent être de préférence positionnés avant l'inclusion des fichiers app.min.js
-
-## Fonctionnement du widget istexAuth
-
-CE WIDGET N'EST PLUS A JOUR DEPUIS L'OUVERTURE DE L'API ISTEX !
+Remarque : ces paramètres doivent être de préférence positionnés avant l'inclusion des fichiers app.min.js.
+Remarque 2 : la recherche des documents est libre, ainsi que l'accès aux méta-données mais l'accès au plein texte est restreint et nécessite la configuration de proxyApi. Pour plus de détails, vous pouvez [nous contacter](mailto:istex-contact@univ-lorraine.fr).
 
 ## Fonctionnement du widget istexSearch
 
