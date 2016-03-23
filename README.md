@@ -66,7 +66,7 @@ La liste des différents paramètres se présente comme ceci (et est sujette à 
 var istexConfig = {
 
     // l'adresse de l'API de l'Istex
-   istexApi: 'https://api.istex.fr',
+    istexApi: 'https://api.istex.fr',
     // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
     // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
     // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
@@ -78,6 +78,10 @@ var istexConfig = {
     // si vous mettez query: "", les r�sultats seront tous les documents
     query: false,
 
+    // les termes de la recherche sont liés par l'opérateur logique voulu
+    // les deux valeurs possibles sont "OR" (OU) et "AND" (ET)
+    operator:"AND",
+
     // il est possible de mettre le focus sur la barre de recherche au chargement de la page
     focusInputQueryOnLoad: false,
 
@@ -85,17 +89,19 @@ var istexConfig = {
     // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
     facetsToLoad: [ 'corpusName','publicationDate','copyrightDate','language','wos','score'],
 
+    // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
+    hideButton:false,
+
     // il n'est possible de charger que certains champs de la recherche avancée
     // par défaut, tout les champs sont chargés
     // on peut mettre des valeurs par défaut aux champs au lieu de guillemets vides
     // pour enlever la recherche avancée, il faut mettre advancedToLoad:false
     advancedToLoad: {
         'author.name':"",
-        'host.editor.name':"",
         'genre':"",
+        'host.title':"",
         'host.genre':"",
         'subject.value':"",
-        'host.subject.value':"",
         'language':""
     },
 
@@ -117,7 +123,6 @@ var istexConfig = {
     abstractLength: 250,
 
     // le nombre max de caractères du titre à afficher
-
     titleLength: 150,
 
     // PAS ENCORE IMPLEMENTE
@@ -137,20 +142,30 @@ var istexConfig = {
     labels: {
         search: {
             'advancedTitle':"Recherche avancée",
-            'placeholder':"Votre requête ici ...",
             'author.name':"Auteur",
-            'host.editor.name':"Editeur",
-            'genre':"Genre de document",
-            'host.genre':"Genre de série",
+            'host.title':"Titre de la collection",
+            'genre':"Genre du document",
+            'host.genre':"Genre de la collection",
             'subject.value':"Sujet du document",
-            'host.subject.value':"Sujet de la série",
-            'language':"Langue"
+            'language':"Langue",
+            placeholder:{
+                'main':"Votre requête ici ...",
+                'author.name':"ex : Dijkstra",
+                'host.editor.name':"",
+                'host.title':"ex : Journal of Algebra",
+                'genre':"ex : article, paper, ...",
+                'host.genre':" ex : ebook, reviews, ...",
+                'subject.value':"ex : cell division",
+                'language':"3 lettres : fre, eng, ita, ..."
+            }
         },
         results: {
             'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",
+            'showResult':"Affichez les résultats",
             'abstract':"Pas de résumé",
             'fulltext':"Texte complet",
-            'metadata':"Métadonnées"
+            'metadata':"Métadonnées",
+            'enrichment':"Enrichissements"
         },
         facets: {
             'title' : 'Affiner votre recherche',
