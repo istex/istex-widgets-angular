@@ -7,11 +7,20 @@ if (window.myNav && window.myNav <= 8) {
     lastSrcipt.insertAdjacentHTML('afterend', '<div id="old">Votre navigateur ne peut pas afficher les widgets ISTEX, veuillez en utiliser un plus récent : Internet Explorer 9 ou plus, Google Chrome, Firefox,...</div>');
 }
 
+var scripts = document.getElementsByTagName("script");
+var isSlider = false;
+for(var i = 0; i < scripts.length; i++){
+    if(/\/slider\/rzslider.js/.test(scripts[i].src)){
+        isSlider = true;
+    }
+};
+
 // If istexConfig.slider = false, it's not loaded
-if(window.istexConfig.slider !== false)
+if(window.istexConfig.slider !== false && isSlider){
     var app = angular.module('app', ['rzModule']);
-else
+}else{
     var app = angular.module('app', []);
+}
 
 /********************Functions********************/
 
