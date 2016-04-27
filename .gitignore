@@ -3,5 +3,3 @@ npm-debug.log
 config.local.json
 .idea/
 public/bower_components/
-public/app.min.js
-public/style.min.css
