@@ -10,7 +10,7 @@ if (window.myNav && window.myNav <= 8) {
 var scripts = document.getElementsByTagName("script");
 var isSlider = false;
 for(var i = 0; i < scripts.length; i++){
-    if(/\/slider\/rzslider.js/.test(scripts[i].src)){
+    if(/\/rzslider.js/.test(scripts[i].src)){
         isSlider = true;
     }
 };
