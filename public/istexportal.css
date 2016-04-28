@@ -1,0 +1,97 @@
+/* Barre de recherche */
+#istex-widget-search .istex-search-form span input.istex-search-input {
+	padding: 0.2em 0.4em;
+	width: 40%;
+}
+#istex-widget-search .istex-search-form span {
+	overflow: visible;
+	text-align: center;
+}
+#istex-widget-search .istex-search-form input.istex-search-submit {
+	width: 15%;
+	margin-right: 38%;
+	margin-top: 10px;
+	padding: 0.2em 0.4em;
+	color: #478DA7;
+}
+#istex-widget-search .istex-search-form input.istex-search-submit:hover {
+	background-color: #478DA7;
+	color: white;
+} 
+#istex-widget-search .istex-advanced-wrapper{
+	width: 100%;
+}
+#istex-widget-search .istex-advanced-wrapper .istex-advanced-button{
+	margin-left: 28%;
+	margin-top: 10px;
+	width: 15%;
+	text-align: center;
+	padding: 0.2em 0.4em;
+	color: #478DA7;
+	border: 1px double #A5B8D3;
+	border-radius: 0.6em;
+	font-size: 14px;
+	color: #478DA7;
+	font-weight: bold;
+	cursor: pointer;
+}
+#istex-widget-search .istex-advanced-wrapper .istex-advanced-button a{
+	color: #478DA7;
+	text-decoration: none;
+	font-weight: bold;
+}
+#istex-widget-search .istex-advanced-wrapper .istex-advanced-button:hover{
+	background-color: #478DA7;
+}
+#istex-widget-search .istex-advanced-wrapper .istex-advanced-button:hover a{
+	color: #FFF;
+}
+#istex-widget-search .istex-advanced-wrapper .istex-advanced{
+	width: 20%;
+	text-align: center;
+	margin-top: 1%;
+}
+#istex-widget-search .istex-search-form div.istex-search-loading{
+	margin-top: -20px;
+	margin-right: 4px;
+	margin-left: 65%;
+}
+
+/* Liens */
+.istex-results-pagination ul li .istex-results-pagination-page-selected{
+	color: #65635C;
+}
+
+/* Textes */
+#istex-widget-results .istex-results-items li.istex-results-item, #istex-widget-facets .istex-facets .istex-facet li, ol.istex-results-items li.istex-results-item p.istex-results-item-abstract{
+	color: #65635C;
+}
+ol.istex-results-items istex-results-item b{
+}
+
+/* Resultats */
+#istex-widget-results {
+	width: 70%;
+	float: right;
+	margin-top: 20px;
+	margin-right: 2%;
+}
+
+/* Facettes */
+#istex-widget-facets {
+	width: 25%;
+	float: left;
+	margin-top: 20px;
+}
+
+/* Titre du bloc facette */
+#istex-widget-facets .istex-facets h3.istex-facets-title{
+	background-image: none;
+	color: #65635C;
+	font-size: 1.5em;
+}
+
+/* Slider */
+rzslider span.rz-bar.rz-selection, rzslider span.rz-pointer{
+	background-color: #478DA7;
+}
