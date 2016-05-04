@@ -22,6 +22,10 @@ if(window.istexConfig.slider !== false && isSlider){
     var app = angular.module('app', []);
 }
 
+app.config(['$compileProvider', function ($compileProvider) {
+  $compileProvider.debugInfoEnabled(false);
+}]);
+
 /********************Functions********************/
 
 // Credit to : http://gomakethings.com/ditching-jquery
