@@ -108,6 +108,7 @@ app.run(['$rootScope', function($rootScope) {
                 'corpusName' : 'Corpus',
                 'publicationDate' : 'Date de publication',
                 'copyrightDate' : 'Début du copyright',
+                'score' : 'Qualité du PDF',
                 'wos':'Catégorie',
                 'language':'Langue',
                 'traduction':'fr'

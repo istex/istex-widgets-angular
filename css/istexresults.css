@@ -34,9 +34,10 @@ ol.istex-results-items li.istex-results-item p.istex-results-item-abstract {
   text-align: justify;
   color: #000;
 }
-ol.istex-results-items li.istex-results-item div.istex-results-item-corpus {
+ol.istex-results-items li.istex-results-item div.istex-tag {
   padding: 2px;
   margin: 0;
+  margin-right: 8px;
   margin-top: 8px;
   font-size: smaller;
   vertical-align: middle;
