@@ -29,6 +29,7 @@ app.directive('istexResults', function () {
                     '<a class="istex-results-item-title" target="_blank" ng-href="{{document.fulltext[0].uri | proxify:istexConfigDefault.proxyApi }}" >{{ document.title | ellipse:true:istexConfigDefault.titleLength:"..." }}</a>'+
                     '<p class="istex-results-item-abstract" ng-if="document.abstract" title="{{ document.abstract }}"><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
                     '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">{{ istexConfigDefault.labels.results[\'abstract\'] || "Pas de résumé disponible pour cet article" }}</p>'+
+                    '<div ng-repeat="genre in document.genre" class="istex-tag">Type : {{ genre | capitalize }}</div>'+
                     '<div class="istex-tag">{{ document.corpusName }}</div>'+
                     '<div class="istex-tag">Publié en {{ document.publicationDate }}</div>'+
                     '<div><b>Qualité du PDF</b> : <div class="star-rating" title="{{document.qualityIndicators.score}}"><div class="full-star" ng-style="{width: \'{{document.qualityIndicators.score*10 || 0}}%\'}"></div><div class="empty-star">{{document.qualityIndicators.score || 0}}</div></div></div>'+
