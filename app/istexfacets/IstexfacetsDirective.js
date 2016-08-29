@@ -8,14 +8,14 @@ app.directive('istexFacets', function () {
                     '<div class="istex-facet" ng-repeat="(facetName, facet) in aggregations">' +
                         '<h4 class="istex-facet-name" ng-click="shownFacet = !shownFacet;">{{ (istexConfigDefault.labels.facets[facetName] || facetName) | capitalize }}<div ng-class="shownFacet ? \'icon arrow\' : \'icon arrow flipped\'" ng-style="shownFacet && { width: \'silver\', display: \'inline-block\'} || { color: \'gold\', display: \'inline-block\' }"></div></h4>'+
                         '<div class="animate-switch-container" ng-switch on="facetName">'+
-                            '<div class="istex-facet-corpus" ng-switch-when="corpusName" ng-if="shownFacet">'+
-                                '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key }}<span class="istex-facet-corpus-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
+                            '<div class="istex-facet-checkbox corpus" ng-switch-when="corpusName" ng-if="shownFacet">'+
+                                '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key }}<span class="istex-facet-checkbox-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
                             '</div>'+
-                            '<div class="istex-facet-language" ng-switch-when="language" ng-if="shownFacet">'+
-                                '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key | languagize:istexConfigDefault.labels.facets["traduction"] }}<span class="istex-facet-language-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
+                            '<div class="istex-facet-checkbox language" ng-switch-when="language" ng-if="shownFacet">'+
+                                '<li ng-repeat="badge in facet.buckets"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">{{ badge.key | languagize:istexConfigDefault.labels.facets["traduction"] }}<span class="istex-facet-checkbox-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
                             '</div>'+
-                            '<div class="istex-facet-wos" ng-switch-when="wos" ng-if="shownFacet">'+
-                                '<li ng-repeat="badge in facet.buckets" title="{{badge.key | capitalize}}"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)" >{{ badge.key  | capitalize | ellipse:false:27:"..."   }}<span class="istex-facet-wos-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
+                            '<div class="istex-facet-checkbox wos" ng-switch-when="wos" ng-if="shownFacet">'+
+                                '<li ng-repeat="badge in facet.buckets" title="{{badge.key | capitalize}}"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)" >{{ badge.key  | capitalize | ellipse:false:27:"..."   }}<span class="istex-facet-checkbox-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
                             '</div>'+
                             '<div class="istex-facet-copyrightdate" ng-switch-when="copyrightDate" ng-if="shownFacet">' +
                                 '<div ng-if="!istexConfigDefault.slider">' +
@@ -56,7 +56,9 @@ app.directive('istexFacets', function () {
                                     //'<span class="istex-facet-pubdate-badge" >{{ facet.buckets[0].doc_count | numberize }}</span></label>' +
                                 '</div>'+
                             '</div>'+
-                            '<div class="istex-facet-{{ facetName }}" ng-switch-default>Default behavior</div>'+
+                            '<div class="istex-facet-checkbox {{ facetName }}" ng-switch-default>'+
+                                '<li ng-repeat="badge in facet.buckets" title="{{badge.key | capitalize}}"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)" >{{ badge.key  | capitalize | ellipse:false:27:"..."   }}<span class="istex-facet-checkbox-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
+                            '</div>'+
                         '</div>'+
                     '</div>' +
                 '</form>'+

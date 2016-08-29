@@ -18,22 +18,22 @@
   margin-bottom: 5px;
   cursor: pointer;
 }
-.istex-facets .istex-facet .istex-facet-corpus, .istex-facets .istex-facet .istex-facet-language, .istex-facets .istex-facet .istex-facet-wos {
+.istex-facets .istex-facet .istex-facet-checkbox{
   padding: 0;
   margin: 0;
   list-style-type: none;
 }
-.istex-facets .istex-facet .istex-facet-corpus label,  .istex-facets .istex-facet .istex-facet-language label, .istex-facets .istex-facet .istex-facet-wos label {
+.istex-facets .istex-facet .istex-facet-checkbox label{
   display: block;
 }
-.istex-facets .istex-facet .istex-facet-wos label {
+#istex-widget-facets .istex-facets .istex-facet .istex-facet-checkbox.wos label {
   font-size: 75%;
 }
 
-.istex-facets .istex-facet .istex-facet-corpus input, .istex-facets .istex-facet .istex-facet-language input , .istex-facets .istex-facet .istex-facet-wos input {
+.istex-facets .istex-facet .istex-facet-checkbox input{
   margin-right: 8px;
 }
-.istex-facets .istex-facet .istex-facet-corpus .istex-facet-corpus-badge, .istex-facets .istex-facet .istex-facet-language .istex-facet-language-badge, .istex-facets .istex-facet .istex-facet-wos .istex-facet-wos-badge {
+.istex-facets .istex-facet .istex-facet-checkbox .istex-facet-checkbox-badge{
   float: right;
   display: inline-block;
   min-width: 10px;

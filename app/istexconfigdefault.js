@@ -23,7 +23,7 @@ app.run(['$rootScope', function($rootScope) {
 
         // il est possible de ne charger que certaines facettes
         // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
-        facetsToLoad: [ 'corpusName','publicationDate','copyrightDate','language','wos','score'],
+        facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','wos','score'],
 
         // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
         hideButton:false,
@@ -72,6 +72,12 @@ app.run(['$rootScope', function($rootScope) {
 
         // on peut plier ou déplier les facettes par défaut
         shownFacet: true,
+
+        tags: {
+            'publicationDate':true,
+            'corpusName':true,
+            'articleType':false
+        },
 
         // les différents textes paramétrables
         // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'
