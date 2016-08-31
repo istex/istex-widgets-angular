@@ -11,6 +11,11 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             url += (advanced !="") ? advanced : "";
             url += "&output=*";
             url += "&stats=1";
+            if($rootScope.defaultSort){
+                url += "&sortBy="+$rootScope.defaultSort;
+            }else{
+                url += "&sortBy="+$rootScope.istexConfigDefault.defaultSort;
+            }
             var operator = "&defaultOperator="+$rootScope.istexConfigDefault.operator;
             var facets = "&facet="+$rootScope.istexConfigDefault.facetsToLoad.join();
             var size = "&size="+$rootScope.istexConfigDefault.pageSize;

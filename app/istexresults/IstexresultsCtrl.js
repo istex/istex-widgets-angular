@@ -2,6 +2,8 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
     $rootScope.showResults = false;
 
+    $rootScope.defaultSort = $rootScope.istexConfigDefault.defaultSort || 'score[desc]';
+
     // If there is a default request, show the loading gif
     if($rootScope.istexConfigDefault.query !== false) $rootScope.showLoading = true;
 
@@ -116,6 +118,42 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
                 $rootScope.showError = true;
                 console.error("ERROR : Pagination");
             });
+    }
+
+    $scope.sortBy = function(sort){
+
+        $rootScope.showLoading = true;
+
+        $rootScope.hideResults = true;
+        $rootScope.hideStats = true;
+
+        $rootScope.defaultSort = sort + "," + $rootScope.istexConfigDefault.defaultSort;
+        
+        istexResultsService.sortedSearch(sort)
+            .success(function (result) {
+                $rootScope.showError = false;
+
+                // We calculate the time taken to make the search with facets
+                $rootScope.searchTimeB = new Date().getTime();
+                $rootScope.totalSearchTime=(($rootScope.searchTimeB-$rootScope.searchTimeA)/1000).toFixed(2);
+                $rootScope.elasticSearchTime=(result.stats['elasticsearch'].took/1000).toFixed(2);
+                $rootScope.istexSearchTime=(result.stats['istex-api'].took/1000).toFixed(2);
+                $rootScope.reseauSearchTime=($rootScope.totalSearchTime-$rootScope.elasticSearchTime-$rootScope.istexSearchTime).toFixed(2);
+
+                $rootScope.documents = result.hits;
+                $rootScope.nextPageURI = result.nextPageURI;
+                $rootScope.pageCourante = 1;
+
+                $rootScope.hideResults = false;
+                $rootScope.hideStats = false;
+                $rootScope.showLoading = false;
+            })
+            .error(function (e) {
+                $rootScope.showLoading = false;
+                $rootScope.showError = true;
+                console.error("ERROR : SortBy");
+            });
+            
     }
 
 }]);

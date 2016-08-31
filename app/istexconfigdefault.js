@@ -73,11 +73,22 @@ app.run(['$rootScope', function($rootScope) {
         // on peut plier ou déplier les facettes par défaut
         shownFacet: true,
 
+        // on peut ajouter ou enlever des tags (les mots entourés de vert)
         tags: {
             'publicationDate':true,
             'corpusName':true,
-            'articleType':false
+            'articleType':true
         },
+
+        // on peut choisir quel critère pour trier les documents on préfère
+        defaultSort: 'score[desc]',
+
+        possibleSorts: [
+            {'value':'score[desc]','name':'Qualité du pdf'},
+            {'value':'publicationDate','name':'Date de publication (croissant)'},
+            {'value':'publicationDate[desc]','name':'Date de publication (décroissant)'},
+            //{'value':'title[desc]','name':'Alphabétique (titre)'},
+        ],
 
         // les différents textes paramétrables
         // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'

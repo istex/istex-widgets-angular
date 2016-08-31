@@ -38,6 +38,24 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
 
             return $http.jsonp(url+"&callback=JSON_CALLBACK");
 
+        },
+        sortedSearch: function(sort) {
+            var defaultSort = $rootScope.istexConfigDefault.defaultSort;
+            var sortByRegexp = /(&sortBy=)[a-zA-Z\[\],]*(&?)/;
+            
+            // We create the url to call, using the same Query for the basic search
+            var url = $rootScope.currentPageURI.replace(sortByRegexp, "$1"+sort+","+defaultSort+"$2");
+            $rootScope.currentPageURI = url;
+            if($rootScope.currentFacetsURI){
+                url= $rootScope.currentFacetsURI.replace(sortByRegexp, "$1"+sort+","+defaultSort+"$2");
+                $rootScope.currentFacetsURI = url;
+            }
+
+            // We calculate the request time
+            $rootScope.searchTimeA = new Date().getTime();
+
+            return $http.jsonp(url+"&callback=JSON_CALLBACK");
+
         }
     }
 }]);

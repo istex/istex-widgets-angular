@@ -12,6 +12,12 @@ app.directive('istexResults', function () {
             '<div class="istex-results-items-stats" ng-toggle="!hideStats">' +
                 'Environ {{ total | numberize }} résultats <span title="Réseau : {{reseauSearchTime}} sec, Moteur de recherche : {{elasticSearchTime}} sec, Traitements de l\'API : {{istexSearchTime}} sec" ng-if="istexConfigDefault.showQuerySpeed">({{totalSearchTime}} secondes)</span>' +
             '</div>'+
+            '<div class="istex-results-sort" >'+
+                '<select ng-model="defaultSort" ng-change="sortBy(defaultSort)" >'+
+                    '<option ng-repeat="sort in istexConfigDefault.possibleSorts" value="{{sort.value}}">{{sort.name}}</option>'+
+                '</select>'+
+                //<input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)">
+            '</div>'+
             '<div class="istex-results-pagination" ng-if="istexConfigDefault.showPaginationTop">'+
                     //'<a href="#" ng-click="selectPage(firstPageURI.id)" ng-if="pageCourante !== firstPageURI.id"> {{firstPageURI.id}} </a>'+
                     '<a href="" class="istex-results-pagination-prec" title="Page précédente" ng-click="selectPage(pageCourante-1)" ng-if="pageCourante !== firstPageURI.id"> < </a>'+

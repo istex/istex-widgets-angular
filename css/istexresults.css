@@ -4,6 +4,10 @@
   line-height: 30px;
   color: #808080;
 }
+#istex-widget-results div.istex-results-sort{
+  display: inline-block;
+  float: right;
+}
 #istex-widget-results ol.istex-results-items {
   padding: 0;
   margin: 0;
