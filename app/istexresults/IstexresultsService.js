@@ -26,9 +26,16 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
             url += (query !="") ? query : "*";
             url += "&output=*";
             url += "&stats=1";
+            if($rootScope.defaultSort){
+                url += "&sortBy="+$rootScope.defaultSort;
+            }else{
+                url += "&sortBy="+$rootScope.istexConfigDefault.defaultSort;
+            }
+            var operator = "&defaultOperator="+$rootScope.istexConfigDefault.operator;
+            
             var facets = "&facet="+$rootScope.istexConfigDefault.facetsToLoad.join();
             var size = "&size="+$rootScope.istexConfigDefault.pageSize;
-            url+= facets + size;
+            url+= operator + facets + size;
 
             // We save the url
             $rootScope.currentPageURI = url;
