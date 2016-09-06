@@ -81,8 +81,9 @@ app.run(['$rootScope', function($rootScope) {
         },
 
         // on peut choisir quel critère pour trier les documents on préfère
+        // par défaut on choisit
         defaultSort: 'score[desc]',
-
+        // et sinon, on a une liste des tris disponibles
         possibleSorts: [
             {'value':'score[desc]','name':'Qualité du pdf'},
             {'value':'publicationDate','name':'Date de publication (croissant)'},
@@ -113,7 +114,7 @@ app.run(['$rootScope', function($rootScope) {
                 }
             },
             results: {
-                'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",
+                'noresult':"Pas de résultat (Faites attention quand vous utilisez plusieurs facettes)",
                 'showResult':"Affichez les résultats",
                 'abstract':"Pas de résumé",
                 'fulltext':"Texte complet",

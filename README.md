@@ -63,8 +63,7 @@ Les widgets peuvent être paramétrés en positionnant les clés/valeurs de la v
 La liste des différents paramètres se présente comme ceci (et est sujette à modifications) :
 
 ```javascript
-var istexConfig = {
-
+var istexConfigDefault = {
     // l'adresse de l'API de l'Istex
     istexApi: 'https://api.istex.fr',
     // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
@@ -87,7 +86,7 @@ var istexConfig = {
 
     // il est possible de ne charger que certaines facettes
     // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
-    facetsToLoad: [ 'corpusName','publicationDate','copyrightDate','language','wos','score'],
+    facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','wos','score'],
 
     // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
     hideButton:false,
@@ -137,6 +136,24 @@ var istexConfig = {
     // on peut plier ou déplier les facettes par défaut
     shownFacet: true,
 
+    // on peut ajouter ou enlever des tags (les mots entourés de vert)
+    tags: {
+        'publicationDate':true,
+        'corpusName':true,
+        'articleType':true
+    },
+
+    // on peut choisir quel critère pour trier les documents on préfère
+    // par défaut on choisit
+    defaultSort: 'score[desc]',
+    // et sinon, on a une liste des tris disponibles
+    possibleSorts: [
+        {'value':'score[desc]','name':'Qualité du pdf'},
+        {'value':'publicationDate','name':'Date de publication (croissant)'},
+        {'value':'publicationDate[desc]','name':'Date de publication (décroissant)'},
+        //{'value':'title[desc]','name':'Alphabétique (titre)'},
+    ],
+
     // les différents textes paramétrables
     // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'
     labels: {
@@ -160,7 +177,7 @@ var istexConfig = {
             }
         },
         results: {
-            'noresult':"Pas de résultat (Faîtes attention quand vous utilisez plusieurs facettes)",
+            'noresult':"Pas de résultat (Faites attention quand vous utilisez plusieurs facettes)",
             'showResult':"Affichez les résultats",
             'abstract':"Pas de résumé",
             'fulltext':"Texte complet",
@@ -172,12 +189,12 @@ var istexConfig = {
             'corpusName' : 'Corpus',
             'publicationDate' : 'Date de publication',
             'copyrightDate' : 'Début du copyright',
+            'score' : 'Qualité du PDF',
             'wos':'Catégorie',
             'language':'Langue',
             'traduction':'fr'
         }
     }
-
 }
 
 ```
