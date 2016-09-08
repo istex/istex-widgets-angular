@@ -3,3 +3,4 @@ npm-debug.log
 config.local.json
 .idea/
 public/bower_components/
+warning.js

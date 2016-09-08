@@ -36,7 +36,7 @@ app.directive('istexResults', function () {
                     '<p class="istex-results-item-abstract" ng-if="document.abstract" title="{{ document.abstract }}"><b>Résumé</b> : {{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
                     '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract">{{ istexConfigDefault.labels.results[\'abstract\'] || "Pas de résumé disponible pour cet article" }}</p>'+
                     '<div ng-repeat="genre in document.genre" ng-if="istexConfigDefault.tags.articleType" class="istex-tag">Type : {{ genre | capitalize }}</div>'+
-                    '<div ng-if="istexConfigDefault.tags.corpusName" class="istex-tag">{{ document.corpusName }}</div>'+
+                    '<div ng-if="istexConfigDefault.tags.corpusName" class="istex-tag">{{ document.corpusName | capitalize }}</div>'+
                     '<div ng-if="istexConfigDefault.tags.publicationDate" class="istex-tag">Publié en {{ document.publicationDate }}</div>'+
                     '<div><b>Qualité du PDF</b> : <div class="star-rating" title="{{document.qualityIndicators.score}}"><div class="full-star" ng-style="{width: \'{{document.qualityIndicators.score*10 || 0}}%\'}"></div><div class="empty-star">{{document.qualityIndicators.score || 0}}</div></div></div>'+
                     '<div class="downloads">'+
