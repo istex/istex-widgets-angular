@@ -1,13 +1,14 @@
 app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService', function ($scope, $rootScope, istexSearchService) {
 
-    $rootScope.showAdvanced=false;
+    $rootScope.showAdvanced = false;
 
     $rootScope.showResults = false;
 
     $rootScope.showLoading = false;
 
-    if ($rootScope.istexConfigDefault.advancedToLoad)
-        $scope.advancedQuery =$rootScope.istexConfigDefault.advancedToLoad;
+    if ($rootScope.istexConfigDefault.advancedToLoad){
+        $scope.advancedQuery = $rootScope.istexConfigDefault.advancedToLoad;
+    }
 
     if($rootScope.istexConfigDefault.query !== false) {
         var q = $rootScope.istexConfigDefault.query;
@@ -90,6 +91,10 @@ app.controller('IstexsearchCtrl', ['$scope', '$rootScope', 'istexSearchService',
                 }
             }
         }
+    }
+
+    if($rootScope.istexConfigDefault.advancedExpanded){
+        $scope.toggleAdvanced();
     }
 
 }]);

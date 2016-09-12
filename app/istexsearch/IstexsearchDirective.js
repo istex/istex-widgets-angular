@@ -8,7 +8,7 @@ app.directive('istexSearch', function () {
                     '<input class="istex-search-submit" type="submit" value="Rechercher" ng-click="search()">'+
                 '</div>' +
                 '<div class="istex-advanced-wrapper" ng-if="istexConfigDefault.advancedToLoad">' +
-                    '<div class="istex-advanced-button" ng-click="toggleAdvanced()">' +
+                    '<div class="istex-advanced-button" ng-click="toggleAdvanced()" ng-if="!istexConfigDefault.advancedExpanded">' +
                         '<a href="" >{{ (istexConfigDefault.labels.search["advancedTitle"] || "Recherche avancée") | capitalize }}</a>' +
                     '</div>' +
                     '<div class="istex-advanced-inputs">'+

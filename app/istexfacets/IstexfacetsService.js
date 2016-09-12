@@ -23,6 +23,11 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                     language+=element.key+between;
                 }
             }
+            function genreMaker(element, index, array) {
+                if(element.isChecked){
+                    genre+=element.key+between;
+                }
+            }
             if (list.corpusName)
                 list.corpusName.buckets.forEach(corpusMaker);
             corpus = (corpus != " AND corpusName:(") ? corpus.substring(0, corpus.length - nbrCharBetween)+")" : corpus="";
@@ -65,6 +70,20 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                 url = tmp.join("&");
             }
             //url= (wos!==" AND wos:(") ? tmp.join("&") : url;
+            
+            var genre = " AND genre:(";
+            if (list.genre)
+                list.genre.buckets.forEach(genreMaker);
+            genre = (genre != " AND genre:(") ? genre.substring(0, genre.length - nbrCharBetween)+")" : genre="";
+            tmp = url.split("&");
+            tmp[0] += genre
+            
+            if(genre){
+                $rootScope.queriedFacets.genre = list.genre;
+            }
+            if(genre!==" AND genre:("){
+                url = tmp.join("&");
+            }
 
             // Function that creates the url part for range facets
             var facetURL="";
