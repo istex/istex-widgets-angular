@@ -104,6 +104,10 @@ var istexConfigDefault = {
         'language':""
     },
 
+    // il est possible que la recherche avancée soit dépliée par défaut.
+    // Par défaut elle est repliée
+    advancedExpanded:false,
+
     // il est possible d' soit un slider soit deux inputs lorsque les facettes sont des dates
     // si vous voulez le slider, n'oubliez pas d'inclure les dépendances en plus : slider/rzslider.css et slider/rzslider.js
     slider:true,
