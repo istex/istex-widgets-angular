@@ -19,7 +19,7 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             var operator = "&defaultOperator="+$rootScope.istexConfigDefault.operator;
             var facets = "&facet="+$rootScope.istexConfigDefault.facetsToLoad.join();
             var size = "&size="+$rootScope.istexConfigDefault.pageSize;
-            url+= operator + facets + size;
+            url+= operator + facets + size + "&sid=istex-widgets";
 
             // We save the url
             $rootScope.currentPageURI = url;
