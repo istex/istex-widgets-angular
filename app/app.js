@@ -174,6 +174,19 @@ app.filter('languagize', function(){
     };
 });
 
+// add sid=istex-widget in all urls
+// this parameter is used for usage statistics
+app.filter('sidize', function() {
+    return function(input, scope) {
+        if (input.indexOf('?') !== -1) {
+            input += '&sid=istex-widgets';
+        } else {
+            input += '?sid=istex-widgets';
+        }
+        return input;
+    }
+});
+
 /********************Directives********************/
 // HOW TO USE :
 // <element directive="BOOLEAN">...</element>
