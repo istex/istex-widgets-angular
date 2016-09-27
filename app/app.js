@@ -178,6 +178,7 @@ app.filter('languagize', function(){
 // this parameter is used for usage statistics
 app.filter('sidize', function() {
     return function(input, scope) {
+        if (input.indexOf('sid=') !== -1) return input;
         if (input.indexOf('?') !== -1) {
             input += '&sid=istex-widgets';
         } else {
