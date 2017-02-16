@@ -59,8 +59,8 @@ app.directive('istexResults', function () {
                         '<div class="download enrichment" ng-if="document.enrichments">'+
                             '<h4>{{ (istexConfigDefault.labels.results["enrichment"] || "Enrichissements") }}</h4>'+
                             '<ul class="istex-results-item-download enrichment">'+
-                                '<li class="istex-results-item-dl" ng-repeat="enrichment in document.enrichments">'+
-                                    '<a ng-href="{{ enrichment.uri | sidize | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-xml" title="Télécharger le fichier {{ enrichment.type }}" target="_blank">XML</a>'+
+                                '<li class="istex-results-item-dl" ng-repeat="(name, enrichment) in document.enrichments">'+
+                                    '<a ng-href="{{ enrichment[0].uri | sidize | proxify:istexConfigDefault.proxyApi }}" class="istex-results-item-dl-{{ enrichment[0].extension }}" title="Télécharger le fichier {{ name }}" target="_blank">XML</a>'+
                                 '</li>'+
                             '</ul>'+
                         '</div>'+
