@@ -36,6 +36,9 @@ Voici ce que ca peut donner sur une page quasi vierge :
     <title>Istex - Widgets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="//widgets.istex.fr/slider/rzslider.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/styleAngular/style.min.css">
 </head>
 <body>
 
