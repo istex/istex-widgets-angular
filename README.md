@@ -35,7 +35,7 @@ Voici ce que ca peut donner sur une page quasi vierge :
     <meta charset="UTF-8">
     <title>Istex - Widgets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="slider/rzslider.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/slider/rzslider.css">
 </head>
 <body>
 
