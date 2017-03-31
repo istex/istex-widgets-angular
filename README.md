@@ -47,12 +47,13 @@ Voici ce que ca peut donner sur une page quasi vierge :
 
 <script>
     var istexConfig = {
+      // placer ici la configuration souhaitée, cf section suivante et le contenu de istexConfigDefault
     };
 </script>
 
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="slider/rzslider.js"></script>
-<script src="app.min.js"></script>
+<script src="//widgets.istex.fr/bower_components/angular/angular.min.js"></script>
+<script src="//widgets.istex.fr/slider/rzslider.js"></script>
+<script src="//widgets.istex.fr/app.min.js"></script>
 
 </body>
 </html>
