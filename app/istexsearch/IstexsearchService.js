@@ -13,7 +13,7 @@ app.factory('istexSearchService', ['$http', '$rootScope', function($http, $rootS
             url += "&stats=1";
             if($rootScope.defaultSort){
                 url += "&sortBy="+$rootScope.defaultSort;
-            }else{
+            }else if($rootScope.istexConfigDefault.defaultSort){
                 url += "&sortBy="+$rootScope.istexConfigDefault.defaultSort;
             }
             var operator = "&defaultOperator="+$rootScope.istexConfigDefault.operator;

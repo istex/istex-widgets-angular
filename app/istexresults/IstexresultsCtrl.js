@@ -2,7 +2,7 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
     $rootScope.showResults = false;
 
-    $rootScope.defaultSort = $rootScope.istexConfigDefault.defaultSort || 'score[desc]';
+    $rootScope.defaultSort = $rootScope.istexConfigDefault.defaultSort;
 
     // If there is a default request, show the loading gif
     if($rootScope.istexConfigDefault.query !== false) $rootScope.showLoading = true;
@@ -127,7 +127,11 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
         $rootScope.hideResults = true;
         $rootScope.hideStats = true;
 
-        $rootScope.defaultSort = sort + "," + $rootScope.istexConfigDefault.defaultSort;
+        if($rootScope.istexConfigDefault.defaultSort){
+            $rootScope.defaultSort = sort + "," + $rootScope.istexConfigDefault.defaultSort;
+        }else{
+            $rootScope.defaultSort = sort;
+        }
         
         istexResultsService.sortedSearch(sort)
             .success(function (result) {

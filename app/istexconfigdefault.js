@@ -86,14 +86,18 @@ app.run(['$rootScope', function($rootScope) {
 
         // on peut choisir quel critère pour trier les documents on préfère
         // par défaut on choisit
-        defaultSort: 'score[desc]',
+        defaultSort: '',
         // et sinon, on a une liste des tris disponibles
         possibleSorts: [
+            {'value':'','name':'Pertinence'},
             {'value':'score[desc]','name':'Qualité du pdf'},
             {'value':'publicationDate','name':'Date de publication (croissant)'},
             {'value':'publicationDate[desc]','name':'Date de publication (décroissant)'},
             //{'value':'title[desc]','name':'Alphabétique (titre)'},
         ],
+
+        // Show the quality indicator with stars, hidden by default
+        qualityIndicator: false,
 
         // les différents textes paramétrables
         // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'

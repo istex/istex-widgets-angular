@@ -28,7 +28,7 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
             url += "&stats=1";
             if($rootScope.defaultSort){
                 url += "&sortBy="+$rootScope.defaultSort;
-            }else{
+            }else if($rootScope.istexConfigDefault.defaultSort){
                 url += "&sortBy="+$rootScope.istexConfigDefault.defaultSort;
             }
             var operator = "&defaultOperator="+$rootScope.istexConfigDefault.operator;
@@ -48,15 +48,39 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
         },
         sortedSearch: function(sort) {
             var defaultSort = $rootScope.istexConfigDefault.defaultSort;
+            var url = "";
+
             var sortByRegexp = /(&sortBy=)[a-zA-Z\[\],]*(&?)/;
+
+            if(defaultSort){
+                sort +=","+defaultSort;
+            }
+            if(!defaultSort && !sort){
+                url = $rootScope.currentPageURI.replace(sortByRegexp, "");
+                $rootScope.currentPageURI = url;
+                if($rootScope.currentFacetsURI){
+                    url= $rootScope.currentFacetsURI.replace(sortByRegexp, "");
+                    $rootScope.currentFacetsURI = url;
+                }
+            }else{
+                url = $rootScope.currentPageURI.replace(sortByRegexp, "$1"+sort+"$2");
+                $rootScope.currentPageURI = url;
+                if($rootScope.currentFacetsURI){
+                    url= $rootScope.currentFacetsURI.replace(sortByRegexp, "$1"+sort+"$2");
+                    $rootScope.currentFacetsURI = url;
+                }
+            }
+            if(sort && url.indexOf("sortBy")==-1){
+                url = $rootScope.currentPageURI+"&sortBy="+sort;
+                $rootScope.currentPageURI = url;
+                if($rootScope.currentFacetsURI){
+                    url = $rootScope.currentFacetsURI+"&sortBy="+sort;
+                    $rootScope.currentFacetsURI = url;
+                }
+            }
             
             // We create the url to call, using the same Query for the basic search
-            var url = $rootScope.currentPageURI.replace(sortByRegexp, "$1"+sort+","+defaultSort+"$2");
-            $rootScope.currentPageURI = url;
-            if($rootScope.currentFacetsURI){
-                url= $rootScope.currentFacetsURI.replace(sortByRegexp, "$1"+sort+","+defaultSort+"$2");
-                $rootScope.currentFacetsURI = url;
-            }
+            
 
             // We calculate the request time
             $rootScope.searchTimeA = new Date().getTime();
