@@ -35,7 +35,10 @@ Voici ce que ca peut donner sur une page quasi vierge :
     <meta charset="UTF-8">
     <title>Istex - Widgets</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="slider/rzslider.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/slider/rzslider.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="//widgets.istex.fr/styleAngular/style.min.css">
 </head>
 <body>
 
@@ -47,12 +50,13 @@ Voici ce que ca peut donner sur une page quasi vierge :
 
 <script>
     var istexConfig = {
+      // placer ici la configuration souhaitée, cf section suivante et le contenu de istexConfigDefault
     };
 </script>
 
-<script src="bower_components/angular/angular.min.js"></script>
-<script src="slider/rzslider.js"></script>
-<script src="app.min.js"></script>
+<script src="//widgets.istex.fr/bower_components/angular/angular.min.js"></script>
+<script src="//widgets.istex.fr/slider/rzslider.js"></script>
+<script src="//widgets.istex.fr/app.min.js"></script>
 
 </body>
 </html>
@@ -149,14 +153,18 @@ var istexConfigDefault = {
 
     // on peut choisir quel critère pour trier les documents on préfère
     // par défaut on choisit
-    defaultSort: 'score[desc]',
+    defaultSort: '',
     // et sinon, on a une liste des tris disponibles
     possibleSorts: [
+        {'value':'','name':'Pertinence'},
         {'value':'score[desc]','name':'Qualité du pdf'},
         {'value':'publicationDate','name':'Date de publication (croissant)'},
         {'value':'publicationDate[desc]','name':'Date de publication (décroissant)'},
         //{'value':'title[desc]','name':'Alphabétique (titre)'},
     ],
+
+    // Montre un indicateur de qualité avec des étoiles, caché par défaut
+    qualityIndicator: false,
 
     // les différents textes paramétrables
     // il est possible d'avoir les langues en anglais en mettant 'traduction':'en'

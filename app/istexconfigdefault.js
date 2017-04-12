@@ -96,7 +96,7 @@ app.run(['$rootScope', function($rootScope) {
             //{'value':'title[desc]','name':'Alphabétique (titre)'},
         ],
 
-        // Show the quality indicator with stars, hidden by default
+        // Montre un indicateur de qualité avec des étoiles, caché par défaut
         qualityIndicator: false,
 
         // les différents textes paramétrables
