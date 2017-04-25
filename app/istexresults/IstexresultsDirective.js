@@ -38,7 +38,7 @@ app.directive('istexResults', function () {
                     '<div ng-repeat="genre in document.genre" ng-if="istexConfigDefault.tags.articleType" class="istex-tag">Type : {{ genre | capitalize }}</div>'+
                     '<div ng-if="istexConfigDefault.tags.corpusName" class="istex-tag">{{ document.corpusName | capitalize }}</div>'+
                     '<div ng-if="istexConfigDefault.tags.publicationDate" class="istex-tag">Publié en {{ document.publicationDate }}</div>'+
-                    '<div ng-if="istexConfigDefault.qualityIndicator"><b>Qualité du PDF</b> : <div class="star-rating" title="{{document.qualityIndicators.score}}"><div class="full-star" ng-style="{width: \'{{document.qualityIndicators.score*10 || 0}}%\'}"></div><div class="empty-star">{{document.qualityIndicators.score || 0}}</div></div></div>'+
+                    '<div ng-if="istexConfigDefault.qualityIndicator"><b>Qualité du fulltext</b> : <div class="star-rating" title="{{document.qualityIndicators.score}}"><div class="full-star" ng-style="{width: \'{{document.qualityIndicators.score*10 || 0}}%\'}"></div><div class="empty-star">{{document.qualityIndicators.score || 0}}</div></div></div>'+
                     '<div class="downloads">'+
                         '<div class="download fulltext">'+
                             '<h4>{{ istexConfigDefault.labels.results["fulltext"] || "Fulltext" }}</h4>'+
