@@ -90,7 +90,7 @@ app.run(['$rootScope', function($rootScope) {
         // et sinon, on a une liste des tris disponibles
         possibleSorts: [
             {'value':'','name':'Pertinence'},
-            {'value':'score[desc]','name':'Qualité du pdf'},
+            {'value':'score[desc]','name':'Qualité du fulltext'},
             {'value':'publicationDate','name':'Date de publication (croissant)'},
             {'value':'publicationDate[desc]','name':'Date de publication (décroissant)'},
             //{'value':'title[desc]','name':'Alphabétique (titre)'},
@@ -134,7 +134,7 @@ app.run(['$rootScope', function($rootScope) {
                 'corpusName' : 'Corpus',
                 'publicationDate' : 'Date de publication',
                 'copyrightDate' : 'Début du copyright',
-                'score' : 'Qualité du PDF',
+                'score' : 'Qualité du fulltext',
                 'wos':'Catégorie',
                 'language':'Langue',
                 'traduction':'fr'
