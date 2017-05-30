@@ -74,6 +74,11 @@ app.controller('IstexresultsCtrl', ['$scope', '$rootScope', 'istexResultsService
 
         var page = (numPage-1)*$rootScope.istexConfigDefault.pageSize;
 
+        if($rootScope.istexConfigDefault.pageSize + page > $rootScope.istexConfigDefault.maxResults ){
+            page = $rootScope.istexConfigDefault.maxResults - $rootScope.istexConfigDefault.pageSize;
+            numPage = page/$rootScope.istexConfigDefault.pageSize+1;
+        }
+
         $rootScope.pageCourante = numPage;
 
         if ( ($rootScope.pageCourante >= 1+Math.ceil($rootScope.maxPagesInPagination/2)) && ($rootScope.pageCourante <= $rootScope.nbrPages - Math.ceil(($rootScope.maxPagesInPagination/2))) ){

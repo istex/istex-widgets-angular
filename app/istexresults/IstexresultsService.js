@@ -8,6 +8,7 @@ app.factory('istexResultsService', ['$http', '$rootScope', function($http, $root
                 url= $rootScope.currentFacetsURI;
             }
             var from = "&from=";
+            
             from+=page;
             url+= from;
 

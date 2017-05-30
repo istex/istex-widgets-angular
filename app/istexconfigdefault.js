@@ -53,6 +53,9 @@ app.run(['$rootScope', function($rootScope) {
         showPaginationTop: true,
         showPaginationBot: true,
 
+        // nombre de résultats maximums (l'API impose un maximum absolu de 10000)
+        maxResults: 10000,
+
         // nombre de résultats souhaités par page
         pageSize: 10,
 
@@ -79,9 +82,9 @@ app.run(['$rootScope', function($rootScope) {
 
         // on peut ajouter ou enlever des tags (les mots entourés de vert)
         tags: {
-            'publicationDate':true,
-            'corpusName':true,
-            'articleType':true
+            'publicationDate':'Publié en',
+            'corpusName':'',
+            'genre':'Type :'
         },
 
         // on peut choisir quel critère pour trier les documents on préfère
