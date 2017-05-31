@@ -80,6 +80,14 @@ app.run(['$rootScope', function($rootScope) {
         // on peut plier ou déplier les facettes par défaut
         shownFacet: true,
 
+        // permet de dire comment un résultat est affiché (juste le titre et le résumé, le type d'article ? De quand date la publi, ...)
+        resultContent: {
+            'title':true,
+            'abstract':true,
+            'author':true,
+            'journal':true
+        },
+
         // on peut ajouter ou enlever des tags (les mots entourés de vert)
         tags: {
             'publicationDate':'Publié en',
