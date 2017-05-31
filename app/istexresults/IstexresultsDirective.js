@@ -35,7 +35,7 @@ app.directive('istexResults', function () {
                     '<a class="istex-results-item-title" target="_blank" ng-if="istexConfigDefault.resultContent.title" ng-href="{{document.fulltext[0].uri | sidize | proxify:istexConfigDefault.proxyApi }}" >{{ document.title | ellipse:true:istexConfigDefault.titleLength:"..." }}</a>'+
                     '<p class="istex-results-item-abstract" ng-if="document.abstract && istexConfigDefault.resultContent.abstract" title="{{ document.abstract }}">{{ document.abstract | ellipse:false:istexConfigDefault.abstractLength:"..."  }}</p>'+
                     '<p class="istex-results-item-abstract" title="Pas de résumé" ng-if="!document.abstract  && istexConfigDefault.resultContent.abstract">{{ istexConfigDefault.labels.results[\'abstract\'] || "Pas de résumé disponible pour cet article" }}</p>'+
-                    '<p class="istex-results-item-author" ng-if="istexConfigDefault.resultContent.author" ><span ng-repeat="author in document.author">{{author.name}} </span></p>'+
+                    '<p class="istex-results-item-author" ng-if="istexConfigDefault.resultContent.author" ><span ng-repeat="author in document.author">{{author.name}}. </span></p>'+
                     '<p class="istex-results-item-journal" ng-if="istexConfigDefault.resultContent.journal">Journal n°{{document.host.volume}}, page {{document.host.pages.first}} - {{document.host.pages.last}}</p>'+
                     '<div class="istex-tag" ng-repeat="(name, value) in istexConfigDefault.tags">'+
                         '<span ng-if="name==\'genre\'" ng-repeat="genre in document.genre" class="istex-tag">{{value}} {{ genre | capitalize }}</span>'+

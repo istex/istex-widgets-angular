@@ -2,7 +2,7 @@ app.run(['$rootScope', function($rootScope) {
 
     $rootScope.istexConfigDefault = {
         // l'adresse de l'API de l'Istex
-        istexApi: 'https://api.istex.fr',
+        istexApi: 'https://api-v5.istex.fr',
         // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
         // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
         // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
@@ -23,7 +23,7 @@ app.run(['$rootScope', function($rootScope) {
 
         // il est possible de ne charger que certaines facettes
         // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
-        facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','wos','score'],
+        facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','categories.wos','score'],
 
         // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
         hideButton:false,
@@ -146,7 +146,7 @@ app.run(['$rootScope', function($rootScope) {
                 'publicationDate' : 'Date de publication',
                 'copyrightDate' : 'Début du copyright',
                 'score' : 'Qualité du fulltext',
-                'wos':'Catégorie',
+                'categories.wos':'Catégorie',
                 'language':'Langue',
                 'traduction':'fr'
             }
