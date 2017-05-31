@@ -6,6 +6,7 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             var tmp;
             var between = " OR ";
             var nbrCharBetween = between.length;
+            
             // corpusSearch
             var corpus = " AND corpusName:(";
             function corpusMaker(element, index, array) {
@@ -56,17 +57,17 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             }
             //url= (language!==" AND language:(") ? tmp.join("&") : url;
 
-            var wos = " AND wos:(";
-            if (list.wos)
-                list.wos.buckets.forEach(wosMaker);
-            wos = (wos != " AND wos:(") ? wos.substring(0, wos.length - nbrCharBetween)+")" : wos="";
+            var wos = " AND categories.wos:(";
+            if (list["categories.wos"])
+                list["categories.wos"].buckets.forEach(wosMaker);
+            wos = (wos != " AND categories.wos:(") ? wos.substring(0, wos.length - nbrCharBetween)+")" : wos="";
             tmp = url.split("&");
             tmp[0] += wos;
 
             if(wos){                
-                $rootScope.queriedFacets.wos = list.wos;
+                $rootScope.queriedFacets.wos = list["categories.wos"];
             }
-            if(wos!==" AND wos:("){
+            if(wos!==" AND categories.wos:("){
                 url = tmp.join("&");
             }
             //url= (wos!==" AND wos:(") ? tmp.join("&") : url;
@@ -92,9 +93,9 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                 var top;
                 var facetURL = " AND "+facetName+":[";
                 if(!topValue)
-                    topValue = parseInt(facet.buckets[0].toAsString);
+                    topValue = parseInt(facet.buckets[0].toAsString) || facet.buckets[0].to;
                 if(!botValue)
-                    botValue = parseInt(facet.buckets[0].fromAsString);
+                    botValue = parseInt(facet.buckets[0].fromAsString) || facet.buckets[0].from;
                 if (facet){
                     bot = parseInt(facet.buckets[0].bot);
                     bot = (!isNaN(bot) && bot > botValue) ? Math.floor(bot) : botValue ;
@@ -146,14 +147,14 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             if (list.score) {
                 tmp = url.split("&");
                 
-                facetURL = rangeSlider("score", list.score);
+                facetURL = rangeSlider("qualityIndicators.score", list.score);
                 
                 tmp[0] += facetURL;
 
-                if(facetURL !== " AND score:["){
+                if(facetURL !== " AND qualityIndicators.score:["){
                     $rootScope.queriedFacets.score = list.score;
                 }
-                if(facetURL && facetURL !== " AND score:["){
+                if(facetURL && facetURL !== " AND qualityIndicators.score:["){
                     url = tmp.join("&");
                 }
 
