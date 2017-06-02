@@ -22,7 +22,7 @@ app.run(['$rootScope', function($rootScope) {
         focusInputQueryOnLoad: false,
 
         // il est possible de ne charger que certaines facettes
-        // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
+        // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','categories.wos','score'
         facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','categories.wos','score'],
 
         // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
@@ -89,6 +89,7 @@ app.run(['$rootScope', function($rootScope) {
         },
 
         // on peut ajouter ou enlever des tags (les mots entourés de vert)
+        // La valeur correspond au texte qu'il y aura juste avant la données. ex: "Publié en 1938"
         tags: {
             'publicationDate':'Publié en',
             'corpusName':'',

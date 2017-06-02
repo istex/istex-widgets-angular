@@ -69,7 +69,7 @@ La liste des différents paramètres se présente comme ceci (et est sujette à 
 ```javascript
 var istexConfigDefault = {
     // l'adresse de l'API de l'Istex
-    istexApi: 'https://api.istex.fr',
+    istexApi: 'https://api-v5.istex.fr',
     // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
     // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
     // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
@@ -89,8 +89,8 @@ var istexConfigDefault = {
     focusInputQueryOnLoad: false,
 
     // il est possible de ne charger que certaines facettes
-    // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','wos','score'
-    facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','wos','score'],
+    // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','categories.wos','score'
+    facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','categories.wos','score'],
 
     // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
     hideButton:false,
@@ -120,6 +120,9 @@ var istexConfigDefault = {
     showPaginationTop: true,
     showPaginationBot: true,
 
+    // nombre de résultats maximums (l'API impose un maximum absolu de 10000)
+    maxResults: 10000,
+
     // nombre de résultats souhaités par page
     pageSize: 10,
 
@@ -144,11 +147,20 @@ var istexConfigDefault = {
     // on peut plier ou déplier les facettes par défaut
     shownFacet: true,
 
+    // permet de dire comment un résultat est affiché (juste le titre et le résumé, le type d'article ? De quand date la publi, ...)
+    resultContent: {
+        'title':true,
+        'abstract':true,
+        'author':true,
+        'journal':true
+    },
+
     // on peut ajouter ou enlever des tags (les mots entourés de vert)
+    // La valeur correspond au texte qu'il y aura juste avant la données. ex: "Publié en 1938"
     tags: {
-        'publicationDate':true,
-        'corpusName':true,
-        'articleType':true
+        'publicationDate':'Publié en',
+        'corpusName':'',
+        'genre':'Type :'
     },
 
     // on peut choisir quel critère pour trier les documents on préfère
@@ -157,7 +169,7 @@ var istexConfigDefault = {
     // et sinon, on a une liste des tris disponibles
     possibleSorts: [
         {'value':'','name':'Pertinence'},
-        {'value':'score[desc]','name':'Qualité du pdf'},
+        {'value':'score[desc]','name':'Qualité du fulltext'},
         {'value':'publicationDate','name':'Date de publication (croissant)'},
         {'value':'publicationDate[desc]','name':'Date de publication (décroissant)'},
         //{'value':'title[desc]','name':'Alphabétique (titre)'},
@@ -201,8 +213,8 @@ var istexConfigDefault = {
             'corpusName' : 'Corpus',
             'publicationDate' : 'Date de publication',
             'copyrightDate' : 'Début du copyright',
-            'score' : 'Qualité du PDF',
-            'wos':'Catégorie',
+            'score' : 'Qualité du fulltext',
+            'categories.wos':'Catégorie',
             'language':'Langue',
             'traduction':'fr'
         }
