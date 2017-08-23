@@ -2,7 +2,7 @@ app.run(['$rootScope', function($rootScope) {
 
     $rootScope.istexConfigDefault = {
         // l'adresse de l'API de l'Istex
-        istexApi: 'https://api-v5.istex.fr',
+        istexApi: 'https://api.istex.fr',
         // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
         // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
         // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
