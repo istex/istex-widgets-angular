@@ -69,16 +69,16 @@ La liste des différents paramètres se présente comme ceci (et est sujette à 
 ```javascript
 var istexConfigDefault = {
     // l'adresse de l'API de l'Istex
-    istexApi: 'https://api-v5.istex.fr',
+    istexApi: 'https://api.istex.fr',
     // on peut avoir besoin de proxyfier les liens vers les plein-textes ou les méta-données
     // pour une ezproxyfication, réglez ici proxyApi à l'adresse ezproxyfiée
     // ex à l'UL: https://api-istex-fr.bases-doc.univ-lorraine.fr
-    proxyApi: 'https://api.istex.fr',
+    //proxyApi: 'https://api.istex.fr',
 
     // pour lancer une recherche au chargement de la page
     // indiquer les mots à rechercher (argument de ?q= au niveau de l'api istex)
-    // si vous ne voulez pas de recherche au d�marrage, ne mettez rien (ou query: false)
-    // si vous mettez query: "", les r�sultats seront tous les documents
+    // si vous ne voulez pas de recherche au démarrage, ne mettez rien (ou query: false)
+    // si vous mettez query: "", les résultats seront tous les documents
     query: false,
 
     // les termes de la recherche sont liés par l'opérateur logique voulu
