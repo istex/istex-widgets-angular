@@ -34,6 +34,11 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                     scienceMetrix+="\""+element.key.replace("&","%26")+"\""+between;
                 }
             }
+            function teeftMaker(element, index, array) {
+                if(element.isChecked){
+                    teeft+="\""+element.key.replace("&","%26")+"\""+between;
+                }
+            }
             function languageMaker(element, index, array) {
                 if(element.isChecked){
                     language+=element.key+between;
@@ -112,6 +117,20 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                 $rootScope.queriedFacets.scopus = list["categories.scopus"];
             }
             if(scopus!==" AND categories.scopus:("){
+                url = tmp.join("&");
+            }
+
+            var teeft = " AND keywords.teeft.raw:(";
+            if (list["keywords.teeft"])
+                list["keywords.teeft"].buckets.forEach(teeftMaker);
+            teeft = (teeft != " AND keywords.teeft.raw:(") ? teeft.substring(0, teeft.length - nbrCharBetween)+")" : teeft="";
+            tmp = url.split("&");
+            tmp[0] += teeft;
+
+            if(teeft){                
+                $rootScope.queriedFacets.teeft = list["keywords.teeft"];
+            }
+            if(teeft!==" AND keywords.teeft.raw:("){
                 url = tmp.join("&");
             }
 

@@ -39,6 +39,13 @@ app.directive('istexFacets', function () {
                                 'Un bug est survenu :/'+
                             '</div>'+
 
+                            '<div class="istex-facet-checkbox teeft" ng-switch-when="keywords.teeft" ng-if="shownFacet">'+
+                                '<li ng-repeat="badge in facet.buckets" title="{{badge.key | capitalize}}"><label><input type="checkbox" ng-model="badge.isChecked" ng-click="submitFacetSearch(aggregations)" >{{ badge.key  | capitalize | ellipse:false:27:"..."   }}<span class="istex-facet-checkbox-badge" >{{ badge.docCount | numberize }}</span></label></li>'+
+                            '</div>'+
+                            '<div class="istex-facet-checkbox teeft" ng-switch-when="teeft" ng-if="shownFacet">'+
+                                'Un bug est survenu :/'+
+                            '</div>'+
+
                             '<div class="istex-facet-copyrightdate" ng-switch-when="copyrightDate" ng-if="shownFacet">' +
                                 '<div ng-if="!istexConfigDefault.slider">' +
                                     'Entre ' +
