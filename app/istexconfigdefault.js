@@ -149,7 +149,7 @@ app.run(['$rootScope', function($rootScope) {
                 'copyrightDate' : 'Début du copyright',
                 'score' : 'Qualité du fulltext',
                 'categories.wos': 'Catégories WOS',
-                'categories.inist': 'Cat. Pascale & Francis',
+                'categories.inist': 'Cat. Pascal & Francis',
                 'language':'Langue',
                 'traduction':'fr'
             }
