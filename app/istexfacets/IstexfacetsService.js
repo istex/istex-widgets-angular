@@ -24,6 +24,16 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                     inist+="\""+element.key.replace("&","%26")+"\""+between;
                 }
             }
+            function scopusMaker(element, index, array) {
+                if(element.isChecked){
+                    scopus+="\""+element.key.replace("&","%26")+"\""+between;
+                }
+            }
+            function scienceMetrixMaker(element, index, array) {
+                if(element.isChecked){
+                    scienceMetrix+="\""+element.key.replace("&","%26")+"\""+between;
+                }
+            }
             function languageMaker(element, index, array) {
                 if(element.isChecked){
                     language+=element.key+between;
@@ -90,7 +100,38 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                 url = tmp.join("&");
             }
 
-            
+
+            var scopus = " AND categories.scopus:(";
+            if (list["categories.scopus"])
+                list["categories.scopus"].buckets.forEach(scopusMaker);
+            scopus = (scopus != " AND categories.scopus:(") ? scopus.substring(0, scopus.length - nbrCharBetween)+")" : scopus="";
+            tmp = url.split("&");
+            tmp[0] += scopus;
+
+            if(scopus){                
+                $rootScope.queriedFacets.scopus = list["categories.scopus"];
+            }
+            if(scopus!==" AND categories.scopus:("){
+                url = tmp.join("&");
+            }
+
+
+
+            var scienceMetrix = " AND categories.scienceMetrix:(";
+            if (list["categories.scienceMetrix"])
+                list["categories.scienceMetrix"].buckets.forEach(scienceMetrixMaker);
+            scienceMetrix = (scienceMetrix != " AND categories.scienceMetrix:(") ? scienceMetrix.substring(0, scienceMetrix.length - nbrCharBetween)+")" : scienceMetrix="";
+            tmp = url.split("&");
+            tmp[0] += scienceMetrix;
+
+            if(scienceMetrix){                
+                $rootScope.queriedFacets.scienceMetrix = list["categories.scienceMetrix"];
+            }
+            if(scienceMetrix!==" AND categories.scienceMetrix:("){
+                url = tmp.join("&");
+            }
+
+
             var genre = " AND genre:(";
             if (list.genre)
                 list.genre.buckets.forEach(genreMaker);

@@ -50,6 +50,10 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
                                 result.aggregations["categories.wos"] = $rootScope.queriedFacets[prop];
                             } else if(prop == "inist") {
                                 result.aggregations["categories.inist"] = $rootScope.queriedFacets[prop];
+                            } else if(prop == "scopus") {
+                                result.aggregations["categories.scopus"] = $rootScope.queriedFacets[prop];
+                            } else if(prop == "scienceMetrix") {
+                                result.aggregations["categories.scienceMetrix"] = $rootScope.queriedFacets[prop];
                             }else{
                                 result.aggregations[prop] = $rootScope.queriedFacets[prop];
                             }
