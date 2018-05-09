@@ -19,6 +19,11 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
                     wos+="\""+element.key.replace("&","%26")+"\""+between;
                 }
             }
+            function inistMaker(element, index, array) {
+                if(element.isChecked){
+                    inist+="\""+element.key.replace("&","%26")+"\""+between;
+                }
+            }
             function languageMaker(element, index, array) {
                 if(element.isChecked){
                     language+=element.key+between;
@@ -70,7 +75,21 @@ app.factory('istexFacetsService', ['$http', '$rootScope', function($http, $rootS
             if(wos!==" AND categories.wos:("){
                 url = tmp.join("&");
             }
-            //url= (wos!==" AND wos:(") ? tmp.join("&") : url;
+
+            var inist = " AND categories.inist:(";
+            if (list["categories.inist"])
+                list["categories.inist"].buckets.forEach(inistMaker);
+            inist = (inist != " AND categories.inist:(") ? inist.substring(0, inist.length - nbrCharBetween)+")" : inist="";
+            tmp = url.split("&");
+            tmp[0] += inist;
+
+            if(inist){                
+                $rootScope.queriedFacets.inist = list["categories.inist"];
+            }
+            if(inist!==" AND categories.inist:("){
+                url = tmp.join("&");
+            }
+
             
             var genre = " AND genre:(";
             if (list.genre)

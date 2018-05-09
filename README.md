@@ -89,8 +89,9 @@ var istexConfigDefault = {
     focusInputQueryOnLoad: false,
 
     // il est possible de ne charger que certaines facettes
-    // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','categories.wos','score'
-    facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','categories.wos','score'],
+    // par défaut, on charge seulement : 'corpus','pubdate','copyrightdate','language','categories.wos','categories.inist','score'
+    // 'keywords.teeft','categories.scienceMetrix','categories.scopus' sont également disponibles
+    facetsToLoad: [ 'genre', 'corpusName','publicationDate','copyrightDate','language','categories.wos','categories.inist','score'],
 
     // il est possible de cacher l'affichage des résultats derrière un bouton. Une fois le bouton cliqué, les résultats apparaissent
     hideButton:false,
@@ -214,7 +215,8 @@ var istexConfigDefault = {
             'publicationDate' : 'Date de publication',
             'copyrightDate' : 'Début du copyright',
             'score' : 'Qualité du fulltext',
-            'categories.wos':'Catégorie',
+            'categories.wos':'Catégories WOS',
+            'categories.inist': 'Cat. Pascale & Francis',
             'language':'Langue',
             'traduction':'fr'
         }

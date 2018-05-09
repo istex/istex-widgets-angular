@@ -48,6 +48,8 @@ app.controller('IstexfacetsCtrl', ['$scope', '$rootScope', '$timeout', 'istexFac
                         if ($rootScope.queriedFacets.hasOwnProperty(prop)){
                             if(prop == "wos"){
                                 result.aggregations["categories.wos"] = $rootScope.queriedFacets[prop];
+                            } else if(prop == "inist") {
+                                result.aggregations["categories.inist"] = $rootScope.queriedFacets[prop];
                             }else{
                                 result.aggregations[prop] = $rootScope.queriedFacets[prop];
                             }

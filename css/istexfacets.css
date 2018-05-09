@@ -29,6 +29,9 @@
 #istex-widget-facets .istex-facets .istex-facet .istex-facet-checkbox.wos label {
   font-size: 75%;
 }
+#istex-widget-facets .istex-facets .istex-facet .istex-facet-checkbox.inist label {
+  font-size: 75%;
+}
 
 .istex-facets .istex-facet .istex-facet-checkbox input{
   margin-right: 8px;
