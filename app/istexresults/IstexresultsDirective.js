@@ -5,7 +5,7 @@ app.directive('istexResults', function () {
             '{{istexConfigDefault.labels.results.noresult || "Il n\'y a pas de résultat à afficher !"}}'+
         '</div>'+
         '<div class="istex-results-error" ng-show="showError">'+
-            'Une erreur est survenue, veuillez réessayer plus tard. Si cette erreur persiste, vous pouvez envoyer un mail à <a href="mailto:istex-contact@univ-lorraine.fr" target="_blank">l\'équipe ISTEX-SNU</a>'+
+            'Une erreur est survenue, veuillez réessayer plus tard. Si cette erreur persiste, vous pouvez envoyer un mail à <a href="mailto:contact@listes.istex.fr" target="_blank">l\'équipe ISTEX</a>'+
         '</div>'+
         '<div class="istex-hidebutton" ng-click="istexConfigDefault.hideButton = false;" ng-show="!noresult && istexConfigDefault.hideButton && !showError" title="{{istexConfigDefault.labels.results.showResult || \'Cliquez pour afficher les résultats\'}}">{{ total || ". . . . . . . . ." | numberize }} documents</div>'+
         '<div id="istex-widget-results" style="opacity: 1;" ng-controller="IstexresultsCtrl" ng-toggle="showResults" ng-show="!noresult && !istexConfigDefault.hideButton">'+

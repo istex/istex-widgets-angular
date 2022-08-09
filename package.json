@@ -6,8 +6,8 @@
   "author": "Thomas Frantz <thom.frantz@gmail.com>",
   "contributors": [
     {
-      "name": "",
-      "email": ""
+      "name": "Istex-TEAM",
+      "email": "contact@listes.istex.fr"
     }
   ],
   "scripts": {
@@ -29,7 +29,6 @@
     "angular",
     "angularjs",
     "istex",
-    "istex-snu",
     "widget",
     "widgets"
   ],
